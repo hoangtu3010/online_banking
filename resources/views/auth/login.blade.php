@@ -9,8 +9,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
-            <div>
+            <div style="margin-top: 15px;margin-bottom: 10px">
                 <div >
                     <x-jet-label style="color: white"  for="email" value="{{ __('Email') }}" />
                 </div>
@@ -23,6 +22,9 @@
                 </div>
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
+
+
+
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center" style="padding-left: 10px">
@@ -38,10 +40,9 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4 btn btn-primary" >
+                <x-jet-button  class="ml-4 btn btn-primary" >
                     {{ __('Log in') }}
                 </x-jet-button>
-
             </div>
         </form>
     </div>

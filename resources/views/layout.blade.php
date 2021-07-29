@@ -60,7 +60,16 @@
             background-color: #2d3748;
             margin-top: 100px;
             text-align: center;
-            height: 250px;
+            height: 270px;
+            border: 1px solid white;
+            border-radius: 10%;
+            opacity: 0.8;
+        }
+        .login_register1{
+            background-color: #2d3748;
+            margin-top: 100px;
+            text-align: center;
+            height: 470px;
             border: 1px solid white;
             border-radius: 10%;
             opacity: 0.8;
@@ -88,10 +97,12 @@
 
 <div class="container">
     <div class="row">
+        @yield("home")
         <div class="col-md-4">
 
         </div>
         <div class="col-md-4">
+            @yield("main1")
             @yield("main")
         </div>
         <div class="col-md-4">
