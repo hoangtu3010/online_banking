@@ -69,7 +69,7 @@
             background-color: #2d3748;
             margin-top: 100px;
             text-align: center;
-            height: 470px;
+            height: 350px;
             border: 1px solid white;
             border-radius: 10%;
             opacity: 0.8;
