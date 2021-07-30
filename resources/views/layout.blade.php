@@ -57,7 +57,7 @@
         }
 
         .login_register{
-            background-color: #2d3748;
+            position: relative;
             margin-top: 100px;
             text-align: center;
             height: 270px;
@@ -66,13 +66,23 @@
             opacity: 0.8;
         }
         .login_register1{
-            background-color: #2d3748;
             margin-top: 100px;
             text-align: center;
             height: 350px;
             border: 1px solid white;
             border-radius: 10%;
             opacity: 0.8;
+        }
+
+        .bgr-login{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -999;
+            top: 0;
+            left: 0;
+            background-color: #2d3748;
+            border-radius: 10%;
         }
     </style>
 </head>
