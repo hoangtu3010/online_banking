@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\CustomerInfo;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        DB::table("users")->insert([
+            "name"=>"User",
+            "email"=>"user@gmail.com",
+            "password"=>"123456789"
+        ]);
+
+        $this->call([
+            BranchSeeder::class,
+            CustomerInfoSeeder::class,
+            BankAccountSeeder::class
+        ]);
     }
 }

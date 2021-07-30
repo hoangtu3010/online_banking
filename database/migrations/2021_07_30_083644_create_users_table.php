@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string("status")->default("Active");
+            $table->unsignedBigInteger("branch_id")->nullable();
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
+            $table->foreign("branch_id")->references("id")->on("branches");
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });

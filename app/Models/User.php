@@ -27,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status',
+        'branch_id'
     ];
 
     /**
@@ -58,4 +60,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function Branch(){
+        return $this->belongsTo(Branch::class, "branch_id");
+    }
+
+    public function BankAccount(){
+        return $this->hasMany(BankAccount::class);
+    }
+
+    public function CustomerInfo(){
+        return $this->hasOne(CustomerInfo::class);
+    }
 }
