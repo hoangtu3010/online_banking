@@ -1,13 +1,13 @@
 @extends("layout")
 @section("main")
-    <div class="login_register" style="">
+    <div class="login_register">
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 font-medium text-sm text-green-600" >
                 {{ session('status') }}
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" >
             @csrf
             <div style="margin-top: 15px;margin-bottom: 10px">
                 <div >
@@ -27,7 +27,7 @@
 
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center" style="padding-left: 10px">
+                <label for="remember_me" class="flex items-center" style="padding-left: 10px;text-align: center">
                     <x-jet-checkbox id="remember_me" name="remember" />
                     <span  style="color: white" class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
