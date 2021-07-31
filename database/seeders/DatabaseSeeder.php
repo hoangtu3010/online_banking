@@ -18,13 +18,14 @@ class DatabaseSeeder extends Seeder
         DB::table("users")->insert([
             "name"=>"User",
             "email"=>"user@gmail.com",
-            "password"=>"123456789"
+            "password"=>bcrypt("123456789")
         ]);
 
         $this->call([
             BranchSeeder::class,
             CustomerInfoSeeder::class,
-            BankAccountSeeder::class
+            BankAccountSeeder::class,
+//            Adminseeder::class
         ]);
     }
 }
