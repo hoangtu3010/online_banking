@@ -15,6 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table("admins")->insert([
+            "name"=>"Admin",
+            "email"=>"admin@gmail.com",
+            "password"=>bcrypt("123456789")
+        ]);
+
         DB::table("users")->insert([
             "name"=>"User",
             "email"=>"user@gmail.com",
@@ -25,7 +31,6 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class,
             CustomerInfoSeeder::class,
             BankAccountSeeder::class,
-//            Adminseeder::class
         ]);
     }
 }

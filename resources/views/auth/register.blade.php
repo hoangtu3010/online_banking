@@ -67,6 +67,7 @@
                         {{ __('Register') }}
                     </x-jet-button>
                 </div>
+            </div>
         </form>
     </div>
     {{--<x-guest-layout>
