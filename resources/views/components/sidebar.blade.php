@@ -1,6 +1,4 @@
-<!-- Sidebar -->
 
 <div class="sidebar">
-
+    ok
 </div>
-<!-- /.sidebar -->

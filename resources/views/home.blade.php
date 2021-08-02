@@ -1,4 +1,8 @@
+<link rel="stylesheet" href="{{asset('css/home.css')}}">
 @extends("layout")
 @section("main")
-    //Viết nội dung ở đây
+    <h1>heloscdcd</h1>
+    <div class="x">
+        nklanlasasc
+    </div>
 @endsection
