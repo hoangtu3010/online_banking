@@ -12,4 +12,7 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/setting/{id}',[AdminController::class,"AdminSetting"]);
     Route::get('/customer',[AdminController::class,"AdminCustomer"]);
     Route::get('/createbank',[AdminController::class,"createBank"]);
+    Route::get('/active/{id}',[AdminController::class,"Active"]);
+    Route::get('/bankAccount',[AdminController::class,"bankAccount"]);
+    Route::get('/bankAccount/edit/{id}',[AdminController::class,"editBankAccount"]);
 });
