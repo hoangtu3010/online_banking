@@ -68,13 +68,13 @@
         color: #3D3D3D;
     }
 
-    .sign-up{
+    .sign-up {
         padding-top: 30px;
         font-size: 14px;
         align-content: center;
     }
 
-    .login-background{
+    .login-background {
         top: 0;
         left: 0;
         width: 100%;
@@ -83,7 +83,7 @@
         position: fixed;
     }
 
-    .login-img-left{
+    .login-img-left {
         position: absolute;
         left: 0;
         width: 30%;
@@ -91,7 +91,7 @@
         z-index: -99;
     }
 
-    .login-img-right{
+    .login-img-right {
         position: absolute;
         right: 0;
         max-width: 52%;
@@ -101,57 +101,69 @@
 </style>
 
 <body class="login-page" style="min-height: 496.8px">
-    <div class="login-box">
-        <div class="login-logo">
-            <img src="{{url("imgs/logo.png")}}" width="100" height="100" alt="logo">
-        </div>
-        <div class="card">
-            <div class="card login-card-body">
-                <p class="login-box-msg">Sign in to your account</p>
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input name="name" type="text" class="form-control form-material" placeholder="Name" required autofocus autocomplete="name">
+<div class="login-box">
+    <div class="login-logo">
+        <img src="{{url("imgs/logo.png")}}" width="100" height="100" alt="logo">
+    </div>
+    <div class="card">
+        <div class="card login-card-body">
+            <p class="login-box-msg">Sign in to your account</p>
+            <form class="needs-validation" method="POST" action="{{ route('register') }}" novalidate>
+                @csrf
+                <div class="input-group mb-3">
+                    <input name="name" type="text" class="form-control form-material" placeholder="Name" required
+                           autofocus autocomplete="name">
+                    <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                        Please enter name.
                     </div>
-                    <div class="input-group mb-3">
-                        <input name="email" type="email" class="form-control form-material" placeholder="Email" required>
+                </div>
+                <div class="input-group mb-3">
+                    <input name="email" type="email" class="form-control form-material" placeholder="Email" required>
+                    <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                        Please enter email.
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group mb-3">
-                            <input name="password" type="password" class="form-control form-material"
-                                   placeholder="Password" required
-                                   autocomplete="new-password"
-                            >
+                </div>
+                <div class="input-group mb-3">
+                    <input name="password" type="password" class="form-control form-material"
+                           placeholder="Password" required
+                           autocomplete="new-password"
+                    >
+                    <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                        Please enter password.
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input name="password_confirmation" type="password" class="form-control form-material"
+                           placeholder="Confirm Password" required autocomplete="new-password">
+                    <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                        Please confirm password.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="padding-top: 10px">
+                        <div class="icheck-info">
+                            <input name="remember" type="checkbox" id="remember">
+                            <label for="remember">
+                                Remember Me
+                            </label>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input name="password_confirmation" type="password" class="form-control form-material" placeholder="Confirm Password" required autocomplete="new-password">
+                    <div class="col-12" style="padding: 40px 0 10px 0">
+                        <button type="submit" class="btn btn-info btn-block">Register</button>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="icheck-info">
-                                <input name="remember" type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12" style="padding: 40px 0 10px 0">
-                            <button type="submit" class="btn btn-info btn-block">Register</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="login-background">
-            <div class="login-img-left">
-                <img src="https://midnight.growcrm.io/public/images/login-1.png" class="login-images">
-            </div>
-            <div class="login-img-right">
-                <img src="https://midnight.growcrm.io/public/images/login-2.png" alt="login-images">
-            </div>
+                </div>
+            </form>
         </div>
     </div>
+    <div class="login-background">
+        <div class="login-img-left">
+            <img src="https://midnight.growcrm.io/public/images/login-1.png" class="login-images">
+        </div>
+        <div class="login-img-right">
+            <img src="https://midnight.growcrm.io/public/images/login-2.png" alt="login-images">
+        </div>
+    </div>
+</div>
 </body>
 <x-script/>
 </html>

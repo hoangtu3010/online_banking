@@ -108,15 +108,23 @@
     <div class="card">
         <div class="card login-card-body">
             <p class="login-box-msg">Sign in to your account</p>
-            <form action="{{ route('login') }}" method="POST">
+            <form class="needs-validation" action="{{ route('login') }}" method="POST" novalidate>
                 @csrf
                 <div class="input-group mb-3">
-                    <input name="email" type="email" class="form-control form-material" placeholder="Email">
+                    <div class="input-group mb-3">
+                        <input name="email" type="email" class="form-control form-material" placeholder="Email" required>
+                        <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                            Please enter email.
+                        </div>
+                    </div>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
                         <input name="password" type="password" class="form-control form-material"
-                               placeholder="Password">
+                               placeholder="Password" required>
+                        <div class="invalid-feedback" style="position: absolute; bottom: -25px">
+                            Please enter password.
+                        </div>
                     </div>
                 </div>
                 <div class="row">
