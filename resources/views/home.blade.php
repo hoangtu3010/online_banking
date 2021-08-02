@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @extends("layout")
 @section("main")
-    <h1>heloscdcd</h1>
+    <h1>helo</h1>
     <div class="x">
-        nklanlasasc
+        huhu
     </div>
 @endsection
