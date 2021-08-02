@@ -1,0 +1,59 @@
+.mannaka{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.sidebar_name_bank{
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.sidebar_nameUser_image{
+    color: white;
+    background-color: #696d70;
+    height: 200px;
+    width: 210px;
+    border-radius:5% ;
+    text-align: center;
+}
+.sidebar_nameUser_image_img{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.sidebar_nameUser_image_name{
+    font-size: 20px;
+}
+.sidebar_infomation{
+    padding-left: 15px;
+    color: white;
+    margin-top: 10px;
+    background-color: #696d70;
+    border-radius:5% ;
+    width: 210px;
+}
+.sidebar_infomation_list_name{
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+.sidebar_telephone{
+    background-color: #696d70;
+    height: 60px;
+    width: 210px;
+    margin-top: 10px;
+    border-radius:10%;
+}
+
+.sideber_telephone_icon {
+    font-size: 30px;
+    margin-top: 15px;
+    color: greenyellow;
+}
+.sideber_telephone_sabisu{
+    margin-top: 5px;
+}
