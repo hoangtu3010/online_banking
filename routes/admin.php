@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\AdminController;
 
 Route::middleware("auth:admin")->group(function (){
     Route::get('/', function () {
-        echo "admin";
         return view('Admin.components.admin-home');
     });
     Route::get('/create',[AdminController::class,"AdminCreate"]);

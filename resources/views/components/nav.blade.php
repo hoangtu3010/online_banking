@@ -130,7 +130,7 @@
                 <i class="far fa-user-circle" style="font-size: 25px;"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right">
-                <a href="{{url("/admin/profile")}}" class="dropdown-item" style="text-align: center">
+                <a href="{{ asset("/user/profile")}}" class="dropdown-item" style="text-align: center">
                     <i class="far fa-address-card mr-2"></i> Profile
                 </a>
                 <form method="POST" class="dropdown-item text-center" action="{{ route('logout') }}">

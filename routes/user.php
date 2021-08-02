@@ -7,5 +7,7 @@ Route::middleware("auth:user")->group(function (){
         return view('home');
     });
 
-
+    Route::get('/profile', function () {
+        return view('dashboard');
+    });
 });
