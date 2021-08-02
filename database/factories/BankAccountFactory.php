@@ -27,6 +27,7 @@ class BankAccountFactory extends Factory
         return [
             "stk"=>$this->faker->numberBetween(1000000000, 1100000000),
             "balance"=>$this->faker->numberBetween(1000, 100000)*1000,
+            "password"=>bcrypt("123456"),
             "user_id"=>$user->random()
         ];
     }

@@ -34,4 +34,7 @@ class AdminController extends Controller
             "data"=>$data
         ]);
     }
+    public function createBank(){
+        return view("Admin.components.CreateBank");
+    }
 }

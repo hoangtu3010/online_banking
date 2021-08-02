@@ -12,4 +12,5 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/mod',[AdminController::class,"AdminMod"]);
     Route::get('/setting/{id}',[AdminController::class,"AdminSetting"]);
     Route::get('/customer',[AdminController::class,"AdminCustomer"]);
+    Route::get('/createbank',[AdminController::class,"createBank"]);
 });

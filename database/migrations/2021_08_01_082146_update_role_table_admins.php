@@ -15,7 +15,7 @@ class UpdateRoleTableAdmins extends Migration
     {
         Schema::table('admins', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger("role_id")->after("password")->default(1);
+            $table->unsignedBigInteger("role_id")->after("password")->nullable();
             $table->foreign("role_id")->references("id")->on("roles");
         });
     }
