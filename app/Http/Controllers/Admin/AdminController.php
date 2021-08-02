@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\BankAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,19 @@ class AdminController extends Controller
         ]);
     }
     public function createBank(){
+
+        $get = BankAccount::all("stk","id")->max("stk");
+        $random=random_int("100000","999999");
+
+        $data = BankAccount::create([
+           "stk"=> $get+1,
+            "password"=>bcrypt($random),
+            "balance"=>$random,
+            "status"=>"Inactive",
+            "user_id"=>null
+        ]);
+        $data2=$data->toArray();
+        dd($data2);
         return view("Admin.components.CreateBank");
     }
 }

@@ -15,7 +15,11 @@ class BankAccount extends Model
         "stk",
         "balance",
         "status",
+        "password",
         "user_id"
+    ];
+    protected $hidden=[
+        "password"
     ];
 
     public function User(){
