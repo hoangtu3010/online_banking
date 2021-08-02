@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
             "email"=>"user@gmail.com",
             "password"=>bcrypt("123456789")
         ]);
-
         $this->call([
             BranchSeeder::class,
             CustomerInfoSeeder::class,
