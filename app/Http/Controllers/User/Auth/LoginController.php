@@ -26,6 +26,8 @@ class LoginController extends Controller
     }
 
     public function register(Request $request){
-        return view("login & register.register");
+
+            return view("login & register.register");
+
     }
 }

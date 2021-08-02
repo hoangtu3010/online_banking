@@ -16,7 +16,6 @@ use App\Http\Controllers\User\Auth\LoginController;
 
 Route::match(["get", "post"], "login", [LoginController::class, "login"])->name("login");
 Route::match(["get", "post"], "register", [LoginController::class, "register"])->name("register");
-
 Route::get('/', function () {
     return view("/welcome");
 });
