@@ -1,0 +1,31 @@
+
+.home_home{
+    height: 80px;
+    padding: 5px;
+}
+
+.onaji{
+    margin-top: 70px;
+    background-color: #00a87d;
+    height: 100px;
+    width: 120px;
+    text-align: center;
+    color: white;
+    border-radius: 30%;
+}
+.home_change_icon{
+    font-size: 30px;
+}
+.home_surplus_icon{
+    font-size: 30px;
+}
+.home_people_icon{
+    font-size: 30px;
+}
+.home_history_icon{
+    font-size: 30px;
+}
+.home_logout_icon{
+    font-size: 30px;
+
+}
