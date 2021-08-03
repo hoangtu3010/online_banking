@@ -68,6 +68,25 @@ class AdminController extends Controller
         ]);
         return redirect()->to('admin/mod');
     }
+    public function getPassAdmin($id){
+        $find = Admin::findOrFail($id);
+//        dd($find->toArray());
+        return view("Admin.mod.getPassAdmin",[
+            "data"=>$find
+        ]);
+    }
+    public function saveNewPass(Request $request,$id){
+        $find = Admin::findOrFail($id);
+        $validate=$request->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+        ]);
+        $find->update([
+           "password"=>bcrypt($request->get("password"))
+        ]);
+        return redirect()->to('admin/mod');
+
+    }
     public function AdminMod(){
         $get=Admin::with("role")->get();
 //        dd($get);

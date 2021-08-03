@@ -11,6 +11,8 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/create',[AdminController::class,"AdminCreate"]);
     Route::post('/create',[AdminController::class,"saveCrateAdmin"]);
     Route::get('/mod',[AdminController::class,"AdminMod"]);
+    Route::get('/newPass/{id}',[AdminController::class,"getPassAdmin"]);
+    Route::post('/savePass/{id}',[AdminController::class,"saveNewPass"]);
     Route::get('/delete/{id}',[AdminController::class,"deleteAdmin"]);
     Route::get('/role',[AdminController::class,"roles"]);
     Route::get('/role/add',[AdminController::class,"addRole"]);

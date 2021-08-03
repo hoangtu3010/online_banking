@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <lable>Password</lable>
-                <a href="" class="btn btn-outline-danger">Đặt lại pass</a>
+                <a href="{{url("admin/newPass",["id"=>$data->id])}}" class="btn btn-outline-danger">Đặt lại pass</a>
             </div>
             <div class="form-group">
                 <lable>Quyền hạn</lable>
