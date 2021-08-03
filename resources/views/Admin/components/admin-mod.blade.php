@@ -7,7 +7,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Action</th>
+                <th colspan="2">Action</th>
                 <th></th>
             </tr>
             </thead>
@@ -16,9 +16,12 @@
             <tr>
                 <th>{{$d->__get("name")}}</th>
                 <th>{{$d->__get("email")}}</th>
-                <th></th>
+                <th>{{$d->role->__get("name")}}</th>
                 <th>
                     <a class="btn btn-outline-primary" href="{{url("admin/setting",["id"=>$d->__get("id")])}}">Chỉnh sửa</a>
+                </th>
+                <th>
+                    <a class="btn btn-outline-primary" href="{{url("admin/delete",["id"=>$d->__get("id")])}}">delete</a>
                 </th>
             </tr>
             @endforeach

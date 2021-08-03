@@ -23,7 +23,7 @@
                 <td>{{ $d->birthday }}</td>
                 <td>{{ $d->tel}}</td>
                 <td>{{ $d->cmnd }}</td>
-                <td></td>
+                <td><a class="btn btn-outline-primary" href="{{url("admin/customer/edit",["id"=>$d->id])}}">Edit</a></td>
                 <td></td>
             </tr>
             @endforeach

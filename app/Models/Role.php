@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Role extends Model
 {
     use HasFactory;
-
-    protected $table = "branches";
-
-    protected $fillable = [
-      "name",
-      "address",
+    protected $table="roles";
+    protected $fillable=[
+        "name",
+        "ranker",
         "created_at",
         "updated_at"
     ];
-
-    public function User(){
-        return $this->hasMany(User::class);
+    public function Admin(){
+        return $this->hasMany(Admin::class);
     }
 }

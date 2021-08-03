@@ -3,20 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class BankAccount extends Model
+
+class BankAccount extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory,Notifiable;
 
     protected $table = "bank_account";
+    protected $guarded="bank_account";
 
     protected $fillable = [
         "stk",
         "balance",
         "status",
         "password",
-        "user_id"
+        "user_id",
+        "created_at",
+        "updated_at"
     ];
     protected $hidden=[
         "password"

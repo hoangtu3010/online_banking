@@ -15,10 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table("roles")->insert([
+            "name"=>"Admin",
+            "ranker"=>1
+        ]);
         DB::table("admins")->insert([
             "name"=>"Admin",
             "email"=>"admin@gmail.com",
-            "password"=>bcrypt("123456789")
+            "password"=>bcrypt("123456789"),
+            "role_id"=>1
         ]);
 
         DB::table("users")->insert([

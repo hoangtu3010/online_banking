@@ -51,6 +51,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'bank_account' => [
+            'driver' => 'session',
+            'provider' => 'bank_accounts',
+        ],
 
         'admin' => [
             'driver' => 'session',
@@ -81,6 +85,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'bank_accounts' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\BankAccount::class,
+        ],
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,

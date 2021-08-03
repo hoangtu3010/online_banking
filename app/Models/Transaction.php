@@ -16,7 +16,9 @@ class Transaction extends Model
         "money",
         "sender",
         "getter",
-        "bank_account_id"
+        "bank_account_id",
+        "created_at",
+        "updated_at"
     ];
 
     public function BankAccount(){

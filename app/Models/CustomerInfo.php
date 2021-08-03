@@ -16,7 +16,9 @@ class CustomerInfo extends Model
         "birthday",
         "tel",
         "cmnd",
-        "user_id"
+        "user_id",
+        "created_at",
+        "updated_at"
     ];
 
     public function User(){
