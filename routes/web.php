@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Auth\LoginController;
+use App\Http\Controllers\User\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\User\Auth\LoginController;
 */
 
 Route::match(["get", "post"], "login", [LoginController::class, "login"])->name("login");
-Route::match(["get", "post"], "register", [LoginController::class, "register"])->name("register");
+Route::match(["get", "post"], "register", [RegisterController::class, "register"])->name("register");
 Route::get('/', function () {
     return view("/welcome");
 });
