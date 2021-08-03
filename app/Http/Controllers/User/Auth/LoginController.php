@@ -24,10 +24,4 @@ class LoginController extends Controller
 
         return redirect()->back()->withInput();
     }
-
-    public function register(Request $request){
-
-            return view("login & register.register");
-
-    }
 }
