@@ -6,6 +6,8 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Swiper -->
+<script src="{{asset("https://unpkg.com/swiper/swiper-bundle.min.js")}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset("plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
 <!-- Ion Icons -->
@@ -36,6 +38,10 @@
 <script src="{{ asset("dist/js/demo.js") }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
+
+<script>
+    var swiper = new Swiper('.swiper-container');
+</script>
 
 <script>
     (function () {
