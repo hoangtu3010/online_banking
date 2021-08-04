@@ -1,0 +1,17 @@
+
+.customer_list_all{
+}
+.customer_list_all_info{
+    background-color: #00a379;
+    color: white;
+    padding: 5px 0 5px 15px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+.customer_list_all_col{
+    padding: 25px 15px 0 15px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}

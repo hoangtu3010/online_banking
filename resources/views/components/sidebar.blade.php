@@ -11,7 +11,8 @@
             <p>
                 Xin chào :
             </p>
-            <div class="sidebar_nameUser_image_name"><b>Trương Đăng Quang</b></div>
+            <div class="sidebar_nameUser_image_name"><b>{{Auth::user()->name}}</b></div>
+
         </div>
         <div class="sidebar_infomation">
             <div class="sidebar_infomation_list_name"><b>Danh sách tài khoản / thẻ</b></div>

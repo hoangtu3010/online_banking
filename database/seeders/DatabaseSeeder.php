@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             "role_id"=>1
         ]);
 
+
         DB::table("users")->insert([
             "name"=>"User",
             "email"=>"user@gmail.com",

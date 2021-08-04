@@ -3,7 +3,6 @@
     height: 80px;
     padding: 5px;
 }
-
 .onaji{
     margin-top: 70px;
     background-color: #00a87d;
@@ -12,6 +11,17 @@
     text-align: center;
     color: white;
     border-radius: 30%;
+    cursor: pointer;
+}
+.onaji:hover{
+    background-color: #0e5b44;
+}
+.home_home_a {
+    color: white;
+    text-decoration:none;
+}
+.home_home_a:hover{
+    color: white;
 }
 .home_change_icon{
     font-size: 30px;
