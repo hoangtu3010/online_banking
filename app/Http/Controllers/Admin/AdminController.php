@@ -247,6 +247,6 @@ class AdminController extends Controller
         $get->update([
             "status"=>"Active"
         ]);
-         return redirect()->to("admin/home");
+         return redirect()->to("admin");
     }
 }
