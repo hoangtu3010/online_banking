@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Bank\Auth\BankAccountController;
+use App\Http\Controllers\Bank\BankController;
 
 Route::middleware("auth:admin")->group(function (){
     Route::get('/', function () {
@@ -42,8 +43,19 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/bankAccount/getPassword/{id}',[AdminController::class,"getPassBank"]);
 
 
+    Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
+    Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
+    Route::post('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
+    Route::get('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
+//    Route::get('/bankAccount/check/{id}',[BankController::class,"bankChecker"]);
+    Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
+    Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
+
+
+
+
 //    Route::get('/test', function () {
 //        return view('BankAccount.test');
 //    });
-//    Route::post("/test/login",[BankAccountController::class,"login"]);
+    Route::post("/test/login",[BankAccountController::class,"login"]);
 });
