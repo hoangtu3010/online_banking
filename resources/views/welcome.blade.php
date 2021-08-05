@@ -62,7 +62,9 @@
                                <button class="btn btn-primary">More Features</button>
 
                            </div>
-                            <img src="{{url("imgs/Untitled.png")}}" alt="">
+                        <img class="img-visa" src="{{url("imgs/slider-img-2.jpg")}}" alt="">
+
+                        <img src="{{url("imgs/phong.jpg")}}" alt="">
                     </div>
 
                     <div class="swiper-slide">
@@ -75,7 +77,7 @@
                             <button class="btn btn-primary">More Features</button>
                         </div>
                         <img class="img-visa" src="{{url("imgs/slider-img-3.jpg")}}" alt="">
-                        <img class="bank" src="{{url("imgs/phong.png")}}" alt="">
+                        <img class="bank" src="{{url("imgs/phong.jpg")}}" alt="">
                     </div>
                 </div>
             </div>
