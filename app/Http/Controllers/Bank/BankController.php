@@ -111,6 +111,7 @@ class BankController extends Controller
                     "created_at"=>now(),
                     "updated_at"=>now()
                 ]);
+                Session::forget("bank");
                 $title= "success";
             }
         }else{
