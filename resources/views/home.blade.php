@@ -1,13 +1,16 @@
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-
 @extends("layout")
 @section("main")
 
     <div class="xxx">
         {{Auth::user()->id}}
+        @foreach($customers as $item)
+            @if(Auth::user()->id == $item->id)
+                <p>{{$item->CusName}}</p>
+                <p>{{$item->email}}</p>
+                <p>{{$item->birthday}}</p>
+            @endif
+        @endforeach
         <div >
             <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg" height="400px" width="100%" alt="">
         </div>

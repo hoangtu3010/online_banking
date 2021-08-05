@@ -108,7 +108,7 @@
     <div class="card">
         <div class="card login-card-body">
             <p class="login-box-msg">Sign in to your account</p>
-            <form class="needs-validation" action="{{ url('login')}}" method="POST" novalidate>
+            <form class="needs-validation" action="{{ route('login')}}" method="POST" novalidate>
                 @csrf
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
