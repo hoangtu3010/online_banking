@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\CustomerInfoController;
 
 Route::middleware("auth:user")->group(function (){
 
@@ -11,4 +11,6 @@ Route::middleware("auth:user")->group(function (){
         return view('dashboard');
     });
 
-});
+    Route::get('/customer',[CustomerInfoController::class,'CustomerInfo']);
+    Route::get('/customer/edit/{id}',[CustomerInfoController::class,'edit']);
+    Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);});

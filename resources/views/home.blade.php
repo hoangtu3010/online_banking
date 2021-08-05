@@ -3,14 +3,16 @@
 @section("main")
 
     <div class="xxx">
-        {{Auth::user()->id}}
+        {{--{{Auth::user()->id}}
         @foreach($customers as $item)
             @if(Auth::user()->id == $item->id)
-                <p>{{$item->CusName}}</p>
+                <p>{{$item->name}}</p>
                 <p>{{$item->email}}</p>
                 <p>{{$item->birthday}}</p>
+                <p>{{$item->tel}}</p>
+                <p>{{$item->cmnd}}</p>
             @endif
-        @endforeach
+        @endforeach--}}
         <div >
             <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg" height="400px" width="100%" alt="">
         </div>
@@ -49,7 +51,7 @@
 
                 <div class="col-md-2 home_home" >
                     <div class="onaji">
-                        <a href="{{url('user/Customer')}}" class="home_home_a">
+                        <a href="{{url('user/customer')}}" class="home_home_a">
                             <div class="home_people">
                                 <div class="home_people_icon">
                                     <i style="margin-top: 20px" class="fas fa-user-tie"></i>

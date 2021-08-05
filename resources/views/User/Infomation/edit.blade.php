@@ -3,8 +3,6 @@
 
 @extends("layout")
 @section("main")
-    @foreach($customer as $item)
-        @if(Auth::user()->id == $item->id)
     <div>
         <div class="container">
             <div class="row">
@@ -16,48 +14,47 @@
                 </div>
                 <div class="customer_list_all">
                     <div class="customer_list_all_info">
-                        <h3 >Infomation</h3>
+                        <h3 >Update Customer Infomation</h3>
                     </div>
                     <div class="customer_list_all_col">
+                        <form action="{{url('user/customer/save',['id'=>$customer->id])}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label class="form-label" for="">Id</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{$item->id}}">
+                                    <label class="form-label" for="">ID</label>
+                                    <input type="text" class="form-control" placeholder="name"  value="{{$customer->id}}">
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label" for="">Name</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{$item->name}}">
+                                    <input type="text" class="form-control" placeholder="name" name="name" value="{{$customer->name}}">
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label" for="">Birthday</label>
-                                    <input type="date" class="form-control" placeholder="name" value="{{$item->birthday}}">
+                                    <input type="date" class="form-control" placeholder="name" name="birthday" value="{{$customer->birthday}}">
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label" for="">Phone</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{$item->tel}}">
-                                </div>
-                                <div class="col-md-4" style="margin-top: 20px">
-                                    <label class="form-label" for="">Email</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{$item->email}}">
+                                    <input type="text" class="form-control" placeholder="name" name="tel" value="{{$customer->tel}}">
                                 </div>
                                 <div class="col-md-4" style="margin-top: 20px">
                                     <label class="form-label" for="">CMND</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{$item->cmnd}}">
+                                    <input type="text" class="form-control" placeholder="name" name="cmnd" value="{{$customer->cmnd}}">
                                 </div>
-                                <div class="col-md-4" style="margin-top: 20px">
-                                    <label class="form-label" for="">User_id</label>
-                                    <input type="text" class="form-control" placeholder="name" value="{{Auth::user()->id}}">
-                                </div>
+                                {{--<div class="col-md-4" style="margin-top: 20px">
+                                    <label class="form-label" for="">Email</label>
+                                    <input type="text" class="form-control" placeholder="name"  value="{{$customer->email}}">
+                                </div>--}}
+
                                 <div style="margin-top: 20px ; margin-bottom: 20px">
                                     <a href="{{'/user'}}" class="btn btn-outline-dark">Back</a>
-                                    <a  href="{{url('user/customer/edit',['id'=>$item->id])}}" class="btn btn-outline-primary" style="float: right">Edit</a>
+                                    <button  type="submit" class="btn btn-outline-primary" style="float: right">Save</button>
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        @endif
-    @endforeach
+
 @endsection
