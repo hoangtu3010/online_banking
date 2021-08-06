@@ -4,6 +4,7 @@
 @extends("layout")
 @section("main")
     @foreach($customer as $item)
+        {{$item->id}}
         @if(Auth::user()->id == $item->user_id)
         <div>
             <div class="container">
@@ -26,7 +27,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label" for="">Name</label>
-                                    <div type="text" class="form-control" >{{$item->name}}</div>
+                                    <div type="text" class="form-control" >{{$item->cusName}}</div>
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label" for="">Birthday</label>
@@ -50,7 +51,7 @@
 
                                 <div style="margin-top: 20px ; margin-bottom: 20px">
                                     <a href="{{'/user'}}" class="btn btn-outline-dark">Back</a>
-                                    <a  href="{{url('user/customer/edit',['id'=>$item->id])}}" class="btn btn-outline-primary" style="float: right">Edit</a>
+                                    <a  href="{{url('user/customer/edit',['id'=>Auth::user()->id])}}" class="btn btn-outline-primary" style="float: right">Edit</a>
                                 </div>
                             </div>
                     </div>

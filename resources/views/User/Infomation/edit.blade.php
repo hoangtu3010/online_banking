@@ -17,13 +17,13 @@
                         <h3 >Update Customer Infomation</h3>
                     </div>
                     <div class="customer_list_all_col">
-                        <form action="{{url('user/customer/save',['id'=>$customer->id])}}" method="post">
+                        <form action="{{url('user/customer/save',['id'=>$customer->cusID])}}" method="post">
                             @csrf
                             <div class="row">
 
                                 <div class="col-md-6">
                                     <label class="form-label" for="">Name</label>
-                                    <input type="text" class="form-control" placeholder="name" name="name" value="{{$customer->name}}">
+                                    <input type="text" class="form-control" placeholder="name" name="name" value="{{$customer->cusName}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="">Birthday</label>
