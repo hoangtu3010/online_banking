@@ -20,23 +20,20 @@
                         <form action="{{url('user/customer/save',['id'=>$customer->id])}}" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-md-4">
-                                    <label class="form-label" for="">ID</label>
-                                    <input type="text" class="form-control" placeholder="name"  value="{{$customer->id}}">
-                                </div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-6">
                                     <label class="form-label" for="">Name</label>
                                     <input type="text" class="form-control" placeholder="name" name="name" value="{{$customer->name}}">
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label class="form-label" for="">Birthday</label>
                                     <input type="date" class="form-control" placeholder="name" name="birthday" value="{{$customer->birthday}}">
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6" style="margin-top: 20px">
                                     <label class="form-label" for="">Phone</label>
                                     <input type="text" class="form-control" placeholder="name" name="tel" value="{{$customer->tel}}">
                                 </div>
-                                <div class="col-md-4" style="margin-top: 20px">
+                                <div class="col-md-6" style="margin-top: 20px">
                                     <label class="form-label" for="">CMND</label>
                                     <input type="text" class="form-control" placeholder="name" name="cmnd" value="{{$customer->cmnd}}">
                                 </div>

@@ -13,7 +13,7 @@ class CustomerInfoController extends Controller
     public function CustomerInfo(){
 
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
-            ->select("users.*", "c.name as name", "c.birthday", "c.tel", "c.cmnd",'c.id')->get();
+            ->select("users.*", "c.name as name", "c.birthday", "c.tel", "c.cmnd",'c.id','c.user_id')->get();
 
         return view('user.Infomation.Customer_info',[
             'customer'=>$item
@@ -43,6 +43,17 @@ class CustomerInfoController extends Controller
         /*return view('user.Infomation.Customer_info',[
 
         ]);*/
+    }
+    public function create(Request $request){
+        $cat = $request->__get('user_id');
+        CustomerInfo::create([
+            'name'=>$request->__get('name'),
+            'birthday'=>$request->__get('birthday'),
+            'tel'=>$request->__get('tel'),
+            'cmnd'=>$request->__get('cmnd'),
+            'user_id'=>$cat
+        ]);
+        return redirect()->to("user/customer");
     }
 
 }
