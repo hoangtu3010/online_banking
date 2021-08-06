@@ -46,7 +46,6 @@
                                 <div class="col-md-4" style="margin-top: 20px">
                                     <label class="form-label" for="">CMND</label>
                                     <div type="text" class="form-control" >{{$item->cmnd}}</div>
-
                                 </div>
 
                                 <div style="margin-top: 20px ; margin-bottom: 20px">
