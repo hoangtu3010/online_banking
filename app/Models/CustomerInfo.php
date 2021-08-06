@@ -12,6 +12,7 @@ class CustomerInfo extends Model
     protected $table = "customer_info";
 
     protected $fillable = [
+        "image",
         "name",
         "birthday",
         "tel",
@@ -23,5 +24,12 @@ class CustomerInfo extends Model
 
     public function User(){
         return $this->belongsTo(User::class, "user_id");
+    }
+
+    public function getImage(){
+        if ($this->image){
+            return asset("upload/".$this->image);
+        }
+        return asset("upload/default.png");
     }
 }
