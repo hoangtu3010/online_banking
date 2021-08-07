@@ -14,3 +14,13 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/customer',[CustomerInfoController::class,'CustomerInfo']);
     Route::get('/customer/edit/{id}',[CustomerInfoController::class,'edit']);
     Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);});
+    Route::post('/customer/create',[CustomerInfoController::class,'create']);
+
+
+
+
+
+
+    Route::get('vdvvfvf',function (){
+       return view('cdcdcd');
+    });
