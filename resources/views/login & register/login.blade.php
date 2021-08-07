@@ -127,6 +127,9 @@
                         </div>
                     </div>
                 </div>
+                @if($errors->any())
+                    <h4 class="text-red">{{$errors->first()}}</h4>
+                @endif
                 <div class="row">
                     <div class="col-12">
                         <div class="icheck-info">
