@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Bank\Auth\BankAccountController;
 use App\Http\Controllers\Bank\BankController;
+use App\Http\Controllers\BlogController;
 
 Route::middleware("auth:admin")->group(function (){
     Route::get('/', function () {
@@ -41,6 +42,17 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/bankAccount/edit/{id}',[AdminController::class,"editBankAccount"]);
     Route::post('/bankAccount/update/{id}',[AdminController::class,"saveBankAcc"]);
     Route::get('/bankAccount/getPassword/{id}',[AdminController::class,"getPassBank"]);
+
+
+    Route::get('/blog/comments',[BlogController::class,"getComments"]);
+    Route::get('/blog/comments/delete/{id}',[BlogController::class,"deleteComments"]);
+
+    Route::get('/blog/news',[BlogController::class,"getNews"]);
+    Route::get('/blog/news/add-news',[BlogController::class,"addNews"]);
+    Route::post('/blog/news/save',[BlogController::class,"saveNews"]);
+    Route::get('/blog/news/edit/{id}',[BlogController::class,"editNews"]);
+    Route::post('/blog/news/update/{id}',[BlogController::class,"updateNews"]);
+    Route::get('/blog/news/delete/{id}',[BlogController::class,"deleteNews"]);
 
 
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);

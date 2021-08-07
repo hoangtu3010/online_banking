@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\Auth\RegisterController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ use App\Http\Controllers\User\Auth\RegisterController;
 
 Route::match(["get", "post"], "login", [LoginController::class, "login"])->name("login");
 Route::match(["get", "post"], "register", [RegisterController::class, "register"])->name("register");
-Route::get('/', function () {
-    return view("/welcome");
-});
+Route::get('/', [WelcomeController::class, "welcome"]);
+Route::get('/blog/news/detail/{id}', [WelcomeController::class, "newsDetail"]);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
