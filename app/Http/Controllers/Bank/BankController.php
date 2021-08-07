@@ -78,17 +78,18 @@ class BankController extends Controller
             $money=$bank[0]["money"];
             $message=$bank[0]["message"];
 
-            $getter=$bank[0]["getter"] ;
+            $get=$bank[0]["getter"] ;
             $setter= BankAccount::findOrFail($id_setter);
             $balance=$setter->balance;
             if ($balance<$money) $title= "That bai";
             else{
-                $getter = BankAccount::all()->where("stk","=",$getter)->first();
+                $getter = BankAccount::all()->where("stk","=",$get)->first();
+//                $base_money=$getter->balance;
                 $setter->update([
                     "balance"=>$balance-$money
                 ]);
                 $getter->update([
-                    "balance"=>$balance+$money
+                    "balance"=>$getter->balance+$money
                 ]);
 
 
