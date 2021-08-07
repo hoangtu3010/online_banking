@@ -1,0 +1,77 @@
+.table-form thead th{
+    font-weight: 500;
+    color: #0a0e14bf;
+}
+
+.table td, .table th {
+    vertical-align: inherit !important;
+}
+
+.table-form td{
+    color: #67757c;
+}
+
+.table-form td .edit{
+    color: #17a2b8b8;
+    font-size: 22px;
+}
+
+.table-form td .delete{
+    color: #ff5c6c;
+    font-size: 22px;
+}
+
+.table-form td .detail{
+    color: #24d2b5 !important;
+}
+
+.input-search{
+    width: 240px !important;
+    margin: 0;
+    position: relative;
+}
+
+.input-search input{
+    background-color: #ebf2f5 !important;
+    border: none;
+}
+
+.input-search button{
+    border: none;
+    background-color: unset;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 999;
+    font-size: 23px;
+}
+
+.action-header{
+    padding: 20px 0 0 0 !important;
+}
+
+.action-header button{
+    float: right;
+    border-radius: 100%
+}
+
+.content-main{
+    padding: 20px 0 20px;
+}
+
+.table-style{
+    background-color: #fff;
+    padding: 25px 20px 0;
+}
+
+.card-tools{
+    float: right;
+    margin-right: 10px
+}
+
+.table-form img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
