@@ -11,10 +11,12 @@ class BankAccountController extends Controller
 {
     //
     function login(Request $request){
-        $bankAccount=$request->only("stk","password");
+//        $bankAccount=$request->only("stk","password");
+        $stk = $request->get("stk");
+        $pass = $request->get("password");
 //        dd($bankAccount);
 
-        if (Auth::guard("bank_account")->attempt($bankAccount)){
+        if (Auth::guard("bank_account")->attempt(["stk"=>$stk,"password"=>$pass,"status"=>"Active"])){
             return  redirect()->to("admin/bankAccount/check");
         }else{
             return back();
