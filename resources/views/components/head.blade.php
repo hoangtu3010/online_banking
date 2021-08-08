@@ -4,6 +4,8 @@
     <title>Online Banking</title>
 
     <link rel="icon" type="image/x-icon" href="{{url("imgs/logo.png")}}" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{asset("css/list-style.css")}}">
     <!-- Swiper -->
     <link rel="stylesheet" href="{{asset("https://unpkg.com/swiper/swiper-bundle.min.css")}}" />
     <!-- Google Font: Source Sans Pro -->
