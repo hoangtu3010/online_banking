@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerInfoController;
+use App\Http\Controllers\Bank\BankController;
 
 Route::middleware("auth:user")->group(function (){
 
@@ -15,6 +16,7 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/customer/edit/{id}',[CustomerInfoController::class,'edit']);
     Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);});
     Route::post('/customer/create',[CustomerInfoController::class,'create']);
+    Route::get('/bankAccount/{id}',[BankController::class,'bankAccount']);
 
 
 

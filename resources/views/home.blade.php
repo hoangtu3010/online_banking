@@ -79,7 +79,15 @@
                 </div>
                 <div class="col-md-2 home_home">
                     <div class="onaji">
-                        <a href="" class="home_home_a">
+                        <a href="{{url("user/bankAccount",["id"=>Auth::user()->id])}}" class="home_home_a">
+                            <div class="home_history">
+                            <div class="home_history_icon">
+                                <i style="margin-top: 20px" class="fas fa-history"></i>
+                            </div>
+                            <div>
+                                Bank account
+                            </div>
+                    </div>
                         </a>
                     </div>
                 </div>

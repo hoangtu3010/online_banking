@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Session;
 class BankController extends Controller
 {
     //
+
+    public function bankAccount($id){
+        $find = BankAccount::with("user")->findOrFail($id);
+        return view("User.BankAccount.BankAccount",[
+            "data"=>$find
+        ]);
+    }
     public function bankInfo($id){
         $find=BankAccount::with("user")->findOrFail($id);
         return view("BankAccount.bankAccount",[
