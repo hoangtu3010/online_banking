@@ -46,7 +46,7 @@
             <h1> Bạn chưa có liên kết? hãy ABC XYZ</h1>
             <div class="container">
                 <div class="row">
-                    <a href="" class="btn btn-success"> Add bank account </a>
+                    <a href="{{url("user/bankAccount/link")}}" class="btn btn-success"> Add bank account </a>
                 </div>
             </div>
         @endif
