@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-2 scrolling ">
-                <img src="{{ url('imgs/logo.png') }}" alt="">
+                <img src="{{ url('imgs/logo.png') }}" alt="logo" width="50px" height="50px">
             </div>
             <div class="col-md-6">
                 <ul class="nav justify-content-end">
@@ -10,13 +10,13 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="{{url("/about-us")}}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">blog</a>
+                        <a class="nav-link " href="{{url("/blog")}}" >blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">contacts</a>
+                        <a class="nav-link " href="{{url("/contact-us")}}" >contacts</a>
                     </li>
                 </ul>
             </div>

@@ -21,4 +21,16 @@ class WelcomeController extends Controller
         News::findOrFaild($id);
 
     }
+    public function blog(){
+        return view("welcome.blog");
+    }
+    public function contactUs(){
+       return view("welcome.contact-us");
+
+    }
+    public function aboutUs(){
+        return view("welcome.about-us");
+    }
+
 }
+
