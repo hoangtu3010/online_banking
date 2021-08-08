@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class BankController extends Controller
 {
@@ -144,5 +145,20 @@ class BankController extends Controller
             "sender"=>$sender,
             "all_acc"=>$all_acc
         ]);
+    }
+    public function bankLink(){
+        return view("User.BankAccount.link");
+    }
+    public function bankLinkInfo(){
+        return  view("User.BankAccount.check");
+    }public function bankLinkAccept(){
+        $bank_Acc_id=Session::get("bankLink")->id;
+        $id = Auth::user()->id;
+//        dd($bank_Acc_id,$id);
+        $bank_Acc= BankAccount::findOrFail($bank_Acc_id);
+        $bank_Acc->update([
+            "user_id"=>$id
+        ]);
+        return  view("User.BankAccount.success");
     }
 }

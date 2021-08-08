@@ -11,28 +11,35 @@
     @if(Auth::user()->id == $d->id)
         @if($i == true)
         <div class="container">
+
             <div class="row">
-                <table class="table">
-                    <a href="" class="btn btn-outline-primary"> Add Bank account</a>
-                    <thead>
-                    <tr>
-                        <th>Stk</th>
-                        <th>Balance</th>
-                        <th>Action</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($d->bankAccount as $b)
-                    <tr>
-                        <td>{{$b->stk}}</td>
-                        <td>{{$b->balance}}</td>
-                        <td><a href="{{url("user/bankAccount/info",["id"=>$b->id])}}" class="btn btn-outline-success">info</a></td>
-                        <td><a href="{{url("user/bankAccount/history",["id"=>$b->id])}}" class="btn btn-outline-success">history</a></td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                <div class="left">
+                    <a href="{{url("user/bankAccount/link")}}" class="btn btn-outline-primary"> Add Bank account</a>
+                </div>
+                <div>
+                    <table class="table">
+
+                        <thead>
+                        <tr>
+                            <th>Stk</th>
+                            <th>Balance</th>
+                            <th>Action</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($d->bankAccount as $b)
+                            <tr>
+                                <td>{{$b->stk}}</td>
+                                <td>{{$b->balance}}</td>
+                                <td><a href="{{url("user/bankAccount/info",["id"=>$b->id])}}" class="btn btn-outline-success">info</a></td>
+                                <td><a href="{{url("user/bankAccount/history",["id"=>$b->id])}}" class="btn btn-outline-success">history</a></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
         @else

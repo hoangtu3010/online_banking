@@ -16,10 +16,23 @@ class BankAccountController extends Controller
         $pass = $request->get("password");
 //        dd($bankAccount);
 
-        if (Auth::guard("bank_account")->attempt(["stk"=>$stk,"password"=>$pass,"status"=>"Active"])){
-            return  redirect()->to("admin/bankAccount/check");
+        if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass,"status"=>"Active"])){
+            return  redirect()->to("user/bankAccount/check");
         }else{
             return back();
+        }
+    }
+    function loginLink(Request $request){
+        $stk = $request->get("stk");
+        $pass = $request->get("password");
+//        dd($bankAccount);
+
+        if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass,"user_id"=>null])){
+            return  redirect()->to("user/bankAccount/linkInfo");
+        }else if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass])){
+            return back()->withErrors(["Bank account đã được liên kết","MSG"]);
+        }else{
+            return back()->withErrors(["Sai mật khẩu hoặc tài khoản","MSG"]);
         }
     }
 }

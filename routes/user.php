@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerInfoController;
 use App\Http\Controllers\Bank\BankController;
 use App\Http\Controllers\Bank\Auth\BankAccountController;
 
+
 Route::middleware("auth:user")->group(function (){
 
     Route::get('/',[HomeController::class,'homeCustomer']);
@@ -27,9 +28,17 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
     Route::post("/bankAccount/login",[BankAccountController::class,"login"]);
     Route::get('/bankAccount/history/{id}',[BankController::class,"bankHistory"]);
+    Route::get('/bankAccount/link',[BankController::class,"bankLink"]);
+    Route::post('/bankAccount/link', [BankAccountController::class, "loginLink"]);
+    Route::middleware("auth:bank")->group(function () {
+        Route::get('/bankAccount/linkInfo',[BankController::class,"bankLinkInfo"]);
+    });
+    Route::get('/bankAccount/link/accept', [BankController::class, "bankLinkAccept"]);
+
 
 
 });
+
 
 
 

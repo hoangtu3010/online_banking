@@ -12,7 +12,7 @@ class BankAccount extends Authenticatable
     use HasFactory,Notifiable;
 
     protected $table = "bank_account";
-    protected $guarded="bank_account";
+    protected $guarded="bank";
 
     protected $fillable = [
         "stk",
