@@ -21,6 +21,11 @@
                             <div class="customer_list_all_col">
                                 <div class="row">
                                     <div class="col-md-4">
+                                        <label class="form-label" for="">Image</label>
+                                        <img src="{{$item->image}}"/>
+                                    </div>
+
+                                    <div class="col-md-4">
                                         <label class="form-label" for="">Id</label>
                                         <div type="text" class="form-control">{{$item->id}}</div>
                                     </div>
@@ -77,12 +82,18 @@
                                 <h3>Hãy nhập để hoàn thành thông tin cho tài khoản : {{Auth::user()->name}} </h3>
                             </div>
                             <div class="customer_list_all_col">
-                                <form action="{{url('user/customer/create')}}" method="post">
+                                <form action="{{url('user/customer/create')}}" method="post"
+                        {{--              enctype="multipart/form-data"--}}
+                                >
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-label" for="">Name</label>
                                             <input class="form-control" type="text" name="name" placeholder="name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="">Image</label>
+                                            <input class="form-control" type="file" name="image" placeholder="name">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label" for="">Birthday</label>

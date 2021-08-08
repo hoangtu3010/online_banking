@@ -19,6 +19,8 @@ Route::middleware("auth:user")->group(function (){
     Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);
     Route::post('/customer/create',[CustomerInfoController::class,'create']);
 
+
+
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
@@ -42,6 +44,4 @@ Route::middleware("auth:user")->group(function (){
 
 
 
-    Route::get('vdvvfvf',function (){
-       return view('cdcdcd');
-    });
+

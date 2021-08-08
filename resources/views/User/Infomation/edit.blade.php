@@ -16,9 +16,15 @@
                         <h3>Update Customer Infomation</h3>
                     </div>
                     <div class="customer_list_all_col">
-                        <form action="{{url('user/customer/save',['id'=>$customer->cusID])}}" method="post">
+                        <form action="{{url('user/customer/save',['id'=>$customer->cusID])}}" method="post"
+                              enctype="multipart/form-data"
+                        >
                             @csrf
                             <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="">Image</label>
+                                    <input class="form-control" type="file" name="image" placeholder="name">
+                                </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label" for="">Name</label>
