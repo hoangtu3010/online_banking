@@ -11,7 +11,7 @@ class WelcomeController extends Controller
     public function welcome(){
         $news = News::all();
         $comment = Comment::all();
-        return view("welcome", [
+        return view("welcome.welcome", [
             "news"=>$news,
             "comments"=>$comment
         ]);
