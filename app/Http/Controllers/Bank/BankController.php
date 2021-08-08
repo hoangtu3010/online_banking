@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Bank;
 use App\Http\Controllers\Controller;
 use App\Models\BankAccount;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -12,10 +13,13 @@ class BankController extends Controller
 {
     //
 
-    public function bankAccount($id){
-        $find = BankAccount::with("user")->findOrFail($id);
+    public function bankAccount(){
+        $data = User::with("bankAccount")->get();
+//        dd($data);
+        $bank = BankAccount::all();
         return view("User.BankAccount.BankAccount",[
-            "data"=>$find
+            "data"=>$data,
+            "bank"=>$bank
         ]);
     }
     public function bankInfo($id){
@@ -127,6 +131,18 @@ class BankController extends Controller
         }
         return view("BankAccount.transfer.Success",[
             "Title"=>$title
+        ]);
+    }
+    public function bankHistory($id){
+        $all_acc= BankAccount::with("user")->get();
+        $stk = BankAccount::findOrFail($id);
+        $sender = Transaction::all()->where("bank_account_id","=",$id)->where("sender","=",$stk->stk)->sortByDesc("created_at");
+        $getter = Transaction::all()->where("getter","=",$stk->stk)->where("bank_account_id","=",$id)->sortByDesc("created_at");
+//        dd($all_acc->toArray(),$sender->toArray(),$getter->toArray());
+        return view("BankAccount.history.history",[
+            "getter"=> $getter,
+            "sender"=>$sender,
+            "all_acc"=>$all_acc
         ]);
     }
 }

@@ -59,7 +59,6 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
     Route::post('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
     Route::get('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
-//    Route::get('/bankAccount/check/{id}',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
 
@@ -69,5 +68,4 @@ Route::middleware("auth:admin")->group(function (){
 //    Route::get('/test', function () {
 //        return view('BankAccount.test');
 //    });
-    Route::post("/test/login",[BankAccountController::class,"login"]);
 });
