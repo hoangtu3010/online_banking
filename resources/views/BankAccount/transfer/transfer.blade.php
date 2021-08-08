@@ -2,7 +2,7 @@
 @section("main")
     <div class="content-wrapper" style="min-height: 1299.69px;">
         <div class="container">
-            <form action="{{url("admin/bankAccount/login",["id"=>$data->id])}}" method="post">
+            <form action="{{url("user/bankAccount/login",["id"=>$data->id])}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="">Stk gửi:</label>
@@ -35,7 +35,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-outline-success"> gửi</button>
-                <p><a class="btn btn-outline-primary" href="{{url("admin/bankAccount/info",["id"=>$data->id])}}">back</a></p>
+                <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount/info",["id"=>$data->id])}}">back</a></p>
             </form>
 
         </div>

@@ -11,7 +11,7 @@
             @else
             <h3>TK liên kết: {{ $data->user->name }}</h3>
             @endif
-            <p><a class="btn btn-outline-primary" href="{{url("admin/bankAccount/transfer",["id"=>$data->id])}}">Transfer</a></p>
+            <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount/transfer",["id"=>$data->id])}}">Transfer</a></p>
         </div>
     </div>
 @endsection
