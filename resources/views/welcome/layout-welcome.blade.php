@@ -4,11 +4,9 @@
 
 <body>
     <section>
-        <div class="container">
-            <x-header-welcome/>
-            @yield("main")
-            <x-footer-welcome/>
-        </div>
+        <x-header-welcome/>
+        @yield("main")
+        <x-footer-welcome/>
     </section>
 </body>
 <x-script/>
