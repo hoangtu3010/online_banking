@@ -2,38 +2,8 @@
 @extends("welcome.layout-welcome")
 @section("main")
     <div class="main">
-        <div class="swiper-content">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="box-content">
-                            <h3>
-                                Card Features and Benefits
-                                More Features
-                            </h3>
-                            <p>Proin sed felis ultrices, tristique eros eu, accumsan justo.</p>
-                            <button class="btn btn-primary">More Features</button>
+        <div class="banner-header">
 
-                        </div>
-                        <img class="img-visa" src="{{url("imgs/slider-img-2.jpg")}}" alt="">
-
-                        <img src="{{url("imgs/phong.jpg")}}" alt="">
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="box-content">
-                            <h3>
-                                Card Features and Benefits
-                                More Features
-                            </h3>
-                            <p>Proin sed felis ultrices, tristique eros eu, accumsan justo.</p>
-                            <button class="btn btn-primary">More Features</button>
-                        </div>
-                        <img class="img-visa" src="{{url("imgs/slider-img-3.jpg")}}" alt="">
-                        <img class="bank" src="{{url("imgs/phong.jpg")}}" alt="">
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="box-content2">
@@ -174,7 +144,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection

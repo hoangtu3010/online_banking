@@ -1,42 +1,43 @@
-<header>
+<header id="header_welcome">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-2 scrolling ">
-                <img src="{{ url('imgs/logo.png') }}" alt="logo" width="50px" height="50px">
+        <div class="row">
+            <div class="logo-header col-md-2 mt-1">
+                <a href="{{url("/")}}">
+                    <img src="{{ url('imgs/logo.png') }}" alt="logo">
+                    <div class="bg-icon-logo"></div>
+                </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7" style="margin-top: 10px">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{url("/")}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{url("/blog")}}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url("/about-us")}}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url("/blog")}}" >blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{url("/contact-us")}}" >contacts</a>
+                        <a class="nav-link " href="{{url("/contact-us")}}">Contact Us</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-3">
-                <form class="d-flex">
-                    <button class="btn btn-outline-success" type="submit">
-                        <div class="">
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class="btn btn-outline-primary">Dashboard</a>
-                            @else
-                                <a style="color: green;margin-right: 15px;width: 40px;height: 15px" href="{{ route('login') }}"
-                                   class="">
-                                    Đăng nhập </a>
-                                |
-                                @if (Route::has('register'))
-                                    <a style="color: green;margin-left: 15px" href="{{ route('register') }}" class="">Đăng Ký</a>
-                                @endif
-                            @endauth
-                        </div>
-                    </button>
+                <form class="d-flex" style="justify-content: flex-end">
+                    <div class="btn-in-up">
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="btn btn-outline-primary">Dashboard</a>
+                        @else
+                            <a
+                                href="{{ route('login') }}"
+                                class="">
+                                Login </a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="">Register</a>
+                            @endif
+                        @endauth
+                    </div>
                 </form>
             </div>
         </div>
