@@ -1,4 +1,6 @@
 @extends("welcome.layout-welcome")
 @section("main")
-    <h1>Day la contact us</h1>
+    <div class="container">
+        <h1>Day la contact us</h1>
+    </div>
 @endsection
