@@ -3,9 +3,11 @@ body{
 }
 
 .banner-header{
+    position: relative;
     background-color: transparent;
     background-repeat: no-repeat;
     background-image: url("../imgs/phong.jpg");
+    color: #fff;
     background-size: cover;
     background-position: 50% 50%;
     width: 100%;
@@ -16,6 +18,166 @@ body{
     transform: translate(0px, 0px);
     visibility: inherit;
     z-index: 20;
+}
+
+.banner-image img{
+    width: 500px;
+    height: auto;
+    top: 50px;
+    right: 100px;
+    position: absolute;
+    animation: banner-image 1s linear;
+}
+
+.banner-text{
+    top: 50px;
+    max-width: 797px;
+    position: absolute;
+}
+
+.banner-text-header{
+    font-weight: 700;
+    font-size: 4.2em;
+    animation: banner-text-header 2s linear;
+}
+
+.banner-text-footer{
+    margin: 20px 0;
+    font-weight: 400;
+    animation: banner-text-footer 3s linear;
+}
+
+.banner-register{
+    position: absolute;
+    background: linear-gradient(rgb(25, 79, 130) 0%, rgb(25, 79, 130) 51%, rgb(22, 71, 117) 52%, rgb(22, 71, 117) 100%);
+    padding: 8px 20px;
+    bottom: 120px;
+    border-radius: 40px;
+    font-size: 1.4em;
+    transition: .3s;
+    animation: banner-register 4s linear;
+
+}
+
+.banner-register a{
+    color: #fff;
+}
+
+.banner-register:hover{
+    background: #ffc10d;
+}
+
+.banner-register:hover a{
+    color: #fff;
+}
+
+.bubbles img{
+    width: 50px;
+    animation: bubble 4s linear infinite;
+    opacity: 0;
+}
+
+.bubbles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes banner-text-header {
+    0%{
+        transform: translateX(-200vh);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes banner-text-footer {
+    0%{
+        transform: translateX(-250vh);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes banner-image {
+    0%{
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes banner-register {
+    0%{
+        transform: translateX(-300vh);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bubble {
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+.bubbles img:nth-child(1){
+    width: 35px;
+    animation-delay: 2s;
+}
+.bubbles img:nth-child(2){
+    animation-delay: 1s;
+}
+.bubbles img:nth-child(3){
+    animation-delay: 3s;
+    width: 35px;
+}
+.bubbles img:nth-child(4){
+    animation-delay: 4.5s;
+}
+.bubbles img:nth-child(5){
+    animation-delay: 3s;
+}
+.bubbles img:nth-child(6){
+    width: 25px;
+    animation-delay: 6s;
+}
+.bubbles img:nth-child(7){
+    width: 35px;
+    animation-delay: 7s;
+}
+.bubbles img:nth-child(8){
+    animation-delay: 4s;
+}
+.bubbles img:nth-child(9){
+    width: 30px;
+    animation-delay: 5s;
 }
 
 .box-content2 {

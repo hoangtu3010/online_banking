@@ -3,7 +3,31 @@
 @section("main")
     <div class="main">
         <div class="banner-header">
-
+            <div class="banner-image">
+                <img class="" src="{{url("/imgs/slider-img-2.jpg")}}" alt="img">
+            </div>
+            <div style="padding-left: 200px">
+                <div class="banner-text">
+                    <h1 class="banner-text-header">All the benefits of Card, on the website</h1>
+                    <h3 class="banner-text-footer">Personalize your results in a few <br> simple steps</h3>
+                </div>
+                <div class="banner-register">
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="">Register Now </a>
+                    @endif
+                </div>
+            </div>
+            <div class="bubbles">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+                <img src="{{url("imgs/bubble.png")}}" alt="bubble">
+            </div>
         </div>
 
         <div class="box-content2">
