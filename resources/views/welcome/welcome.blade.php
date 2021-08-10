@@ -162,9 +162,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <h2 class="blog-category text-center">Contacts - About Us</h2>
-                    <div class="tuan text-center"><img src="{{url("imgs/logo.png")}}" alt="logo"></div>
+                <div class="col-md-12" style="margin-bottom: 50px">
+                    <h2 class="blog-category text-center">Find a Card from your Favorite <br> Financial Institution</h2>
+                    <div class="swiper-container mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#"><img src="{{asset("imgs/slide-logo-1.webp")}}" alt="slide-logo"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#"><img src="{{asset("imgs/slider-logo-2.webp")}}" alt="slide-logo"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#"><img src="{{asset("imgs/slider-logo-3.webp")}}" alt="slide-logo"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#"><img src="{{asset("imgs/slider-logo-4.webp")}}" alt="slide-logo"></a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#"><img src="{{asset("imgs/slider-logo-5.webp")}}" alt="slide-logo"></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

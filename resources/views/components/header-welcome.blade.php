@@ -3,8 +3,7 @@
         <div class="row">
             <div class="logo-header col-md-2 mt-1">
                 <a href="{{url("/")}}">
-                    <img src="{{ url('imgs/logo.png') }}" alt="logo">
-                    <div class="bg-icon-logo"></div>
+                    <img src="{{ url('imgs/logo.png') }}" alt="logo"> <span><i style="color: #333; font-weight: 500; font-size: 1.2em">Fox</i> <i style="color: #95a5a6; font-weight: 400; font-size: 1.2em">Banking</i></span>
                 </a>
             </div>
             <div class="col-md-7" style="margin-top: 10px">

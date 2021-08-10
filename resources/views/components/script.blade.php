@@ -40,7 +40,17 @@
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
 
 <script>
-    var swiper = new Swiper('.swiper-container');
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        slidesPerGroup: 5,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
 </script>
 
 <script>

@@ -18,11 +18,14 @@ use App\Http\Controllers\WelcomeController;
 
 Route::match(["get", "post"], "login", [LoginController::class, "login"])->name("login");
 Route::match(["get", "post"], "register", [RegisterController::class, "register"])->name("register");
+
 Route::get('/', [WelcomeController::class, "welcome"]);
 Route::get('/blog/news/detail/{id}', [WelcomeController::class, "newsDetail"]);
 Route::get('/blog', [WelcomeController::class, "blog"]);
 Route::get('/about-us', [WelcomeController::class, "aboutUs"]);
 Route::get('/contact-us', [WelcomeController::class, "contactUs"]);
+Route::post('/send-feedback', [WelcomeController::class, "sendFeedback"]);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

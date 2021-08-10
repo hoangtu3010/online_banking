@@ -7,6 +7,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset("css/list-style.css")}}">
     <link rel="stylesheet" href="{{asset("css/header-welcome.css")}}">
+    <link rel="stylesheet" href="{{asset("css/footer-welcome.css")}}">
     <!-- Swiper -->
     <link rel="stylesheet" href="{{asset("https://unpkg.com/swiper/swiper-bundle.min.css")}}" />
     <!-- Google Font: Source Sans Pro -->
