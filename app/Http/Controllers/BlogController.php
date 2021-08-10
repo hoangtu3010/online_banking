@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function getComments()
     {
-        $data = Comment::with("News")->get();
+        $data = Comment::with("News")->orderBy("id", "DESC")->get();
         return view("Admin.Blog.blog-comments", [
             "data" => $data
         ]);
