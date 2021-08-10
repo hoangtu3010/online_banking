@@ -40,6 +40,26 @@
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
 
 <script>
+    scrollToTopBtn = document.querySelector("#scrollToTopBtn");
+
+    document.addEventListener("scroll", function (){
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            scrollToTopBtn.classList.add("showBtn")
+        } else {
+            scrollToTopBtn.classList.remove("showBtn")
+        }
+    });
+
+    scrollToTopBtn.addEventListener("click", function (){
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+    });
+</script>
+
+<script>
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 5,
         spaceBetween: 30,

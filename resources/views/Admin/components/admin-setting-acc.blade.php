@@ -1,8 +1,7 @@
 @extends("Admin.layout.admin-layout")
 @section("main")
-    <div class="content-wrapper" style="min-height: 1299.69px;">
-{{--        nothings--}}
-        <div class="container">
+    {{--        nothings--}}
+    <div class="container">
         <form action="{{url("admin/setting/save",["id"=>$data->id])}}" method="post">
             @csrf
             <div class="form-group">
@@ -20,8 +19,8 @@
             <div class="form-group">
                 <lable>Quyền hạn</lable>
                 <select name="role_id" class="form-control" required>
-                   @foreach($select as $s)
-                       @if($data->role_id==$s->id)
+                    @foreach($select as $s)
+                        @if($data->role_id==$s->id)
                             <option selected value="{{$s->id}}">{{$s->name}}</option>
                         @else
                             <option value="{{$s->id}}">{{$s->name}}</option>
@@ -32,6 +31,6 @@
             <button class="btn btn-outline-success" type="submit">
                 Save
             </button>
-        </form></div>
+        </form>
     </div>
 @endsection

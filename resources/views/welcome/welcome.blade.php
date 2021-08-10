@@ -2,6 +2,10 @@
 @extends("welcome.layout-welcome")
 @section("main")
     <div class="main">
+        <button id="scrollToTopBtn">
+            <i class="ion-chevron-up"></i>
+        </button>
+
         <div class="banner-header">
             <div class="banner-image">
                 <img class="" src="{{url("/imgs/slider-img-2.jpg")}}" alt="img">

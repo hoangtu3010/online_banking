@@ -22,7 +22,7 @@ header{
     padding:0;
 }
 
-.nav-item .nav-link{
+.nav-header-welcome .nav-item .nav-link{
     color: #212558;
     font-weight: 650;
     font-size: 1.1em;
@@ -30,7 +30,7 @@ header{
     transition: .2s;
 }
 
-.nav-item .nav-link:hover{
+.nav-header-welcome .nav-item .nav-link:hover{
     color: #00b4da;
 }
 

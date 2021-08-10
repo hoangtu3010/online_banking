@@ -1,6 +1,5 @@
 @extends("layout")
 @section("main")
-<div class="container">
     <div class="row">
         <div>
             <form action="{{url("user/bankAccount/link")}}" method="post">
@@ -21,5 +20,4 @@
             </form>
         </div>
     </div>
-</div>
 @endsection

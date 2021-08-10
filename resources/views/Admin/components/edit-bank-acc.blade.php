@@ -1,9 +1,8 @@
 @extends("Admin.layout.admin-layout")
 @section("main")
-    <div class="content-wrapper" style="min-height: 1299.69px;">
-        <div class="container">
-            <form method="post" action="{{url("admin/bankAccount/update",["id"=>$data->id])}} ">
-                @csrf
+    <div class="container">
+        <form method="post" action="{{url("admin/bankAccount/update",["id"=>$data->id])}} ">
+            @csrf
             <h2>Thông tin tài khoảng ngân hàng</h2>
 
             <div class="form-group">
@@ -13,7 +12,8 @@
             <div class="form-group">
 
                 <lable>Mã bảo mật:</lable>
-                <a href="{{ url("admin/bankAccount/getPassword",["id"=>$data->id]) }}" class="btn btn-outline-primary ">Lấy lại mã bảo mật</a>
+                <a href="{{ url("admin/bankAccount/getPassword",["id"=>$data->id]) }}" class="btn btn-outline-primary ">Lấy
+                    lại mã bảo mật</a>
 
             </div>
 
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <lable>Người liên kết:</lable>
-{{--                <input type="text"class="form-control" value="{{$data->owner}}">--}}
+                {{--                <input type="text"class="form-control" value="{{$data->owner}}">--}}
                 <select name="owner" class="form-control">
                     @if(!$data->user_id)
                         <option value="" selected>Chưa liên kết</option>
@@ -39,16 +39,16 @@
                     @endforeach
                 </select>
             </div>
-                <div class="form-group">
+            <div class="form-group">
                 <lable>Status:</lable>
-{{--                <input type="text"class="form-control" value="{{$data->owner}}">--}}
+                {{--                <input type="text"class="form-control" value="{{$data->owner}}">--}}
                 <select name="status" class="form-control">
                     @if($data->status=="Active")
-                    <option value="Active" selected>Active</option>
-                    <option value="Inactive">Inactive</option>
+                        <option value="Active" selected>Active</option>
+                        <option value="Inactive">Inactive</option>
                     @else
-                        <option value="Active" >Active</option>
-                        <option value="Inactive"selected>Inactive</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive" selected>Inactive</option>
                     @endif
                 </select>
             </div>
@@ -56,8 +56,7 @@
             <button type="submit" class="btn btn-outline-success">Save</button>
             <a href="#" class="btn btn-outline-danger">Xóa tài khoản</a>
 
-            </form>
-        </div>
-
+        </form>
     </div>
+
 @endsection
