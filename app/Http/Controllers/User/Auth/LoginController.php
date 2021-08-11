@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Feedback;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +24,7 @@ class LoginController extends Controller
         $pass= $request->get("password");
 //        dd($checker->toArray());
         if (Auth::guard("admin")->attempt(["email"=>$email,"password"=>$pass])){
-            $feedback = Feedback::all();
+
             //login admin
             return redirect()->to("admin");
         }

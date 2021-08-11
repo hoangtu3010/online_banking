@@ -47,15 +47,17 @@ return [
             'hash' => false,
         ],
 
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
         'bank' => [
             'driver' => 'session',
             'provider' => 'banks',
         ],
 
+
+
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins'

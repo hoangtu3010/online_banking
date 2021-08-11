@@ -14,6 +14,7 @@ class CustomerInfoController extends Controller
     {
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
             ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", 'c.id', 'c.user_id','c.image' )->get();
+
         return view('user.Infomation.Customer_info', [
             'customer' => $item
         ]);

@@ -107,56 +107,25 @@
     </div>
     <div class="card">
         <div class="card login-card-body" style="background-color: white;color: black">
-            <p class="login-box-msg">Sign in to your account</p>
-            <form class="needs-validation" action="{{ route('login')}}" method="POST" novalidate>
+            <p class="login-box-msg">Điền gmail để lấy lại mật khẩu </p>
+
+            <form method="post">
                 @csrf
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
-                        <input name="email" type="email" class="form-control form-material" placeholder="Email" required>
-                        <div class="invalid-feedback" style="position: absolute; bottom: -20px">
-                            Please enter email.
+                        <div>
+                            <input name="password" type="password" class="form-control" placeholder="Mật khẩu mới" required autocomplete="new-password">
                         </div>
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <div class="input-group mb-3">
-                        <input name="password" type="password" class="form-control form-material"
-                               placeholder="Password" required>
-                        <div class="invalid-feedback" style="position: absolute; bottom: -25px">
-                            Please enter password.
-                        </div>
-                    </div>
+                    <input name="password_confirmation" type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" required autocomplete="new-password">
                 </div>
-                @if($errors->any())
-                    <h4 class="text-red">{{$errors->first()}}</h4>
-                @endif
-                <div class="row">
-                    <div class="col-12">
-                        <div class="icheck-info">
-                            <input name="remember" type="checkbox" id="remember">
-                            <label for="remember">
-                                Remember Me
-                            </label>
-                            <div style="margin-top: 15px" >
-                                <a href="{{url("/quen-mat-khau")}}">Quên mật khẩu </a>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="col-12 forgot-pass">
-                        <a href="#" class=" float-right">Forgot Password</a>
-                    </p>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-info btn-block">Sign In</button>
-                    </div>
-                    <div class="col-sm-12 text-center sign-up">
-                        Don't have an account?
-                        <a href="{{asset("register")}}" class="text-purple">
-                            <b>Sign Up</b>
-                        </a>
-                        <p></p>
-                    </div>
-                </div>
+
+                <button type="submit" class="btn btn-primary">Reset password</button>
             </form>
+
+
         </div>
     </div>
     <div class="login-background">
