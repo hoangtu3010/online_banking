@@ -24,11 +24,12 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
-    Route::post('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
-    Route::get('/bankAccount/login/{id}',[BankController::class,"bankLogin"]);
+    Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
+    Route::post('/bankAccount/login',[BankController::class,"bankLogin"]);
+    Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
-    Route::post("/bankAccount/login",[BankAccountController::class,"login"]);
+    Route::post("/bankAccount/loginHidden",[BankAccountController::class,"login"]);
     Route::get('/bankAccount/history/{id}',[BankController::class,"bankHistory"]);
     Route::get('/bankAccount/link',[BankController::class,"bankLink"]);
     Route::post('/bankAccount/link', [BankAccountController::class, "loginLink"]);

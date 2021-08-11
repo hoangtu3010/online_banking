@@ -2,7 +2,7 @@
 @section("main")
     <div class="content-wrapper" style="min-height: 1299.69px;">
         <div class="container">
-            <form action="{{url("user/bankAccount/login",["id"=>$data->id])}}" method="post">
+            <form action="{{url("user/bankAccount/treatment")}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="">Stk gửi:</label>
@@ -12,10 +12,13 @@
                 <div class="form-group">
                     <label for="">Stk nhận :</label>
                     <select name="getter"  class="form-control">
+                        <option value="" disabled selected>Select Option</option>
                         @foreach($select as $s)
                         <option>{{$s->stk}}</option>
                         @endforeach
                     </select>
+                    <p class="text-red ">{{ $errors->first('getter') }}</p>
+
                 </div>
 {{--                <div class="form-group">--}}
 {{--                    <label for="">Stk nhận:</label>--}}

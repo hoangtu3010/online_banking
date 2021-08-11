@@ -19,7 +19,7 @@ class BankAccountController extends Controller
         if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass,"status"=>"Active"])){
             return  redirect()->to("user/bankAccount/check");
         }else{
-            return back();
+            return back()->withErrors(["pass"=>"Sai mật khẩu"]);
         }
     }
     function loginLink(Request $request){

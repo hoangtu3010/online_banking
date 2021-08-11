@@ -36,7 +36,20 @@ class BankController extends Controller
             "select"=>BankAccount::all()
         ]);
     }
-    public function bankLogin(Request $request,$id){
+    public function treatment(Request $request){
+        $find=BankAccount::with("user")->findOrFail($request->id_setter);
+
+        if ($request->money>$find->balance)
+            return back()->withErrors(["money"=>["Không đủ tiền"]]);
+        $request->validate([
+            "money"=>"required",
+            "getter"=>"required",
+
+        ],[
+            "money.required"=>"Vui lòng nhập số tiền",
+            "getter.required"=>"Vui lòng nhập người nhận",
+
+        ]);
         $data=session()->get("bank");
         if ($request->toArray()!=[]){
             if (session()->has("bank")){
@@ -53,11 +66,15 @@ class BankController extends Controller
 
             }
         }
-//        dd(Session::get("bank"));
+        return redirect()->to("user/bankAccount/login");
+    }
+    public function bankLogin(){
+       $id=Session::get("bank")[0]["id_setter"];
+
         $find=BankAccount::with("user")->findOrFail($id);
+
         return view("BankAccount.transfer.login",[
             "data"=>$find,
-            "select"=>BankAccount::all()
         ]);
     }
     public function bankChecker(){
