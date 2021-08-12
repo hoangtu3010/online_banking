@@ -10,8 +10,8 @@ Route::middleware("auth:user")->group(function (){
 
     Route::get('/',[HomeController::class,'homeCustomer']);
 
-    Route::get('/profile', function () {
-        return view('dashboard');
+    Route::get('/profile', function (){
+        return view("profile.show");
     });
 
     Route::get('/customer',[CustomerInfoController::class,'CustomerInfo']);
