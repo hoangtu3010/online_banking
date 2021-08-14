@@ -76,7 +76,8 @@ class BankController extends Controller
        $find= User::findOrFail(Auth::user()->id);
 //       dd($find->toArray());
        $find->update([
-           "code"=>$OTP
+           "two_factor_code"=>$OTP,
+           "two_factor_expires_at"=>now()->addMinutes(5)
        ]);
        Mail::to(Auth::user()->email)->send(new MailNotify($name,$OTP));
 
@@ -91,12 +92,14 @@ class BankController extends Controller
     }
     public function OTP(Request $request){
         $OTP= $request->get("OTP");
-        if (Auth::user()->code==$OTP){
-
+        if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at>now()){
             //login admin
             return  redirect()->to("user/bankAccount/check");
+        }if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at<now()){
+            //login admin
+            return back()->withErrors(["OTP"=>["Mã bảo mật hết hạn"]]);
         }
-        return back();
+        return back()->withErrors(["OTP"=>["Sai mã bảo mật"]]);
     }
     public function bankChecker(){
         if (Session::has("bank")) {

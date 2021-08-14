@@ -14,8 +14,8 @@ class AlterColumnCodeAndTimeCodeInTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('code')->nullable()->index();
-            $table->timestamp('time_code')->nullable();
+            $table->string('two_factor_code')->nullable()->index();
+            $table->dateTime('two_factor_expires_at')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ class AlterColumnCodeAndTimeCodeInTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('time_code','code');
+            $table->dropColumn('two_factor_code','two_factor_expires_at');
         });
     }
 }
