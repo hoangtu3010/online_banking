@@ -17,6 +17,7 @@ Route::match(["get", "post"], "login", [LoginController::class, "login"])->name(
 Route::match(["get", "post"], "register", [RegisterController::class, "register"])->name("register");
 
 Route::get('/', [WelcomeController::class, "welcome"]);
+Route::post('/send-feedback', [WelcomeController::class, "sendFeedback"]);
 Route::get('/blog/news/detail/{id}', [WelcomeController::class, "newsDetail"]);
 Route::get('/blog', [WelcomeController::class, "blog"]);
 Route::get('/about-us', [WelcomeController::class, "aboutUs"]);
