@@ -1,4 +1,5 @@
 .post-image{
+    margin-top: 20px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -151,4 +152,14 @@
 .more-click:hover{
     color: #fff;
     background-color: #ffc10d;
+}
+.box{
+ margin: 15px;
+}
+.box-content{
+    background-color: #e3e2e2;
+    margin-left: 20px;
+}
+.text-box{
+    margin-top: 109px;
 }
