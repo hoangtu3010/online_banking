@@ -18,6 +18,10 @@ class WelcomeController extends Controller
         ]);
     }
 
+    public function getDetail(){
+        return view("welcome.blog-detail");
+    }
+
     public function newsDetail($id){
         News::findOrFaild($id);
     }
