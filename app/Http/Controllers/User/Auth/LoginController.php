@@ -80,6 +80,8 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(['Sai mật khẩu', 'MSG']);
         }
     }
+
+
     // thằng này  kiểm tra xem có email trong session hay chưa
     // lock là session acc là acc user
     private function checkLock($lock,$acc){

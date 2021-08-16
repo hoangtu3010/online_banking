@@ -10,18 +10,6 @@ use Illuminate\Support\Facades\Auth;
 class BankAccountController extends Controller
 {
     //
-    function login(Request $request){
-//        $bankAccount=$request->only("stk","password");
-        $stk = $request->get("stk");
-        $pass = $request->get("password");
-//        dd($bankAccount);
-
-        if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass,"status"=>"Active"])){
-            return  redirect()->to("user/bankAccount/check");
-        }else{
-            return back()->withErrors(["pass"=>"Sai mật khẩu"]);
-        }
-    }
     function loginLink(Request $request){
         $stk = $request->get("stk");
         $pass = $request->get("password");

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Bank;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailNotify;
 use App\Models\BankAccount;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,13 +71,35 @@ class BankController extends Controller
         return redirect()->to("user/bankAccount/login");
     }
     public function bankLogin(){
-       $id=Session::get("bank")[0]["id_setter"];
+       $name= Auth::user()->name;
+       $OTP= random_int(100000,999999);
+       $find= User::findOrFail(Auth::user()->id);
+//       dd($find->toArray());
+       $find->update([
+           "two_factor_code"=>$OTP,
+           "two_factor_expires_at"=>now()->addMinutes(5)
+       ]);
+       Mail::to(Auth::user()->email)->send(new MailNotify($name,$OTP));
 
-        $find=BankAccount::with("user")->findOrFail($id);
+
+        return redirect()->to("user/bankAccount/OTP");
+
+    }
+    public function checkOTP(){
 
         return view("BankAccount.transfer.login",[
-            "data"=>$find,
         ]);
+    }
+    public function OTP(Request $request){
+        $OTP= $request->get("OTP");
+        if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at>now()){
+            //login admin
+            return  redirect()->to("user/bankAccount/check");
+        }if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at<now()){
+            //login admin
+            return back()->withErrors(["OTP"=>["Mã bảo mật hết hạn"]]);
+        }
+        return back()->withErrors(["OTP"=>["Sai mã bảo mật"]]);
     }
     public function bankChecker(){
         if (Session::has("bank")) {

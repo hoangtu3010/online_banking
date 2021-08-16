@@ -28,6 +28,8 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
+        "two_factor_code",
+        "two_factor_expires_at",
         'branch_id'
     ];
 
