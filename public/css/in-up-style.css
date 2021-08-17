@@ -132,6 +132,12 @@ body {
 }
 
 #checkbox-remember{
+    position: absolute;
+    top: 12px;
+    left: 52px;
+    width: 16px;
+    height: 16px;
+    border: none!important;
     display: none;
 }
 
@@ -143,11 +149,18 @@ body {
     top: 12px;
     left: 0;
     margin-left: -5px;
-    border: 1px solid;
-    border-color: #dcdcdc;
+    border: 1px solid #dcdcdc;
     border-radius: 3px;
     background-color: #fff;
     transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox-remember label:after{
+    font-family: "Font Awesome 5 Free",sans-serif;
+    position: absolute;
+    margin-left: -20px;
+    padding-left: 3px;
+    font-size: 10px;
 }
 
 .checkbox-remember label{
@@ -156,6 +169,19 @@ body {
     float: right;
     padding-left: 15px;
     color: #9f9f9f;
+}
+
+.checkbox-remember input[type="checkbox"]:checked + label::before{
+    background-color: #0e9d88;
+    border-color: #0e9d88;
+}
+
+.checkbox-remember input[type="checkbox"]:checked + label::after{
+    content: "\f00c";
+    font-weight: 900;
+    left: 15px;
+    top: 2px;
+    color: #fff;
 }
 
 .nav-item{
