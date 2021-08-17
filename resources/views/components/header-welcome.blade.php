@@ -9,16 +9,16 @@
             <div class="col-md-7 nav-header-welcome" style="margin-top: 10px">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{url("/")}}">Home</a>
+                        <a class="nav-link nav-link-wel is-active" aria-current="page" active-color="#00b4da" href="{{url("/")}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url("/blog")}}">Blog</a>
+                        <a class="nav-link nav-link-wel" active-color="#00b4da" href="{{url("/blog")}}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url("/about-us")}}">About Us</a>
+                        <a class="nav-link nav-link-wel" active-color="#00b4da" href="{{url("/about-us")}}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url("/contact-us")}}">Contact Us</a>
+                        <a class="nav-link nav-link-wel" active-color="#00b4da" href="{{url("/contact-us")}}">Contact Us</a>
                     </li>
                 </ul>
             </div>

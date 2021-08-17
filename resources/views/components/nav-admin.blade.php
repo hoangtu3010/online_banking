@@ -39,8 +39,10 @@
                 <span class="badge badge-danger navbar-badge">{{count($feedback)}}</span>
             </a>
             @if(count($feedback) > 0)
+                <?php $i = 0 ?>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     @foreach($feedback as $item)
+                        <?php $i++; ?>
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
@@ -56,8 +58,11 @@
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
+                            @if($i == 3)
+                                @break($feedback)
+                            @endif
                     @endforeach
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                <a href="#" class="dropdown-item dropdown-footer">See All Feedback</a>
             </div>
             @endif
         </li>

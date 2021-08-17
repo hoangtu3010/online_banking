@@ -252,7 +252,6 @@ class AdminController extends Controller
     public function saveBankAcc(Request $request,$id){
         $check = BankAccount::findOrFail($id);
         $check->update([
-            "balance"=>$request->get("balance"),
             "user_id"=>$request->get("owner"),
             "status"=>$request->get("status")
         ]);
