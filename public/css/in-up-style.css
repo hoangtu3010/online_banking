@@ -1,0 +1,289 @@
+body {
+    background-color: #fff !important;
+}
+
+.login-logo{
+    padding: 50px 0 50px;
+}
+
+.bgr-left{
+    background-image: url("../imgs/bgr-in-up.png");
+    min-height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.bgr-left .sub-text{
+    font-weight: 300;
+    font-size: 40px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.bgr-left h1{
+    font-size: 88px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.sign-in-up {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-in-up a:hover{
+    color: #ccc;
+}
+
+.sign-in-up .active-in-up{
+    background-color: #fff;
+    color: #000!important;
+}
+
+.switcher-in-up{
+    font-size: 18px;
+    color: #fff;
+    padding: 15px 30px 15px 20px;
+    border-radius: 45px 0 0 45px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.card {
+    padding: 0 40px;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    box-shadow: none;
+}
+
+#form_in_up .input-group{
+    position: relative;
+}
+
+#form_in_up .input-group [class*=fa]{
+    color: #a1a1a1;
+    display: block;
+    position: absolute;
+    width: 35px;
+    top: 0;
+    height: 5px;
+    text-align: center;
+    z-index: 98;
+    opacity: 0.5;
+    line-height: 38px;
+    transition: opacity .2s ease-out;
+}
+
+#form_in_up .form-control:focus + [class*=fa]{
+    opacity: 1;
+}
+
+#form_in_up .input-group .form-control{
+    padding-left: 35px;
+}
+
+.forgot-pass{
+    position: absolute;
+    display: block;
+    z-index: 99;
+    top: 8px;
+    right: 15px;
+}
+
+.forgot-pass a{
+    color: #9f9f9f;
+    transition: .2s;
+}
+
+.forgot-pass a:hover{
+    color: #666;
+}
+
+.button-in-up{
+    background-color: #10b099;
+    padding: 10px;
+    width: 70%;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 50px;
+}
+
+.button-in-up:hover{
+    background-color: #0e9d88;
+    color: #fff;
+}
+
+#checkbox-remember{
+    display: none;
+}
+
+.checkbox-remember label:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 12px;
+    left: 0;
+    margin-left: -5px;
+    border: 1px solid;
+    border-color: #dcdcdc;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox-remember label{
+    line-height: 38px;
+    position: relative;
+    float: right;
+    padding-left: 15px;
+    color: #9f9f9f;
+}
+
+.nav-item{
+    position: absolute;
+}
+
+.nav-item .social-icon-in-up i{
+    font-size: 22px;
+    color: #fff;
+    transition: .2s;
+    width: 40px;
+    height: 40px;
+    padding: 8px 20px;
+    line-height: 42px;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.nav-item:nth-child(1){
+    bottom: 55px;
+    left: 120px;
+}
+
+.nav-item:nth-child(2){
+    bottom: 55px;
+    left: 195px;
+}
+
+.nav-item:nth-child(3){
+    bottom: 55px;
+    right: 195px;
+}
+
+.nav-item:nth-child(4){
+    bottom: 55px;
+    right: 120px;
+}
+
+.nav-item:nth-child(1) .social-icon-in-up i{
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+.nav-item:nth-child(2) .social-icon-in-up i{
+    background-color: #00acee;
+    border-color: #00acee;
+}
+.nav-item:nth-child(3) .social-icon-in-up i{
+    background-color: #ee2a7b;
+    border-color: #ee2a7b;
+}
+.nav-item:nth-child(4) .social-icon-in-up i{
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}
+
+.social-icon-in-up li i.ion-social-facebook{
+    padding: 6px 17px;
+}
+
+.social-icon-in-up li i.ion-social-twitter{
+    padding: 6px 11px;
+}
+
+.social-icon-in-up li i.ion-social-instagram{
+    padding: 6px 13px;
+}
+
+.social-icon-in-up li i.ion-social-snapchat{
+    padding: 6px 12px;
+}
+
+.social-icon-in-up li i.ion-social-facebook:hover{
+    background-color: #fff;
+    color: #3b5998;
+}
+.social-icon-in-up li i.ion-social-twitter:hover{
+    background-color: #fff;
+    color: #00acee;
+}
+.social-icon-in-up li i.ion-social-instagram:hover{
+    background-color: #fff;
+    color: #ee2a7b;
+}
+.social-icon-in-up li i.ion-social-snapchat:hover{
+    background-color: #fff;
+    color: #f1c40f;
+}
+
+.login-box-msg {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+
+.form-material {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center bottom, center calc(100% - 2px);
+    background-repeat: no-repeat;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid #95a5a6;
+    color: #000915;
+    background-size: 0 2px, 100% 1px;
+    transition: background 0s ease-out 0s;
+}
+
+.form-material:focus {
+    background-image: linear-gradient(rgb(32, 174, 227), rgb(32, 174, 227));
+    box-shadow: none;
+    float: none;
+    background-size: 100% 2px, 100% 1px;
+    outline: 0 none;
+    transition-duration: 0.3s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+}
+
+.icheck-info {
+    font-size: 14px;
+}
+
+.login-box {
+    width: 410px;
+    padding-bottom: 125px;
+}
+
