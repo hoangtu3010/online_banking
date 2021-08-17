@@ -40,6 +40,8 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/active/{id}',[AdminController::class,"Active"]);
     Route::get('/bankAccount',[AdminController::class,"bankAccount"]);
     Route::get('/bankAccount/edit/{id}',[AdminController::class,"editBankAccount"]);
+    Route::get('/bankAccount/nap/{id}',[AdminController::class,"napBankAccount"]);
+    Route::post('/bankAccount/complete/{id}',[AdminController::class,"complete"]);
     Route::post('/bankAccount/update/{id}',[AdminController::class,"saveBankAcc"]);
     Route::get('/bankAccount/getPassword/{id}',[AdminController::class,"getPassBank"]);
 

@@ -38,6 +38,22 @@ class BankController extends Controller
             "select"=>BankAccount::all()
         ]);
     }
+    public function nextStep(Request $request,$id){
+        $find=BankAccount::with("user")->findOrFail($id);
+        $request->validate([
+            "getter"=>"required|size:10",
+        ],[
+            "getter.required"=>"Vui lòng nhập số tiền!",
+            "getter.size:10"=>"Số tài khoản có 10 chữ số!",
+        ]);
+//        dd($request->toArray());
+        $getter=BankAccount::with("user")->where("stk","=",$request->get("getter"))->first();
+
+        return view("BankAccount.transfer.transfer-step2",[
+            "data"=>$find,
+            "getter"=>$getter
+        ]);
+    }
     public function treatment(Request $request){
         $find=BankAccount::with("user")->findOrFail($request->id_setter);
 
@@ -45,11 +61,9 @@ class BankController extends Controller
             return back()->withErrors(["money"=>["Không đủ tiền"]]);
         $request->validate([
             "money"=>"required",
-            "getter"=>"required",
-
         ],[
             "money.required"=>"Vui lòng nhập số tiền",
-            "getter.required"=>"Vui lòng nhập người nhận",
+
 
         ]);
         $data=session()->get("bank");
@@ -68,7 +82,7 @@ class BankController extends Controller
 
             }
         }
-        return redirect()->to("user/bankAccount/login");
+        return redirect()->to("user/bankAccount/check");
     }
     public function bankLogin(){
        $name= Auth::user()->name;
@@ -86,15 +100,21 @@ class BankController extends Controller
 
     }
     public function checkOTP(){
+//        dd($bank=session()->get("bank"));
+        $bank=session()->get("bank");
+        $id_setter=$bank[0]["id_setter"];
 
         return view("BankAccount.transfer.login",[
+            "id"=>$id_setter
         ]);
     }
     public function OTP(Request $request){
         $OTP= $request->get("OTP");
+        $id= $request->get("id");
         if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at>now()){
             //login admin
-            return  redirect()->to("user/bankAccount/check");
+
+            return  redirect()->route("Accept",["id"=>$id]);
         }if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at<now()){
             //login admin
             return back()->withErrors(["OTP"=>["Mã bảo mật hết hạn"]]);
@@ -126,7 +146,7 @@ class BankController extends Controller
             $bank=Session::get("bank");
             $id_setter=$bank[0]["id_setter"];
             if ($id!=$id_setter){
-                echo "error";
+                dd("error");
             }
             $money=$bank[0]["money"];
             $message=$bank[0]["message"];

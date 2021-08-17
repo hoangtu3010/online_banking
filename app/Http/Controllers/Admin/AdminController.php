@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\BankAccount;
 use App\Models\CustomerInfo;
 use App\Models\Role;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -207,6 +208,35 @@ class AdminController extends Controller
             "data"=>$data,
             "select"=>$select
         ]);
+    }
+    public function napBankAccount($id){
+        $select=User::all();
+        $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
+            ->select("b.*","a.name as owner")
+        ->where("b.id","=",$id)->first();
+//        dd($data);
+        return view("Admin.BankAccount.bonusMoney",[
+            "data"=>$data,
+            "select"=>$select
+        ]);
+    }
+    public function complete(Request $request,$id){
+        $find=BankAccount::findOrFail($id);
+        $money = $request->get("money");
+        $balance= $find->balance;
+        $find->update([
+            "balance"=>$balance+$money
+        ]);
+        Transaction::create([
+            "content"=>"Bạn đã nạp ".$money." Từ Fox Banking" ,
+            "money"=>$money,
+            "sender"=>"Fox Banking",
+            "getter"=>$find->stk,
+            "bank_account_id"=>$find->id,
+            "created_at"=>now(),
+            "updated_at"=>now()
+        ]);
+        return view("Admin.BankAccount.success");
     }
     public function getPassBank($id){
         $get=BankAccount::findOrFail($id);
