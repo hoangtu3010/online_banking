@@ -18,7 +18,7 @@ class ResetPassWordController extends Controller
         $email = $request->email;
 
         $checkUser = User::where(
-           'email',$email
+            'email',$email
         )->first();
 
         if (!$checkUser){
@@ -47,8 +47,8 @@ class ResetPassWordController extends Controller
         $email=$request->email;
 
         $checkUser=User::where([
-           'two_factor_code'=>$code,
-           'email'=>$email
+            'two_factor_code'=>$code,
+            'email'=>$email
         ])->first();
 
         if (!$checkUser){

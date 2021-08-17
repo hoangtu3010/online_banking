@@ -44,8 +44,3 @@ Route::middleware("auth:user")->group(function (){
 
 
 });
-
-
-
-
-
