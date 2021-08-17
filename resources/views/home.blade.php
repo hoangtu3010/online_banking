@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @extends("layout")
 @section("main")
-    <h5>
-        {{Auth::user()}}
-    </h5>
+
     <div class="xxx">
         {{--{{Auth::user()->id}}
         @foreach($customers as $item)
