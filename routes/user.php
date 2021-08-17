@@ -26,11 +26,15 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
     Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
-    Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
     Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
+
+    Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
+    Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
-    Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
+
+
+
 //    Route::post("/bankAccount/loginHidden",[BankAccountController::class,"login"]);
     Route::get('/bankAccount/history/{id}',[BankController::class,"bankHistory"]);
     Route::get('/bankAccount/link',[BankController::class,"bankLink"]);

@@ -71,15 +71,15 @@ class BankController extends Controller
         return redirect()->to("user/bankAccount/login");
     }
     public function bankLogin(){
-       $name= Auth::user()->name;
-       $OTP= random_int(100000,999999);
-       $find= User::findOrFail(Auth::user()->id);
+        $name= Auth::user()->name;
+        $OTP= random_int(100000,999999);
+        $find= User::findOrFail(Auth::user()->id);
 //       dd($find->toArray());
-       $find->update([
-           "two_factor_code"=>$OTP,
-           "two_factor_expires_at"=>now()->addMinutes(5)
-       ]);
-       Mail::to(Auth::user()->email)->send(new MailNotify($name,$OTP));
+        $find->update([
+            "two_factor_code"=>$OTP,
+            "two_factor_expires_at"=>now()->addMinutes(5)
+        ]);
+        Mail::to(Auth::user()->email)->send(new MailNotify($name,$OTP));
 
 
         return redirect()->to("user/bankAccount/OTP");
@@ -193,13 +193,13 @@ class BankController extends Controller
     public function bankLinkInfo(){
         return  view("User.BankAccount.check");
     }public function bankLinkAccept(){
-        $bank_Acc_id=Session::get("bankLink")->id;
-        $id = Auth::user()->id;
+    $bank_Acc_id=Session::get("bankLink")->id;
+    $id = Auth::user()->id;
 //        dd($bank_Acc_id,$id);
-        $bank_Acc= BankAccount::findOrFail($bank_Acc_id);
-        $bank_Acc->update([
-            "user_id"=>$id
-        ]);
-        return  view("User.BankAccount.success");
-    }
+    $bank_Acc= BankAccount::findOrFail($bank_Acc_id);
+    $bank_Acc->update([
+        "user_id"=>$id
+    ]);
+    return  view("User.BankAccount.success");
+}
 }

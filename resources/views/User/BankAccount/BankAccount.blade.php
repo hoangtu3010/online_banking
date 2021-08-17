@@ -1,5 +1,6 @@
 @extends("layout")
 @section("main")
+
     @php($i = false)
     @foreach($bank as $item)
         @if($item->user_id === Auth::user()->id)
@@ -20,8 +21,8 @@
 
                             <thead>
                             <tr>
-                                <th>Stk</th>
-                                <th>Balance</th>
+                                <th>Số tài khoản</th>
+                                <th>Số dư</th>
                                 <th>Action</th>
                                 <th></th>
                             </tr>
@@ -29,10 +30,15 @@
                             <tbody>
                             @foreach($d->bankAccount as $b)
                                 <tr>
+                                    <td>{{$b->name_bank}}</td>
                                     <td>{{$b->stk}}</td>
                                     <td>{{$b->balance}}</td>
+                                    <td>
+                                        <a href="{{url("user/bankAccount/transfer",['id'=>$b->id])}}">Chuyển tiền</a>
+                                    </td>
                                     <td><a href="{{url("user/bankAccount/info",["id"=>$b->id])}}"
                                            class="btn btn-outline-success">info</a></td>
+
                                     <td><a href="{{url("user/bankAccount/history",["id"=>$b->id])}}"
                                            class="btn btn-outline-success">history</a></td>
                                 </tr>
