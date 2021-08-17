@@ -40,6 +40,28 @@
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
 
 <script>
+    let indicator = document.querySelector('.nav-indicator');
+    let items = document.querySelectorAll('.nav-link-wel');
+    function handleIndicator(el) {
+        items.forEach(function (item) {
+            item.classList.remove('is-active');
+            item.removeAttribute('style');
+        });
+        el.classList.add('is-active');
+        indicator.style.width = "".concat(el.offsetWidth, "px");
+        indicator.style.left = "".concat(el.offsetLeft, "px");
+        indicator.style.backgroundColor = el.getAttribute('active-color');
+    }
+
+    items.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+            handleIndicator(e.target);
+        });
+        item.classList.contains('is-active') && handleIndicator(item);
+    });
+</script>
+
+<script>
     scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 
     document.addEventListener("scroll", function (){

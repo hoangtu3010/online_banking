@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function welcome(){
-        $news = News::all();
+        $news = News::all()->sortDesc();
         $comment = Comment::all();
         return view("welcome.welcome", [
             "news"=>$news,
