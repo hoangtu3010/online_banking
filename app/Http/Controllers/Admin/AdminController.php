@@ -26,8 +26,8 @@ class AdminController extends Controller
     }
     public function saveRole(Request $request){
         Role::create([
-           "name"=>$request->get("name"),
-           "ranker"=>$request->get("ranker"),
+            "name"=>$request->get("name"),
+            "ranker"=>$request->get("ranker"),
         ]);
         return redirect()->to('admin/role');
     }
@@ -47,8 +47,8 @@ class AdminController extends Controller
     public function updateRole(Request $request,$id){
         $find = Role::findOrFail($id);
         $find->update([
-           "name"=>$request->get("name"),
-           "ranker"=>$request->get("ranker"),
+            "name"=>$request->get("name"),
+            "ranker"=>$request->get("ranker"),
         ]);
         return redirect()->to('admin/role');
     }
@@ -83,7 +83,7 @@ class AdminController extends Controller
             'password_confirmation' => 'required|same:password',
         ]);
         $find->update([
-           "password"=>bcrypt($request->get("password"))
+            "password"=>bcrypt($request->get("password"))
         ]);
         return redirect()->to('admin/mod');
 
@@ -144,8 +144,8 @@ class AdminController extends Controller
     public function updateCus(Request $request,$id){
         $user= User::findOrFail($id);
         $user->update([
-           "name"=>$request->get("name"),
-           "email"=>$request->get("email"),
+            "name"=>$request->get("name"),
+            "email"=>$request->get("email"),
         ]);
         $find=CustomerInfo::find($id);
         if ($find!=[])
@@ -172,7 +172,7 @@ class AdminController extends Controller
         $user= User::findOrFail($id);
         $new= random_int(10000000,99999999);
         $user->update([
-           "password"=>bcrypt($new)
+            "password"=>bcrypt($new)
         ]);
         return view("Admin.Customer.getPassUser",[
             "data"=>$user,
@@ -202,7 +202,7 @@ class AdminController extends Controller
         $select=User::all();
         $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
             ->select("b.*","a.name as owner")
-        ->where("b.id","=",$id)->first();
+            ->where("b.id","=",$id)->first();
 //        dd($data);
         return view("Admin.components.edit-bank-acc",[
             "data"=>$data,
@@ -213,7 +213,7 @@ class AdminController extends Controller
         $select=User::all();
         $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
             ->select("b.*","a.name as owner")
-        ->where("b.id","=",$id)->first();
+            ->where("b.id","=",$id)->first();
 //        dd($data);
         return view("Admin.BankAccount.bonusMoney",[
             "data"=>$data,
@@ -242,11 +242,11 @@ class AdminController extends Controller
         $get=BankAccount::findOrFail($id);
         $new=random_int(100000,999999);
         $get->update([
-           "password"=>bcrypt($new)
+            "password"=>bcrypt($new)
         ]);
         return view("Admin.BankAccount.getPassBank",[
-           "new"=>$new,
-           "data"=>$get
+            "new"=>$new,
+            "data"=>$get
         ]);
     }
     public function saveBankAcc(Request $request,$id){

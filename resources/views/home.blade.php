@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @extends("layout")
 @section("main")
+    <h5>
+        {{Auth::user()}}
+    </h5>
     <div class="xxx">
         {{--{{Auth::user()->id}}
         @foreach($customers as $item)
@@ -34,13 +37,13 @@
 
                 <div class="col-md-2 home_home" >
                     <div class="onaji">
-                        <a href="" class="home_home_a">
+                        <a href="{{url('user/saveMoney')}}" class="home_home_a">
                             <div class="home_change" >
                                 <div class="home_change_icon">
                                     <i style="margin-top: 20px" class="fas fa-exchange-alt"></i>
                                 </div>
                                 <div class="home_change_title">
-                                    Change 24/7
+                                    Gửi tiết kiệm
                                 </div>
                             </div>
 
