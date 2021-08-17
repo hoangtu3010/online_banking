@@ -106,7 +106,7 @@
             <img src="{{url("imgs/logo.png")}}" width="100" height="100" alt="logo">
         </div>
         <div class="card">
-            <div class="card login-card-body">
+            <div class="card login-card-body" style="background-color: #edf2f7;color: black">
                 <p class="login-box-msg">Sign in to your account</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf

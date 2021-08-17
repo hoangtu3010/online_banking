@@ -15,6 +15,7 @@ class BankAccount extends Authenticatable
     protected $guarded="bank";
 
     protected $fillable = [
+        'name_bank',
         "stk",
         "balance",
         "status",

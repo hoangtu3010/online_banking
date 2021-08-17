@@ -14,7 +14,6 @@
                 <lable>Mã bảo mật:</lable>
                 <a href="{{ url("admin/bankAccount/getPassword",["id"=>$data->id]) }}" class="btn btn-outline-primary ">Lấy
                     lại mã bảo mật</a>
-
             </div>
 
             <div class="form-group">

@@ -258,11 +258,15 @@ class AdminController extends Controller
         ]);
         return redirect()->to("admin/bankAccount");
     }
+
+
+
+
     public function createBank(){
         $get = BankAccount::all("stk","id")->max("stk");
         $random=random_int("100000","999999");
         $data = BankAccount::create([
-           "stk"=> $get+1,
+            "stk"=> $get+1,
             "password"=>bcrypt($random),
             "balance"=>$random,
             "status"=>"Inactive",
@@ -277,6 +281,6 @@ class AdminController extends Controller
         $get->update([
             "status"=>"Active"
         ]);
-         return redirect()->to("admin");
+        return redirect()->to("admin");
     }
 }
