@@ -32,6 +32,7 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/saveMoney/end/{id}',[SaveMoneyController::class,'end'])->name('end');
 
 
+    Route::get('/saveMoney/save',[SaveMoneyController::class,'save']);
 
 
 
@@ -41,24 +42,17 @@ Route::middleware("auth:user")->group(function (){
 
 
 
-    Route::post('/saveMoney/confirm/{id}',[SaveMoneyController::class,'confirm']);
-
-
-
-
+   // Route::post('/saveMoney/confirm/{id}',[SaveMoneyController::class,'confirm']);
 
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
-
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
     Route::post('/bankAccount/next-step/{id}',[BankController::class,"nextStep"]);
     Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
-
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
     Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
     Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
-
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"])->name("Accept");
 
 //    Route::post("/bankAccount/loginHidden",[BankAccountController::class,"login"]);

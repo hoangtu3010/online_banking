@@ -105,9 +105,9 @@ class SaveMoneyController extends Controller
            //dd($saveMoney);
            $dola= $saveMoney[0]['money'];
            //dd($dola);
-           $id_x=$saveMoney[0]['id'];
+           $id_saveMoney=$saveMoney[0]['id'];
            //dd($id_x);
-           if ($id_x==$id){
+           if ($id_saveMoney==$id){
                $cat->update([
                    $cat->balance=$cat->balance-$dola
                ]);
@@ -123,53 +123,11 @@ class SaveMoneyController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*public function confirm(Request $request,$id){
-        $name=$request->name;
-        $money=$request->money;
-        $time=$request->time;
-        return view('User.SaveMoney.showComfirm',[
-           'name'=>$name,
-           'money'=>$money,
-           'time'=>$time,
-        ]);
-    }*/
-
-
-   /* public function add(Request $request){
-
-
-
-        SaveMoney::create([
-            'bankAcc_id'=>$id,
-            'stk'=>$nameBank,
-            'money'=>$money,
-            'timeSave'=>$time,
-            'code'=>random_int('1','9')
-        ]);
-        $cat->update([
-           'balance'=>$cat->balance-$money
-        ]);
-
-
-        return 'thanh cong';
-
-    }*/
+    public function save(){
+       $save= SaveMoney::all();
+       return view('User.SaveMoney.Save.save',[
+           'save'=>$save
+       ]);
+    }
 
 }

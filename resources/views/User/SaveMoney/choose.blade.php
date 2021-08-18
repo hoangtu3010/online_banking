@@ -17,9 +17,6 @@
                 <label for="">Số dư</label>
                 <input type="text" name="balance" value="{{$bank->balance}}"  >
             </div>
-
-
-
             <input type="text" name="money" placeholder="Nhập số tiền ...">
             <p class="text-red ">{{ $errors->first('money') }}</p>
             <select name="time" id="">

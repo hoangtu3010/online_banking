@@ -21,7 +21,7 @@
                 <div>
                     <div class="saveMoney">
                         <div class="saveMoney_01">
-                            <a class="saveMoney_01_01" href=""><h4>Số tiền đang gửi</h4> </a>
+                            <a class="saveMoney_01_01" href="{{url('user/saveMoney/save')}}"><h4>Số tiền đang gửi</h4> </a>
                         </div>
                     </div>
                 </div>
