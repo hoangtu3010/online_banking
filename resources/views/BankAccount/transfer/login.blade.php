@@ -8,7 +8,6 @@
                     <input hidden type="text" name="id" value="{{$id}}" class="form-control">
                     <label for=""> Your OTP:</label>
                     <input type="text" name="OTP" class="form-control">
-
                     <p class="text-red ">{{ $errors->first('pass') }}</p>
 
                     <button type="submit" class="btn btn-outline-primary">submit</button>

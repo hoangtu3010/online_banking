@@ -23,6 +23,7 @@ return array(
     'App\\Http\\Controllers\\CustomerInfoController' => $baseDir . '/app/Http/Controllers/CustomerInfoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ResetPassWordController' => $baseDir . '/app/Http/Controllers/ResetPassWordController.php',
+    'App\\Http\\Controllers\\SaveMoneyController' => $baseDir . '/app/Http/Controllers/SaveMoneyController.php',
     'App\\Http\\Controllers\\User\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/User/Auth/LoginController.php',
     'App\\Http\\Controllers\\User\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/User/Auth/RegisterController.php',
     'App\\Http\\Controllers\\WelcomeController' => $baseDir . '/app/Http/Controllers/WelcomeController.php',

@@ -46,7 +46,7 @@ class BankController extends Controller
             "getter.required"=>"Vui lòng nhập số tiền!",
             "getter.size:10"=>"Số tài khoản có 10 chữ số!",
         ]);
-//        dd($request->toArray());
+       //dd($request->toArray());
         $getter=BankAccount::with("user")->where("stk","=",$request->get("getter"))->first();
 
         return view("BankAccount.transfer.transfer-step2",[
@@ -56,15 +56,12 @@ class BankController extends Controller
     }
     public function treatment(Request $request){
         $find=BankAccount::with("user")->findOrFail($request->id_setter);
-
         if ($request->money>$find->balance)
             return back()->withErrors(["money"=>["Không đủ tiền"]]);
         $request->validate([
             "money"=>"required",
         ],[
             "money.required"=>"Vui lòng nhập số tiền",
-
-
         ]);
         $data=session()->get("bank");
         if ($request->toArray()!=[]){
@@ -79,22 +76,39 @@ class BankController extends Controller
                 $data=session()->get("bank");
                 $data[]=$request->all();
                 Session::put("bank",$data);
-
             }
         }
         return redirect()->to("user/bankAccount/check");
+    }
+    public function bankChecker(){
+        if (Session::has("bank")) {
+            $bank=Session::get("bank");
+            $id_setter=$bank[0]["id_setter"];
+            $getter=$bank[0]["getter"] ;
+            $message=$bank[0]["message"] ;
+            $setter= BankAccount::findOrFail($id_setter);
+            $getter = BankAccount::all()->where("stk","=",$getter)->first();
+            $money=$bank[0]["money"];
+        }else{
+            return redirect()->back();
+        }
+        return view("BankAccount.transfer.check",[
+            "money"=>$money,
+            "message"=>$message,
+            "data"=>$setter,
+            "getter"=>$getter
+        ]);
     }
     public function bankLogin(){
         $name= Auth::user()->name;
         $OTP= random_int(100000,999999);
         $find= User::findOrFail(Auth::user()->id);
-//       dd($find->toArray());
+/*      dd($find->toArray());*/
         $find->update([
             "two_factor_code"=>$OTP,
             "two_factor_expires_at"=>now()->addMinutes(5)
         ]);
         Mail::to(Auth::user()->email)->send(new MailNotify($name,$OTP));
-
 
         return redirect()->to("user/bankAccount/OTP");
 
@@ -103,7 +117,6 @@ class BankController extends Controller
 //        dd($bank=session()->get("bank"));
         $bank=session()->get("bank");
         $id_setter=$bank[0]["id_setter"];
-
         return view("BankAccount.transfer.login",[
             "id"=>$id_setter
         ]);
@@ -121,26 +134,10 @@ class BankController extends Controller
         }
         return back()->withErrors(["OTP"=>["Sai mã bảo mật"]]);
     }
-    public function bankChecker(){
-        if (Session::has("bank")) {
-            $bank=Session::get("bank");
-//            dd($bank);
-            $id_setter=$bank[0]["id_setter"];
-            $getter=$bank[0]["getter"] ;
-            $message=$bank[0]["message"] ;
-            $setter= BankAccount::findOrFail($id_setter);
-            $getter = BankAccount::all()->where("stk","=",$getter)->first();
-            $money=$bank[0]["money"];
-        }else{
-            return redirect()->back();
-        }
-        return view("BankAccount.transfer.check",[
-            "money"=>$money,
-            "message"=>$message,
-            "data"=>$setter,
-            "getter"=>$getter
-        ]);
-    }
+
+
+
+
     public function bankAccept($id){
         if (Session::has("bank")) {
             $bank=Session::get("bank");

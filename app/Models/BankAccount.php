@@ -35,5 +35,8 @@ class BankAccount extends Authenticatable
     public function Transactions(){
         return $this->hasMany(Transaction::class);
     }
+    public function SaveMoney(){
+        return $this->hasMany(SaveMoney::class);
+    }
 
 }
