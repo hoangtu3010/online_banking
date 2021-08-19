@@ -124,9 +124,11 @@ class BankController extends Controller
     public function OTP(Request $request){
         $OTP= $request->get("OTP");
         $id= $request->get("id");
+        $find= BankAccount::findOrFail($id);
         if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at>now()){
-            //login admin
-
+            if($find->status!="Active"){
+                return back()->withErrors(["OTP"=>["Thẻ đã bị đóng băng"]]);
+            }
             return  redirect()->route("Accept",["id"=>$id]);
         }if (Auth::user()->two_factor_code==$OTP && Auth::user()->two_factor_expires_at<now()){
             //login admin
