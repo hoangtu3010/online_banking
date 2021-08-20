@@ -168,11 +168,12 @@ class SaveMoneyController extends Controller
         $h = $timepass/(60*60);//số giờ từ lúc gửi đến hiện tại
 
 
-        $after = $money;
+        $after = $money;// tiền cộng dồn sau lãi
+        $afterhd =$money;//tiền cộng dồn sau lãi có hợp dồng
         $lai=0;
-        $laicc=0;
+        $laihd=0;
         //if (0<$timestamp&&$timestamp<$total3th){
-        if (0<$timestamp){
+        if (0<$timestamp ){
             for ($i=0;$i<$h;$i++){
                 $lai += $after*1/100;
                 $after = $money+$lai;
@@ -180,26 +181,25 @@ class SaveMoneyController extends Controller
         }
 
         //if ($timestamp>$total3th&&$package==='3 tháng'){
-            if ($package==='3 tháng'){
-                //dd($h3th);
+        if ($package==='3 tháng'){
             for ($i=0;$i<$h;$i++){
-                $laicc += $after*3/100;
-                $after = $money+$laicc;
+                $laihd += $afterhd*3/100;
+                $afterhd = $money+$laihd;
             }
         }
        // if ($timestamp>$total6th&&$package==='6 tháng'){
         if ($package==='6 tháng'){
             for ($i=0;$i<$h;$i++){
-                $laicc += $after*6/100;
-                $after = $money+$laicc;
+                $laihd += $afterhd*6/100;
+                $afterhd = $money+$laihd;
 
             }
         }
         //if ($timestamp>$total1y&&$package==='1 năm'){
         if ($package==='1 năm'){
             for ($i=0;$i<$h;$i++){
-                $laicc += $after*12/100;
-                $after = $money+$laicc;
+                $laihd += $afterhd*12/100;
+                $afterhd = $money+$laihd;
             }
         }
 
@@ -208,7 +208,7 @@ class SaveMoneyController extends Controller
             'cat'=>$cat,
             'h'=>$h,
             'lai'=>$lai,
-            'laicc'=>$laicc
+            'laicc'=>$laihd
         ]);
     }
 }

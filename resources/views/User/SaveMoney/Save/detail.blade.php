@@ -11,10 +11,16 @@
             </div>
             <div class="col-md-6">
                 kết quả
-                <h4>Thời gian từ lúc gửi tiền :{{$h}} giờ </h4>
-                <h4>Số tiền lãi nếu chưa hoàn thành gói đăng kí : {{$lai}}</h4>
-                <h7>Tiền lãi là : 1/100/giờ </h7>
-                <h4>Số tiền lãi nếu hoàn thành gói đăng kí:{{$laicc}}</h4>
+                <form action="">
+                    <h4>Thời gian từ lúc gửi tiền :{{$h}} giờ </h4>
+                    <h5 style="color: red">Số tiền lãi hiện tại : {{$lai}}</h5>
+\
+
+                    <h7>Tiền lãi là : 1/100/giờ </h7>
+                    <button class="btn btn-outline-primary">Rút tiền</button>
+
+                    <h4 style="color:green">Số tiền lãi nếu hoàn thành gói đăng kí:{{$laicc}}</h4>
+                </form>
             </div>
         </div>
     </div>
