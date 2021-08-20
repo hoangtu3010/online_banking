@@ -132,60 +132,73 @@ class SaveMoneyController extends Controller
     public function watch($id){
         $cat = SaveMoney::findOrFail($id);
         $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
-        $time = $cat['timeSave'];
-       // dd($cat);
-        $timeSave = $cat['created_at']; //thời gian cũ
-        $totalS = strtotime($timeSave);//tổng số giây thời gian cũ .
-
-        $time3th=  date_modify($timeSave,'+3month');//thời gian cũ công thêm 3 tháng
-        $total3th = strtotime($time3th);///sô giây từ thời gian cộng thêm 3 tháng
-
-
-
-        $time6th=  date_modify($timeSave,'+6month');//thời gian cũ công thêm 6 tháng
-        $total6th = strtotime($time6th);//sô giây từ thời gian cộng thêm 6 tháng
-
-        $time1y=  date_modify($timeSave,'+1year');//thời gian cũ công thêm 1 năm
-        $total1y = strtotime($time1y);//sô giây từ thời gian cộng thêm 1 năm
-       // dd($totalS);
+        $package = $cat['timeSave'];//gói thời gian gửi
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $timestamp =time();//số giây đến thời điểm hiện tại
-
+        $timeSave = $cat['created_at']; //thời gian cũ
+        $totalS = strtotime($timeSave);//tổng số giây thời gian cũ .
+        $timestamp =time();//số giây đến thời điểm hiện tại;
         $timepass = $timestamp-$totalS;//hiệu số giây của thời gian hiện tại và thời gian lưu
+       // dd($timeSave);
+        //dd($timepass);
+
+        $time3th =  date_modify($timeSave,'+3 hours');//thời gian cũ công thêm 3 tháng
+        $total3th = strtotime($time3th);///sô giây từ thời gian cộng thêm 3 tháng
+        $timepass3th=$total3th - $totalS;//so giây khi tăng 3 tháng - số giây lúc lưu
+        $h3th = $timepass3th/(60*60);//số giờ từ lúc gủi đến thời gian 3 h
+        //dd($time3th);
+        //dd($timepass3th);
+
+        $time6th=  date_modify($timeSave,'+3 hours');//thời gian cũ công thêm 6 tháng
+        $total6th = strtotime($time6th);//sô giây từ thời gian cộng thêm 6 tháng
+        $timepass6th=$total6th-$totalS;//so giây khi tăng 6 tháng - số giây lúc lưu
+        $h6th = $timepass6th/(60*60);//số giờ từ lúc gủi đến thời gian 6 h
+        //dd($time6th);
+        //dd($timepass6th);
+//
+        $time1y=  date_modify($timeSave,'+6 hours');//thời gian cũ công thêm 1 năm
+        $total1y = strtotime($time1y);//sô giây từ thời gian cộng thêm 1 năm
+        $timepass1y=$total1y-$totalS;//so giây khi tăng 1 năm - số giây lúc lưu
+        $h1y = $timepass1y/(60*60);//số giờ từ lúc gủi đến thời gian 1 h
+        //dd($time1y);
+        //dd($timepass1y);
 
 
 
+        $h = $timepass/(60*60);//số giờ từ lúc gửi đến hiện tại
 
 
-        $h = $timepass/(60*60);//29h
         $after = $money;
         $lai=0;
         $laicc=0;
-
-        if (0<$timestamp&&$timestamp<$total3th){
-            for ($i=0;$i<3;$i++){
+        //if (0<$timestamp&&$timestamp<$total3th){
+        if (0<$timestamp){
+            for ($i=0;$i<$h;$i++){
                 $lai += $after*1/100;
                 $after = $money+$lai;
             }
         }
 
+        //if ($timestamp>$total3th&&$package==='3 tháng'){
+            if ($package==='3 tháng'){
+                //dd($h3th);
+            for ($i=0;$i<$h;$i++){
+                $laicc += $after*3/100;
+                $after = $money+$laicc;
+            }
+        }
+       // if ($timestamp>$total6th&&$package==='6 tháng'){
+        if ($package==='6 tháng'){
+            for ($i=0;$i<$h;$i++){
+                $laicc += $after*6/100;
+                $after = $money+$laicc;
 
-        if ($timestamp>$total3th&&$time==='3 tháng'){
-            for ($i=0;$i<3;$i++){
-                $laicc += $after*3/100;
-                $after = $money+$laicc;
             }
         }
-        if ($timestamp>$total6th&&$time==='6 tháng'){
-            for ($i=0;$i<3;$i++){
-                $laicc += $after*3/100;
-                $after = $money+$laicc;
-            }
-        }
-        if ($timestamp>$total1y&&$time==='1 năm'){
-            for ($i=0;$i<3;$i++){
-                $laicc += $after*3/100;
+        //if ($timestamp>$total1y&&$package==='1 năm'){
+        if ($package==='1 năm'){
+            for ($i=0;$i<$h;$i++){
+                $laicc += $after*12/100;
                 $after = $money+$laicc;
             }
         }
@@ -197,8 +210,6 @@ class SaveMoneyController extends Controller
             'lai'=>$lai,
             'laicc'=>$laicc
         ]);
-
     }
-
 }
 
