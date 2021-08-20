@@ -5,16 +5,14 @@ use App\Http\Controllers\CustomerInfoController;
 use App\Http\Controllers\Bank\BankController;
 use App\Http\Controllers\Bank\Auth\BankAccountController;
 use App\Http\Controllers\User\Auth\LoginController;
+use App\Http\Controllers\SaveMoneyController;
 
 
 Route::middleware("auth:user")->group(function (){
 
     Route::get('/',[HomeController::class,'homeCustomer']);
 
-    Route::get('/profile', function (){
-        return view("profile.show");
-    });
-
+    Route::get('/profile', function (){return view("profile.show");});
     Route::get('/customer',[CustomerInfoController::class,'CustomerInfo']);
     Route::get('/customer/edit/{id}',[CustomerInfoController::class,'edit']);
     Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);
@@ -22,15 +20,42 @@ Route::middleware("auth:user")->group(function (){
 
 
 
+
+    Route::get('/saveMoney',[SaveMoneyController::class,'show']);
+    Route::get('/saveMoney/select',[SaveMoneyController::class,'selectBank']);
+    Route::get('/saveMoney/choose/{id}',[SaveMoneyController::class,'choose']);
+    Route::post('/saveMoney/thongtin/{id}',[SaveMoneyController::class,'thongtin']);
+    Route::get('/saveMoney/check',[SaveMoneyController::class,'checkSave']);
+    Route::get('/saveMoney/otp',[SaveMoneyController::class,'otp']);
+    Route::get('/saveMoney/checkOtp',[SaveMoneyController::class,'checkOtp']);
+    Route::post('/saveMoney/action',[SaveMoneyController::class,'action']);
+    Route::get('/saveMoney/end/{id}',[SaveMoneyController::class,'end'])->name('end');
+
+
+    Route::get('/saveMoney/save',[SaveMoneyController::class,'save']);
+    Route::get('/saveMoney/watch/{id}',[SaveMoneyController::class,'watch']);
+
+
+
+
+
+
+
+
+
+   // Route::post('/saveMoney/confirm/{id}',[SaveMoneyController::class,'confirm']);
+
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
+    Route::post('/bankAccount/next-step/{id}',[BankController::class,"nextStep"]);
     Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
-    Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
-    Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
-    Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
+    Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
+    Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
     Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
+    Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"])->name("Accept");
+
 //    Route::post("/bankAccount/loginHidden",[BankAccountController::class,"login"]);
     Route::get('/bankAccount/history/{id}',[BankController::class,"bankHistory"]);
     Route::get('/bankAccount/link',[BankController::class,"bankLink"]);
@@ -43,8 +68,3 @@ Route::middleware("auth:user")->group(function (){
 
 
 });
-
-
-
-
-

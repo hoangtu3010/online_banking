@@ -22,17 +22,19 @@ header{
     padding:0;
 }
 
-.nav-header-welcome .nav-item .nav-link{
+#nav-welcome .nav-item .nav-link-wel{
     color: #212558;
+    position: relative;
     font-weight: 650;
     font-size: 1.1em;
     margin-left: 30px;
     transition: .2s;
 }
 
-.nav-header-welcome .nav-item .nav-link:hover{
-    color: #00b4da;
+.is-active, .nav-link-wel:hover{
+    color: #00b4da!important;
 }
+
 
 .btn-in-up{
     margin-top: 15px;

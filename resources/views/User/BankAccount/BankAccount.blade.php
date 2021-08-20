@@ -22,7 +22,7 @@
                             <tr>
                                 <th>Stk</th>
                                 <th>Balance</th>
-                                <th>Action</th>
+                                <th colspan="2">Action</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -32,7 +32,9 @@
                                     <td>{{$b->stk}}</td>
                                     <td>{{$b->balance}}</td>
                                     <td><a href="{{url("user/bankAccount/info",["id"=>$b->id])}}"
-                                           class="btn btn-outline-success">info</a></td>
+                                           class="btn btn-outline-success">info</a>
+                                        <a href="{{url("user/bankAccount/transfer",["id"=>$b->id])}}"
+                                           class="btn btn-outline-success">transfer</a></td>
                                     <td><a href="{{url("user/bankAccount/history",["id"=>$b->id])}}"
                                            class="btn btn-outline-success">history</a></td>
                                 </tr>

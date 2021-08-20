@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterColumnCodeAndTimeCodeInTableUsers extends Migration
+class UpdateTableBankAccount extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AlterColumnCodeAndTimeCodeInTableUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('two_factor_code')->nullable()->index();
-            $table->dateTime('two_factor_expires_at')->nullable();
+        Schema::table('bank_account', function (Blueprint $table) {
+            $table->string('name_bank')->after('id')->nullable();
         });
     }
 
@@ -24,11 +23,10 @@ class AlterColumnCodeAndTimeCodeInTableUsers extends Migration
      *
      * @return void
      */
-
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('code','time_code');
+        Schema::table('bank_account', function (Blueprint $table) {
+            $table->dropColumn('bank_account');
         });
     }
 }

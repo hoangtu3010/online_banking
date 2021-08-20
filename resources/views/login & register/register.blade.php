@@ -1,157 +1,92 @@
 <!doctype html>
 <html lang="en">
 <x-head/>
-
-<style>
-    body {
-        background-color: #383f48 !important;
-    }
-
-    .card {
-        background-color: #272c33;
-        color: #ecf1f3;
-    }
-
-    .login-card-body {
-
-    }
-
-    .login-box-msg {
-        margin: 15px 0;
-        font-size: 20px;
-    }
-
-    .form-material {
-        background-color: rgba(0, 0, 0, 0);
-        background-position: center bottom, center calc(100% - 2px);
-        background-repeat: no-repeat;
-        border-top: none;
-        border-left: none;
-        border-bottom: 1px solid #95a5a6;
-        color: #000915;
-        background-size: 0 2px, 100% 1px;
-        transition: background 0s ease-out 0s;
-    }
-
-    .form-material:focus {
-        background-image: linear-gradient(rgb(32, 174, 227), rgb(32, 174, 227)), linear-gradient(rgb(56, 63, 72), rgb(56, 63, 72));
-        box-shadow: none;
-        float: none;
-        background-size: 100% 2px, 100% 1px;
-        outline: 0 none;
-        transition-duration: 0.3s;
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    label:not(.form-check-label):not(.custom-file-label) {
-        font-weight: 500;
-    }
-
-    .icheck-info {
-        font-size: 14px;
-    }
-
-    .login-box {
-        width: 410px;
-        padding-bottom: 125px;
-    }
-
-    .forgot-pass {
-        margin: 25px 0;
-    }
-
-    .forgot-pass a {
-        color: #fff;
-    }
-
-    .forgot-pass a:hover {
-        color: #3D3D3D;
-    }
-
-    .sign-up{
-        padding-top: 30px;
-        font-size: 14px;
-        align-content: center;
-    }
-
-    .login-background{
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -999;
-        position: fixed;
-    }
-
-    .login-img-left{
-        position: absolute;
-        left: 0;
-        width: 30%;
-        bottom: -30px;
-        z-index: -99;
-    }
-
-    .login-img-right{
-        position: absolute;
-        right: 0;
-        max-width: 52%;
-        z-index: -99;
-    }
-
-</style>
-
+<link rel="stylesheet" href="{{asset("css/in-up-style.css")}}">
 <body class="login-page" style="min-height: 496.8px">
-    <div class="login-box">
-        <div class="login-logo">
-            <img src="{{url("imgs/logo.png")}}" width="100" height="100" alt="logo">
+<div class="container-fluid">
+    <div class="row">
+        <div class="bgr-left col-md-8">
+            <div class="sign-in-up">
+                <a href="{{route("login")}}" class="switcher-in-up">
+                    Login
+                </a>
+                <a href="{{route("register")}}" class="switcher-in-up">
+                    Sign Up
+                </a>
+            </div>
+            <div class="fxt-intro">
+                <div class="sub-text">
+                    Welcome
+                </div>
+                <h1><span style="color: #333">Fox</span> <i style="color: #f8911c">Banking</i></h1>
+            </div>
         </div>
-        <div class="card">
+        <div class="col-md-4">
             <div class="card login-card-body">
-                <p class="login-box-msg">Sign in to your account</p>
-                <form method="POST" action="{{ route('register') }}">
+                <div class="login-logo">
+                    <img src="{{url("imgs/logo.png")}}" width="100" height="100" alt="logo">
+                </div>
+                <form id="form_in_up" class="needs-validation" action="{{ route('register')}}" method="POST" novalidate>
                     @csrf
                     <div class="input-group mb-3">
                         <input name="name" type="text" class="form-control form-material" placeholder="Name" required autofocus autocomplete="name">
+                        <i class="fas fa-user"></i>
+                        <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                            Please enter name.
+                        </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input name="email" type="email" class="form-control form-material" placeholder="Email" required>
+                        <input name="email" type="email" class="form-control form-material" placeholder="Email"
+                               required>
+                        <i class="fa fa-envelope"></i>
+                        <div class="invalid-feedback" style="position: absolute; bottom: -20px">
+                            Please enter email.
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input name="password" type="password" class="form-control form-material"
+                               placeholder="Password" required autocomplete="new-password">
+                        <i class="fas fa-lock"></i>
+                        <div class="invalid-feedback" style="position: absolute; bottom: -25px">
+                            Please enter password.
+                        </div>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group mb-3">
-                            <input name="password" type="password" class="form-control form-material"
-                                   placeholder="Password" required
-                                   autocomplete="new-password"
-                            >
+                            <input name="password_confirmation" type="password" class="form-control form-material" placeholder="Confirm Password" required autocomplete="new-password">
+                            <i class="fas fa-check-circle"></i>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input name="password_confirmation" type="password" class="form-control form-material" placeholder="Confirm Password" required autocomplete="new-password">
-                    </div>
+                    @if($errors->any())
+                        <h4 class="text-red">{{$errors->first()}}</h4>
+                    @endif
                     <div class="row">
-                        <div class="col-12">
-                            <div class="icheck-info">
-                                <input name="remember" type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12" style="padding: 40px 0 10px 0">
-                            <button type="submit" class="btn btn-info btn-block">Register</button>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn button-in-up btn-block">Sign Up</button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="login-background">
-            <div class="login-img-left">
-                <img src="https://midnight.growcrm.io/public/images/login-1.png" class="login-images">
-            </div>
-            <div class="login-img-right">
-                <img src="https://midnight.growcrm.io/public/images/login-2.png" alt="login-images">
+            <div class="social-icon-in-up">
+                <ul class="nav justify-content-around">
+                    <li class="nav-item">
+                        <a class="social-icon-in-up" href=""><i class="ion-social-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="social-icon-in-up" href=""><i class="ion-social-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="social-icon-in-up" href=""><i class="ion-social-instagram"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="social-icon-in-up" href=""><i class="ion-social-snapchat"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 </body>
 <x-script/>
 </html>

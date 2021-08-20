@@ -6,19 +6,19 @@
                     <img src="{{ url('imgs/logo.png') }}" alt="logo"> <span><i style="color: #333; font-weight: 500; font-size: 1.2em">Fox</i> <i style="color: #95a5a6; font-weight: 400; font-size: 1.2em">Banking</i></span>
                 </a>
             </div>
-            <div class="col-md-7 nav-header-welcome" style="margin-top: 10px">
-                <ul class="nav justify-content-end">
+            <div class="col-md-7" style="margin-top: 10px">
+                <ul id="nav-welcome" class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{url("/")}}">Home</a>
+                        <a class="nav-link nav-link-wel" aria-current="page" href="{{url("/")}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url("/blog")}}">Blog</a>
+                        <a class="nav-link nav-link-wel" href="{{url("/blog")}}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url("/about-us")}}">About Us</a>
+                        <a class="nav-link nav-link-wel" href="{{url("/about-us")}}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url("/contact-us")}}">Contact Us</a>
+                        <a class="nav-link nav-link-wel" href="{{url("/contact-us")}}">Contact Us</a>
                     </li>
                 </ul>
             </div>

@@ -18,7 +18,7 @@
             @else
                 <h3>Chưa liên kết account</h3>
             @endif
-            <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount/accept",["id"=>$data->id])}}">Accept</a></p>
+            <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount/login")}}">Accept</a></p>
             <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount")}}">Home</a></p>
         </div>
     </div>

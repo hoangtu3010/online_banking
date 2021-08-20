@@ -40,6 +40,29 @@
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
 
 <script>
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll(".switcher-in-up")
+    const menuLength = menuItem.length;
+    for (let i=0; i<menuLength; i++){
+        if (menuItem[i].href === currentLocation){
+            menuItem[i].className += " active-in-up"
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll(".nav-link-wel")
+    const menuLength = menuItem.length;
+    for (let i=0; i<menuLength; i++){
+        if (menuItem[i].href === currentLocation){
+            menuItem[i].className += " is-active"
+        }
+    }
+
+</script>
+
+<script>
     scrollToTopBtn = document.querySelector("#scrollToTopBtn");
 
     document.addEventListener("scroll", function (){

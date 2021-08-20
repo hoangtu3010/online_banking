@@ -18,7 +18,7 @@ class ResetPassWordController extends Controller
         $email = $request->email;
 
         $checkUser = User::where(
-           'email',$email
+            'email',$email
         )->first();
 
         if (!$checkUser){
@@ -26,10 +26,10 @@ class ResetPassWordController extends Controller
         }
 
         $code = bcrypt(md5(time().$email));
-        $checkUser->time_code=Carbon::now();
+        $checkUser->two_factor_expires_at=Carbon::now();
         $checkUser->save();
 
-        $url =route('resetPass',['code'=>$checkUser->code,'email'=>$email]);
+        $url =route('resetPass',['code'=>$checkUser->two_factor_code,'email'=>$email]);
 
         $data=[
             'route'=>$url
@@ -47,8 +47,8 @@ class ResetPassWordController extends Controller
         $email=$request->email;
 
         $checkUser=User::where([
-           'code'=>$code,
-           'email'=>$email
+            'two_factor_code'=>$code,
+            'email'=>$email
         ])->first();
 
         if (!$checkUser){
@@ -61,7 +61,7 @@ class ResetPassWordController extends Controller
         $code =$request->code;
         $email = $request->email;
         $checkUser= User::where([
-            "code"=>$code,
+            "two_factor_code"=>$code,
             "email"=>$email
         ])->first();
 

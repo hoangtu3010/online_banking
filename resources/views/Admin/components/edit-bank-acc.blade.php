@@ -14,12 +14,12 @@
                 <lable>Mã bảo mật:</lable>
                 <a href="{{ url("admin/bankAccount/getPassword",["id"=>$data->id]) }}" class="btn btn-outline-primary ">Lấy
                     lại mã bảo mật</a>
-
             </div>
 
             <div class="form-group">
                 <lable>Số dư:</lable>
-                <input type="text" name="balance" class="form-control" value="{{$data->balance}}">
+                <input type="text" name="balance" class="form-control" value="{{$data->balance}}" disabled>
+                <a href="{{url("admin/bankAccount/nap",["id"=>$data->id])}}" class="btn btn-outline-success">Nạp tiền</a>
             </div>
             <div class="form-group">
                 <lable>Người liên kết:</lable>
@@ -54,7 +54,6 @@
             </div>
             <br>
             <button type="submit" class="btn btn-outline-success">Save</button>
-            <a href="#" class="btn btn-outline-danger">Xóa tài khoản</a>
 
         </form>
     </div>

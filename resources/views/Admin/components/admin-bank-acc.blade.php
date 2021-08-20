@@ -3,10 +3,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Bank account</th>
-            <th>Balance</th>
-            <th>Status</th>
-            <th>Owner</th>
+            <th>Số tài khoản</th>
+            <th>Số dư</th>
+            <th>Trạng thái</th>
+            <th>Người liên kết</th>
             <th colspan="2">Action</th>
             <th></th>
         </tr>
