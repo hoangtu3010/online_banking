@@ -131,6 +131,7 @@ class SaveMoneyController extends Controller
     }
     public function watch($id){
         $cat = SaveMoney::findOrFail($id);
+
         $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
         $package = $cat['timeSave'];//gói thời gian gửi
 
@@ -172,44 +173,59 @@ class SaveMoneyController extends Controller
         $afterhd =$money;//tiền cộng dồn sau lãi có hợp dồng
         $lai=0;
         $laihd=0;
+
         //if (0<$timestamp&&$timestamp<$total3th){
         if (0<$timestamp ){
-            for ($i=0;$i<$h;$i++){
+            for ($i=0;$i<3;$i++){
                 $lai += $after*1/100;
                 $after = $money+$lai;
             }
         }
-
         //if ($timestamp>$total3th&&$package==='3 tháng'){
-        if ($package==='3 tháng'){
-            for ($i=0;$i<$h;$i++){
+        if ($package==='3 giờ'){
+            for ($i=0;$i<3;$i++){
                 $laihd += $afterhd*3/100;
                 $afterhd = $money+$laihd;
             }
         }
        // if ($timestamp>$total6th&&$package==='6 tháng'){
-        if ($package==='6 tháng'){
-            for ($i=0;$i<$h;$i++){
+        if ($package==='6 giờ'){
+            for ($i=0;$i<3;$i++){
                 $laihd += $afterhd*6/100;
                 $afterhd = $money+$laihd;
 
             }
         }
         //if ($timestamp>$total1y&&$package==='1 năm'){
-        if ($package==='1 năm'){
-            for ($i=0;$i<$h;$i++){
+        if ($package==='12 giờ'){
+            for ($i=0;$i<3;$i++){
                 $laihd += $afterhd*12/100;
                 $afterhd = $money+$laihd;
             }
         }
 
-
         return view('User.SaveMoney.Save.detail',[
             'cat'=>$cat,
             'h'=>$h,
             'lai'=>$lai,
-            'laicc'=>$laihd
+            'laicc'=>$laihd,
+            "now"=>$timestamp,
         ]);
+    }
+    public function comebackMoney(Request $request,$id){
+        $cat = SaveMoney::findOrFail($id);
+        $bankAcc_id = $cat['bankAcc_id'];
+        $bankAcc = BankAccount::findOrfail($bankAcc_id);
+        $balance = $bankAcc['balance'];
+        //dd($bankAcc->toArray());
+        $lai = $request->__get('lai');
+        $von = $request->__get('von');
+        $bankAcc->update([
+           'balance'=>$balance+$lai+$von
+        ]);
+        $cat->delete();
+        return view('User.SaveMoney.Save.comeback');
+
     }
 }
 

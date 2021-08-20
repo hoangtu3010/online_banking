@@ -19,9 +19,9 @@
             <p class="text-red ">{{ $errors->first('money') }}</p>
             <select name="time" id="">
                 <option >Chọn thời gian gửi</option>
-                <option >3 tháng</option>
-                <option >6 tháng</option>
-                <option >1 năm</option>
+                <option >3 giờ</option>
+                <option >6 giờ</option>
+                <option >12 giờ</option>
             </select>
             <button type="submit" class="btn btn-outline-primary">Gửi tiền </button>
         </form>
