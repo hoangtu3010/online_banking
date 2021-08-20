@@ -88,5 +88,17 @@
     </div>
 </div>
 </body>
+
+<script>
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll(".switcher-in-up")
+    const menuLength = menuItem.length;
+    for (let i=0; i<menuLength; i++){
+        if (menuItem[i].href === currentLocation){
+            menuItem[i].className += " active-in-up"
+        }
+    }
+</script>
+
 <x-script/>
 </html>

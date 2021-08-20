@@ -40,26 +40,21 @@
 <script src="{{ asset("dist/js/pages/dashboard.js") }}"></script>
 
 <script>
-    const currentLocation = location.href;
-    const menuItem = document.querySelectorAll(".switcher-in-up")
-    const menuLength = menuItem.length;
-    for (let i=0; i<menuLength; i++){
-        if (menuItem[i].href === currentLocation){
-            menuItem[i].className += " active-in-up"
-        }
-    }
-</script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-<script type="text/javascript">
-    const currentLocation = location.href;
-    const menuItem = document.querySelectorAll(".nav-link-wel")
-    const menuLength = menuItem.length;
-    for (let i=0; i<menuLength; i++){
-        if (menuItem[i].href === currentLocation){
-            menuItem[i].className += " is-active"
+            reader.onload = function (e) {
+                $('#img_tag').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
     }
 
+    $("#inputImage").change(function(){
+        readURL(this);
+    });
 </script>
 
 <script>

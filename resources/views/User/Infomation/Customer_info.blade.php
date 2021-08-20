@@ -80,7 +80,7 @@
                         </div>
                         <div class="customer_list_all_col">
                             <form action="{{url('user/customer/create')}}" method="post"
-                                {{--              enctype="multipart/form-data"--}}
+                                             enctype="multipart/form-data"
                             >
                                 @csrf
                                 <div class="row">
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label" for="">Image</label>
-                                        <input class="form-control" type="file" name="image" placeholder="name">
+                                        <input class="form-control" type="file" name="image" placeholder="image">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label" for="">Birthday</label>

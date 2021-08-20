@@ -14,6 +14,11 @@ class RegisterController extends Controller
             return view("login & register.register");
         }
 
+        $request->validate([
+            'password' => 'bail|required|min:8',
+            'password_confirmation' => 'bail|required|same:password'
+        ]);
+
         User::create([
             "name"=>$request->get("name"),
             "email"=>$request->get("email"),

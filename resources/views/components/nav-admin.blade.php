@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="{{asset("css/nav.css")}}">
 <?php $feedback = \App\Models\Feedback::orderBy('id', 'DESC')->get() ?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-bgr navbar-light" style="background-color: #FAF6F3; font-weight: 500">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -73,8 +74,9 @@
             </a>
         </li>
         <li class="nav-item dropdown" style=" border-left: 1px solid #ddd">
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button">
-                <i class="far fa-user-circle" style="font-size: 25px;"></i>
+            <a class="nav-link d-flex" data-toggle="dropdown" href="#" role="button">
+                <span style="margin-right: 5px; font-weight: 500; color: #000">{{Auth::user()->name}}</span>
+                <img src="{{asset("dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2" alt="User Image">
             </a>
             <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right">
                 <a href="{{ asset("/user/profile")}}" class="dropdown-item" style="text-align: center">
