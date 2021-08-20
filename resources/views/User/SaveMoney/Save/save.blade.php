@@ -20,7 +20,7 @@
                     <th>{{$item->timeSave}}</th>
                     <th>{{$item->created_at}}</th>
                     <th>
-                        Kiểm tra số tiền tiết kiêm .
+                        <a href={{url('user/saveMoney/watch',['id'=>$item->id])}}>Xem số tiền</a>
                     </th>
                 </tr>
             @endforeach

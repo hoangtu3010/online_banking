@@ -129,5 +129,76 @@ class SaveMoneyController extends Controller
            'save'=>$save
        ]);
     }
+    public function watch($id){
+        $cat = SaveMoney::findOrFail($id);
+        $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
+        $time = $cat['timeSave'];
+       // dd($cat);
+        $timeSave = $cat['created_at']; //thời gian cũ
+        $totalS = strtotime($timeSave);//tổng số giây thời gian cũ .
+
+        $time3th=  date_modify($timeSave,'+3month');//thời gian cũ công thêm 3 tháng
+        $total3th = strtotime($time3th);///sô giây từ thời gian cộng thêm 3 tháng
+
+
+
+        $time6th=  date_modify($timeSave,'+6month');//thời gian cũ công thêm 6 tháng
+        $total6th = strtotime($time6th);//sô giây từ thời gian cộng thêm 6 tháng
+
+        $time1y=  date_modify($timeSave,'+1year');//thời gian cũ công thêm 1 năm
+        $total1y = strtotime($time1y);//sô giây từ thời gian cộng thêm 1 năm
+       // dd($totalS);
+
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $timestamp =time();//số giây đến thời điểm hiện tại
+
+        $timepass = $timestamp-$totalS;//hiệu số giây của thời gian hiện tại và thời gian lưu
+
+
+
+
+
+        $h = $timepass/(60*60);//29h
+        $after = $money;
+        $lai=0;
+        $laicc=0;
+
+        if (0<$timestamp&&$timestamp<$total3th){
+            for ($i=0;$i<3;$i++){
+                $lai += $after*1/100;
+                $after = $money+$lai;
+            }
+        }
+
+
+        if ($timestamp>$total3th&&$time==='3 tháng'){
+            for ($i=0;$i<3;$i++){
+                $laicc += $after*3/100;
+                $after = $money+$laicc;
+            }
+        }
+        if ($timestamp>$total6th&&$time==='6 tháng'){
+            for ($i=0;$i<3;$i++){
+                $laicc += $after*3/100;
+                $after = $money+$laicc;
+            }
+        }
+        if ($timestamp>$total1y&&$time==='1 năm'){
+            for ($i=0;$i<3;$i++){
+                $laicc += $after*3/100;
+                $after = $money+$laicc;
+            }
+        }
+
+
+        return view('User.SaveMoney.Save.detail',[
+            'cat'=>$cat,
+            'h'=>$h,
+            'lai'=>$lai,
+            'laicc'=>$laicc
+        ]);
+
+    }
 
 }
+

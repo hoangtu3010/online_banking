@@ -12,14 +12,14 @@ Route::middleware("auth:user")->group(function (){
 
     Route::get('/',[HomeController::class,'homeCustomer']);
 
-    Route::get('/profile', function (){
-        return view("profile.show");
-    });
-
+    Route::get('/profile', function (){return view("profile.show");});
     Route::get('/customer',[CustomerInfoController::class,'CustomerInfo']);
     Route::get('/customer/edit/{id}',[CustomerInfoController::class,'edit']);
     Route::post('/customer/save/{id}',[CustomerInfoController::class,'save']);
     Route::post('/customer/create',[CustomerInfoController::class,'create']);
+
+
+
 
     Route::get('/saveMoney',[SaveMoneyController::class,'show']);
     Route::get('/saveMoney/select',[SaveMoneyController::class,'selectBank']);
@@ -33,6 +33,7 @@ Route::middleware("auth:user")->group(function (){
 
 
     Route::get('/saveMoney/save',[SaveMoneyController::class,'save']);
+    Route::get('/saveMoney/watch/{id}',[SaveMoneyController::class,'watch']);
 
 
 
