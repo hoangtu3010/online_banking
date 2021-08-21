@@ -88,8 +88,16 @@ class AdminController extends Controller
         return redirect()->to('admin/mod');
 
     }
-    public function AdminMod(){
-        $get=Admin::with("role")->get();
+    public function AdminMod(Request $request){
+        if ($request->get("table_search") == null) {
+            $get=Admin::with("role")->get();
+        } else {
+            $get=Admin::with("role")
+                ->where("name", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("email", "like", "%" . $request->get("table_search") . "%")
+//                ->orWhere("leadName","like","%".$request->get("table_search")."%")
+                ->get();
+        }
 //        dd($get);
         return view("Admin.components.admin-mod",[
             "data"=>$get
@@ -124,9 +132,18 @@ class AdminController extends Controller
 
     //Customer
     public function AdminCustomer(Request $request){
-        $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
-            ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get();
-        ;
+//        $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
+//            ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get();
+        if ($request->get("table_search") == null) {
+            $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
+                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get();
+        } else {
+            $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
+                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")
+                ->where("name", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("email", "like", "%" . $request->get("table_search") . "%")
+                ->get();
+        }
 //        dd($data);
         return view("Admin.components.admin-customer-acc",[
             "data"=>$data
@@ -174,6 +191,7 @@ class AdminController extends Controller
         $user->update([
             "password"=>bcrypt($new)
         ]);
+
         return view("Admin.Customer.getPassUser",[
             "data"=>$user,
             "new"=>$new
@@ -190,9 +208,19 @@ class AdminController extends Controller
 
 
     //BankAcount
-    public function bankAccount(){
-        $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
-            ->select("b.*","a.name as owner")->get();
+    public function bankAccount(Request $request){
+        if ($request->get("table_search") == null) {
+            $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
+                ->select("b.*","a.name as owner")->get();
+        } else {
+            $data=DB::table("bank_account as b")->leftJoin("users as a","b.user_id","=","a.id")
+                ->select("b.*","a.name as owner")
+                ->where("stk", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("a.name", "like", "%" . $request->get("table_search") . "%")
+//                ->orWhere("leadName","like","%".$request->get("table_search")."%")
+                ->get();
+        }
+
 //        dd($data->toArray());
         return view("Admin.components.admin-bank-acc",[
             "data"=>$data
