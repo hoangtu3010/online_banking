@@ -15,19 +15,15 @@
                 <h4>Thời gian từ lúc gửi tiền :{{$h}} giờ </h4>
                 <h5 style="color: red">Số tiền lãi nhận đc nếu rút trước thời hạn  : {{$lai}}</h5>
                 <h7>Lãi suất 1%</h7>
-                <h4 style="color:green">Số tiền lãi nếu hoàn thành thời hạn :{{$laicc}}</h4>
+                <h4 style="color:green">Số tiền lãi nếu hoàn thành thời hạn :{{$laihd}}</h4>
                 <h7>Lãi xuất</h7>
                 <form action="{{url('user/saveMoney/comebackMoney',['id'=>$cat->id])}}" method="post">
                     @csrf
                     <h1>Tiền thật </h1>
                     <input type="text" name="von" value="{{$cat->money}}" hidden>
-                    @if(strtotime($now)>strtotime($cat->timeSave))
-                        <input type="text" name="lai" value="{{$laicc}}" hidden>
-                        <h4>Số lãi thật : {{$laicc}}</h4>
-                    @else
-                        <input type="text" name="lai" value="{{$lai}}">
-                        <h4>Số lãi thật : {{$lai}}</h4>
-                    @endif
+                    <h4>{{$laicc}}</h4>
+                    <input type="text" name="lai" value="{{$laicc}}" hidden>
+
 
                     <button class="btn btn-outline-primary">Rút tiền</button>
                 </form>

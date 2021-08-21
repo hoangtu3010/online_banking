@@ -98,6 +98,7 @@ class SaveMoneyController extends Controller
         return back();
     }
     public function end($id){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $cat = BankAccount::findOrFail($id);
         //dd($cat->toArray());
        if (Session::has('saveMoney')){
@@ -107,6 +108,7 @@ class SaveMoneyController extends Controller
            //dd($dola);
            $id_saveMoney=$saveMoney[0]['id'];
            //dd($id_x);
+
            if ($id_saveMoney==$id){
                $cat->update([
                    $cat->balance=$cat->balance-$dola
@@ -114,8 +116,8 @@ class SaveMoneyController extends Controller
                SaveMoney::create([
                    'stk'=>$saveMoney[0]['stk'],
                    'money'=>$saveMoney[0]['money'],
-               'timeSave'=>$saveMoney[0]['time'],
-           'bankAcc_id'=>$saveMoney[0]['id'],
+                   'timeSave'=>$saveMoney[0]['time'],
+                   'bankAcc_id'=>$saveMoney[0]['id'],
                ]);
            };
        }
@@ -131,7 +133,7 @@ class SaveMoneyController extends Controller
     }
     public function watch($id){
         $cat = SaveMoney::findOrFail($id);
-
+      //  dd($cat->toArray());
         $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
         $package = $cat['timeSave'];//gói thời gian gửi
 
@@ -165,42 +167,81 @@ class SaveMoneyController extends Controller
         //dd($timepass1y);
 
 
-
         $h = $timepass/(60*60);//số giờ từ lúc gửi đến hiện tại
 
-
+//dd($h);
         $after = $money;// tiền cộng dồn sau lãi
         $afterhd =$money;//tiền cộng dồn sau lãi có hợp dồng
+        $aftercc = $money;
         $lai=0;
         $laihd=0;
+        $laicc= 0;
 
-        //if (0<$timestamp&&$timestamp<$total3th){
         if (0<$timestamp ){
-            for ($i=0;$i<3;$i++){
+            for ($i=0;$i<$h;$i++){
                 $lai += $after*1/100;
                 $after = $money+$lai;
             }
         }
-        //if ($timestamp>$total3th&&$package==='3 tháng'){
+        ///////////////////////
         if ($package==='3 giờ'){
-            for ($i=0;$i<3;$i++){
-                $laihd += $afterhd*3/100;
-                $afterhd = $money+$laihd;
+                for ($i=0;$i<$h;$i++){
+                    $laihd += $afterhd*3/100;
+                    $afterhd = $money+$laihd;
+                }
+        }
+        if ($package==='3 giờ'){
+            if ($timestamp>$total3th){
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*3/100;
+                    $aftercc = $money+$laicc;
+                }
+            }else{
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*1/100;
+                    $aftercc = $money+$laicc;
+                }
             }
         }
-       // if ($timestamp>$total6th&&$package==='6 tháng'){
+        //////////////////////////////////////////////////
         if ($package==='6 giờ'){
-            for ($i=0;$i<3;$i++){
+            for ($i=0;$i<$h;$i++){
                 $laihd += $afterhd*6/100;
                 $afterhd = $money+$laihd;
 
             }
         }
-        //if ($timestamp>$total1y&&$package==='1 năm'){
+        if ($package==='6 giờ'){
+            if ($timestamp>$total6th){
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*6/100;
+                    $aftercc = $money+$laicc;
+                }
+            }else{
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*1/100;
+                    $aftercc = $money+$laicc;
+                }
+            }
+        }
+        /////////////////////////////////////
         if ($package==='12 giờ'){
-            for ($i=0;$i<3;$i++){
+            for ($i=0;$i<$h;$i++){
                 $laihd += $afterhd*12/100;
                 $afterhd = $money+$laihd;
+            }
+        }
+        if ($package==='12 giờ'){
+            if ($timestamp>$total1y){
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*12/100;
+                    $aftercc = $money+$laicc;
+                }
+            }else{
+                for ($i=0;$i<$h;$i++){
+                    $laicc += $aftercc*1/100;
+                    $aftercc = $money+$laicc;
+                }
             }
         }
 
@@ -208,11 +249,15 @@ class SaveMoneyController extends Controller
             'cat'=>$cat,
             'h'=>$h,
             'lai'=>$lai,
-            'laicc'=>$laihd,
+            'laihd'=>$laihd,
+            'laicc'=>$laicc,
             "now"=>$timestamp,
         ]);
     }
     public function comebackMoney(Request $request,$id){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = $request->all();
+
         $cat = SaveMoney::findOrFail($id);
         $bankAcc_id = $cat['bankAcc_id'];
         $bankAcc = BankAccount::findOrfail($bankAcc_id);

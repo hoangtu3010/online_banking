@@ -49,7 +49,7 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);
-    Route::post('/bankAccount/next-step/{id}',[BankController::class,"nextStep"]);
+    Route::get('/bankAccount/next-step/{id}',[BankController::class,"nextStep"]);
     Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
