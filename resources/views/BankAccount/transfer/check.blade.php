@@ -8,10 +8,14 @@
             <h3>Trạng thái{{ $data->status }}</h3>
 
             <h3>Số tiền chuyển:{{ $money }} VND</h3>
-            @if($money*0.05>5000)
-            <h3>Phí chuyển tiền:{{ 5000 }} VND</h3>
+            @if(Auth::user()->id==$user_getter_id)
+                <h3>Phí chuyển tiền:{{ 0 }} VND</h3>
             @else
-            <h3>Phí chuyển tiền:{{ $money*0.05 }} VND</h3>
+                @if($money*0.05>5000)
+                <h3>Phí chuyển tiền:{{ 5000 }} VND</h3>
+                @else
+                <h3>Phí chuyển tiền:{{ $money*0.05 }} VND</h3>
+                @endif
             @endif
             <h3>lời nhắn:{{ $message }}</h3>
 
