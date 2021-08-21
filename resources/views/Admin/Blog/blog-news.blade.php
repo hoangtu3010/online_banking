@@ -11,8 +11,7 @@
                     <div class="card-tools">
                         <form action="{{url("/admin/")}}" method="get">
                             <div class="input-group input-search">
-                                <input type="text" name="table_search" class="form-control"
-                                       {{--                                               value="{{$search}}"--}}
+                                <input type="text" name="table_search" class="form-control" value=""
                                        placeholder="Search by name or email...">
                                 <button
                                     type="submit" class="btn">
