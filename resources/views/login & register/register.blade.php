@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     @if($errors->any())
-                        <h4 class="text-red">{{$errors->first()}}</h4>
+                        <p class="text-red">{{$errors->first()}}</p>
                     @endif
                     <div class="row">
                         <div class="col-md-6">

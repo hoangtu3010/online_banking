@@ -9,9 +9,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="card-tools">
-                        <form action="{{url("/admin/")}}" method="get">
+                        <form action="{{url("/admin/blog/news")}}" method="get">
                             <div class="input-group input-search">
-                                <input type="text" name="table_search" class="form-control" value=""
+                                <input type="text" name="table_search" class="form-control" value="{{$search}}"
                                        placeholder="Search by name or email...">
                                 <button
                                     type="submit" class="btn">

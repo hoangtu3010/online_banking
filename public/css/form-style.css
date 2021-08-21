@@ -1,3 +1,11 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+    -webkit-box-shadow: 0 0 0 30px #FAF6F3 inset !important;
+}
+
 .card-header{
     padding: 1.48rem 1.25rem;
 }
@@ -93,6 +101,20 @@
     border-color: #68C8D5;
 }
 
+
+.form-group .btn-inline{
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #978f8f;
+    transition: .2s;
+}
+
+.form-group .btn-inline:hover{
+    color: #333;
+}
+
 .form-group .form-label{
     position: absolute;
     color: #ccc;
@@ -116,6 +138,10 @@
     color: #68C8D5;
 }
 
+.form-group select{
+    background-color: #FAF6F3!important;
+}
+
 .button-form{
     position: absolute;
     top: -80px;
@@ -129,5 +155,6 @@
 .button-form:hover{
     background-color: #FDB91C;
 }
+
 
 

@@ -100,7 +100,8 @@ class AdminController extends Controller
         }
 //        dd($get);
         return view("Admin.components.admin-mod",[
-            "data"=>$get
+            "data"=>$get,
+            "search" => $request->get("table_search")
         ]);
     }
     public function AdminSetting($id){
@@ -143,11 +144,13 @@ class AdminController extends Controller
                 ->where("users.name", "like", "%" . $request->get("table_search") . "%")
                 ->orwhere("a.name", "like", "%" . $request->get("table_search") . "%")
                 ->orWhere("email", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("a.tel", "like", "%" . $request->get("table_search") . "%")
                 ->get();
         }
 //        dd($data);
         return view("Admin.components.admin-customer-acc",[
-            "data"=>$data
+            "data"=>$data,
+            "search" => $request->get("table_search")
         ]);
     }
     public function editAdminCustomer($id){
@@ -224,7 +227,8 @@ class AdminController extends Controller
 
 //        dd($data->toArray());
         return view("Admin.components.admin-bank-acc",[
-            "data"=>$data
+            "data"=>$data,
+            "search" => $request->get("table_search")
         ]);
     }
     public function editBankAccount($id){

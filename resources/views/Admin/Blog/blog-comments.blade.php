@@ -1,14 +1,12 @@
 @extends("Admin.layout.admin-layout")
 @section("main")
+    <div class="bgr-head-list"></div>
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Comments</h1>
-                    <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{url("/admin")}}">Home</a></li>
-                        <li class="breadcrumb-item active">Comments</li>
-                    </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
