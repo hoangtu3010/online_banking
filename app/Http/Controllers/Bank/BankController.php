@@ -43,7 +43,7 @@ class BankController extends Controller
         $request->validate([
             "getter"=>"required|size:10",
         ],[
-            "getter.required"=>"Vui lòng nhập số tiền!",
+            "getter.required"=>"Vui lòng nhập số tài khoản!",
             "getter.size:10"=>"Số tài khoản có 10 chữ số!",
         ]);
        //dd($request->toArray());
@@ -56,8 +56,14 @@ class BankController extends Controller
     }
     public function treatment(Request $request){
         $find=BankAccount::with("user")->findOrFail($request->id_setter);
-        if ($request->money>$find->balance)
-            return back()->withErrors(["money"=>["Không đủ tiền"]]);
+        if ($request->money*0.05>5000){
+            $money = $request->money+5000;
+        }
+        else{
+            $money = $request->money*1.05;
+        }
+        if ($money>$find->balance)
+            return back()->withInput()->withErrors(["money"=>["Không đủ tiền, số tiền cần có để chuyển là ".$money." VND"]]);
         $request->validate([
             "money"=>"required",
         ],[
@@ -148,6 +154,12 @@ class BankController extends Controller
                 dd("error");
             }
             $money=$bank[0]["money"];
+            if ($money*0.05>5000){
+                $money_c = $money+5000;
+            }
+            else{
+                $money_c = $money*1.05;
+            }
             $message=$bank[0]["message"];
 
             $get=$bank[0]["getter"] ;
@@ -158,7 +170,7 @@ class BankController extends Controller
                 $getter = BankAccount::all()->where("stk","=",$get)->first();
 //                $base_money=$getter->balance;
                 $setter->update([
-                    "balance"=>$balance-$money
+                    "balance"=>$balance-$money_c
                 ]);
                 $getter->update([
                     "balance"=>$getter->balance+$money
