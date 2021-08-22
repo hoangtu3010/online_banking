@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{asset("css/welcome.css")}}">
 @extends("welcome.layout-welcome")
 @section("main")
+
     <div class="main">
         <button id="scrollToTopBtn">
             <i class="ion-chevron-up"></i>
