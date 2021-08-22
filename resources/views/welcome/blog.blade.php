@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="{{asset("css/blog.css")}}">
 @extends("welcome.layout-welcome")
 @section("main")
+    <link rel="stylesheet" href="{{asset("css/blog.css")}}">
+
     <div class="container">
         <div class="blog-main">
             <div class="row ">
