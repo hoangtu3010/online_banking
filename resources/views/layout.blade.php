@@ -22,13 +22,7 @@
     </aside>
 
     <div class="content-wrapper" style="padding: 0 20px">
-        <div class="container-header">
-            <section class="content content-main">
-                <div class="container-fluid">
-                    @yield("main")
-                </div>
-            </section>
-        </div>
+        @yield("main")
     </div>
 
     <x-footer/>

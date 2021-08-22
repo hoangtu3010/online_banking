@@ -1,0 +1,51 @@
+[class*=sidebar-light] .brand-link {
+    border-bottom: none;
+}
+
+[class*=sidebar-light] .user-panel {
+    border-bottom: none;
+}
+
+.os-content{
+    padding: 40px 8px!important;
+}
+
+.user-panel{
+    position: relative;
+    text-align: center;
+}
+
+.user-panel .info{
+    display: block;
+    margin-bottom: 15px;
+}
+
+.user-panel .info a:nth-child(1){
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.user-panel .info a:nth-child(2){
+    color: #000;
+    opacity: .7;
+}
+
+.user-panel .image {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.user-panel img{
+    width: 4rem;
+}
+
+.header-sidebar{
+    height: 200px;
+    background-color: #68C8D5;
+}
+
+.active-sidebar{
+    background-color: rgba(0,0,0,.1);
+}

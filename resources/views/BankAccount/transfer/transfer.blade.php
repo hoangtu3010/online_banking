@@ -2,7 +2,7 @@
 @section("main")
     <div class="content-wrapper" style="min-height: 1299.69px;">
         <div class="container">
-            <form action="{{url("user/bankAccount/next-step",["id"=>$data->id])}}" method="post">
+            <form action="{{url("user/bankAccount/next-step",["id"=>$data->id])}}" method="get">
                 @csrf
                 <div class="form-group">
                     <label for="">Stk gửi:</label>

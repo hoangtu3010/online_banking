@@ -5,7 +5,6 @@
 
     <link rel="icon" type="image/x-icon" href="{{url("imgs/logo.png")}}" />
     <!-- CSS -->
-    <link rel="stylesheet" href="{{asset("css/list-style.css")}}">
     <link rel="stylesheet" href="{{asset("css/header-welcome.css")}}">
     <link rel="stylesheet" href="{{asset("css/footer-welcome.css")}}">
     <!-- Swiper -->

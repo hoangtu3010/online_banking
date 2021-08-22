@@ -17,13 +17,24 @@ class BlogController extends Controller
         ]);
     }
 
-    public function getNews()
+    public function getNews(Request $request)
     {
-        $data = News::all();
         $comment = Comment::all();
+
+        if ($request->get("table_search") == null) {
+            $data = News::all();
+        }
+        else {
+            $data= News::
+                where("title", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("author", "like", "%" . $request->get("table_search") . "%")
+                ->get();
+//            dd($data);
+        }
         return view("Admin.Blog.blog-news", [
             "data" => $data,
-            "comments" => $comment
+            "comments" => $comment,
+            "search" => $request->get("table_search")
         ]);
     }
 

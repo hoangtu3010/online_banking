@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     @if($errors->any())
-                        <h4 class="text-red">{{$errors->first()}}</h4>
+                        <p class="text-red">{{$errors->first()}}</p>
                     @endif
                     <div class="row">
                         <div class="col-md-6">
@@ -88,5 +88,17 @@
     </div>
 </div>
 </body>
+
+<script>
+    const currentLocation = location.href;
+    const menuItem = document.querySelectorAll(".switcher-in-up")
+    const menuLength = menuItem.length;
+    for (let i=0; i<menuLength; i++){
+        if (menuItem[i].href === currentLocation){
+            menuItem[i].className += " active-in-up"
+        }
+    }
+</script>
+
 <x-script/>
 </html>

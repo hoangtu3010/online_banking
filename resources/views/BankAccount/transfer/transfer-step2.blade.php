@@ -20,6 +20,7 @@
                 </div><div class="form-group">
                     <label for="">Người nhận:</label>
                     <input type="text" value="{{$getter->user->name}}" class="form-control" disabled>
+                    <input type="text" name="user_id_getter" value="{{$getter->user->id}}" class="form-control" hidden>
 
                 </div>
                 <div class="form-group">
