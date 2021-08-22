@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <form class="d-flex" style="justify-content: flex-end">
+                <form class="d-flex" style="justify-content: flex-end; margin-block-end: 0">
                     <div class="btn-in-up">
                         @auth
                             <a href="{{ url('/dashboard') }}" class="btn btn-outline-primary">Dashboard</a>
