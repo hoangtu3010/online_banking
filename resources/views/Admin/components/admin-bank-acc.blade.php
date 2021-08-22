@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 action-header">
-                    <a href="{{url("admin/create")}}">
+                    <a href="{{url("admin/createbank")}}">
                         <button class="btn" style="border-radius: 20px">Create Bank Account</button>
                     </a>
                 </div>
