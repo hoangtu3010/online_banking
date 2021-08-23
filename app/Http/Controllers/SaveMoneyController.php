@@ -218,47 +218,46 @@ class SaveMoneyController extends Controller
         $laicc= 0;
 
         if (0<$timestamp ){
-            for ($i=0;$i<$h;$i++){
+            //for ($i=0;$i<$h;$i++){
                 $lai += $after*1/100;
                 $after = $money+$lai;
-            }
+            //}
         }
         ///////////////////////
         if ($package==='3 giờ'){
-                for ($i=0;$i<$h;$i++){
                     $laihd += $afterhd*$interest;
                     $afterhd = $money+$laihd;
-                }
         }
         if ($package==='3 giờ'){
             if ($timestamp>$total3th){
-                for ($i=0;$i<$h;$i++){
+                for ($i=3;$i<$h;$i+=3){
                     $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
+
                 }
-            }else{
-                for ($i=0;$i<$h;$i++){
+            }
+            else{
+                for ($i=0;$i<$h;$i+=3){
                     $laicc += $aftercc*1/100;
                     $aftercc = $money+$laicc;
                 }
             }
         }
-        //////////////////////////////////////////////////
+        /////////////////////////////////////
         if ($package==='6 giờ'){
-            for ($i=0;$i<$h;$i++){
                 $laihd += $afterhd*$interest;
                 $afterhd = $money+$laihd;
 
-            }
+
         }
         if ($package==='6 giờ'){
             if ($timestamp>$total6th){
-                for ($i=0;$i<$h;$i++){
+                for ($i=6;$i<$h;$i+=6){
                     $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
             }else{
-                for ($i=0;$i<$h;$i++){
+                for ($i=6;$i<$h;$i+=6){
                     $laicc += $aftercc*1/100;
                     $aftercc = $money+$laicc;
                 }
@@ -266,19 +265,18 @@ class SaveMoneyController extends Controller
         }
         /////////////////////////////////////
         if ($package==='12 giờ'){
-            for ($i=0;$i<$h;$i++){
                 $laihd += $afterhd*$interest;
                 $afterhd = $money+$laihd;
-            }
+
         }
         if ($package==='12 giờ'){
             if ($timestamp>$total1y){
-                for ($i=0;$i<$h;$i++){
+                for ($i=12;$i<$h;$i+=12){
                     $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
             }else{
-                for ($i=0;$i<$h;$i++){
+                for ($i=12;$i<$h;$i+=12){
                     $laicc += $aftercc*1/100;
                     $aftercc = $money+$laicc;
                 }
