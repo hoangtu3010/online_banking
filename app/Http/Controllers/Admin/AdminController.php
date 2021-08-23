@@ -137,7 +137,7 @@ class AdminController extends Controller
 //            ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get();
         if ($request->get("table_search") == null) {
             $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
-                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get();
+                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd", "a.address")->get();
         } else {
             $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
                 ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")
@@ -155,7 +155,7 @@ class AdminController extends Controller
     }
     public function editAdminCustomer($id){
         $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
-            ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")->get()->where("id","=",$id)->first();
+            ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd", "a.address")->get()->where("id","=",$id)->first();
         ;
 //        dd($data);
         return view("Admin.Customer.edit_cus",[
@@ -175,6 +175,7 @@ class AdminController extends Controller
                 "birthday"=>$request->get("birthday"),
                 "tel"=>$request->get("tel"),
                 "cmnd"=>$request->get("cmnd"),
+                "address"=>$request->get("address")
             ]);
 
         else

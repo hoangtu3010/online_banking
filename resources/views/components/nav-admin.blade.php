@@ -79,7 +79,7 @@
                 <img src="{{asset("dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2" alt="User Image">
             </a>
             <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-right">
-                <a href="{{ asset("/user/profile")}}" class="dropdown-item" style="text-align: center">
+                <a href="{{ asset("/admin/profile")}}" class="dropdown-item" style="text-align: center">
                     <i class="far fa-address-card mr-2"></i> Profile
                 </a>
                 <form method="POST" class="dropdown-item text-center" action="{{ route('logout') }}">

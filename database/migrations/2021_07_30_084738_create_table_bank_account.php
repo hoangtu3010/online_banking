@@ -19,6 +19,7 @@ class CreateTableBankAccount extends Migration
             $table->string("password");
             $table->decimal("balance", 16, 2)->default(0);
             $table->string("status")->default("Active");
+            $table->string("level")->default("Extra");
             $table->unsignedBigInteger("user_id")->nullable();
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users");

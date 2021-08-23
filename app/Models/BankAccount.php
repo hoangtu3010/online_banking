@@ -15,10 +15,10 @@ class BankAccount extends Authenticatable
     protected $guarded="bank";
 
     protected $fillable = [
-        'name_bank',
         "stk",
         "balance",
         "status",
+        "level",
         "password",
         "user_id",
         "created_at",

@@ -83,7 +83,14 @@
                                     Please enter account cmnd.
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <textarea rows="5" name="address" class="form-control" placeholder=" " id="validationCustom03"
+                                          required>{{$data->address}}</textarea>
+                                <label for="validationCustom03" class="form-label">Address</label>
+                                <div class="invalid-feedback">
+                                    Please enter address.
+                                </div>
+                            </div>
                         </div>
                         <div class="button-form">
                             <button class="btn" type="submit" style="float: right">Save</button>

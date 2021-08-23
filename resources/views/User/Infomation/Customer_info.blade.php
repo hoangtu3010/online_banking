@@ -52,6 +52,11 @@
                                     <div type="text" class="form-control">{{$item->cmnd}}</div>
                                 </div>
 
+                                <div class="col-md-6" style="margin-top: 20px">
+                                    <label class="form-label" for="">Address</label>
+                                    <input class="form-control" type="text" name="address" value="{{$item->address}}" placeholder="address">
+                                </div>
+
                                 <div style="margin-top: 20px ; margin-bottom: 20px">
                                     <a href="{{'/user'}}" class="btn btn-outline-dark">Back</a>
                                     <a href="{{url('user/customer/edit',['id'=>Auth::user()->id])}}"
@@ -105,6 +110,10 @@
                                     <div class="col-md-6" style="margin-top: 20px">
                                         <label class="form-label" for="">CMND</label>
                                         <input class="form-control" type="text" name="cmnd" placeholder="cmnd">
+                                    </div>
+                                    <div class="col-md-6" style="margin-top: 20px">
+                                        <label class="form-label" for="">Address</label>
+                                        <input class="form-control" type="text" name="address" placeholder="address">
                                     </div>
                                     <div class="col-md-6" style="margin-top: 20px">
                                         <label class="form-label" for="">User_id</label>

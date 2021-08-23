@@ -46,6 +46,7 @@ Route::middleware("auth:user")->group(function (){
 
    // Route::post('/saveMoney/confirm/{id}',[SaveMoneyController::class,'confirm']);
 
+    Route::post('/card-choose/{id}',[BankController::class,'cardChoose']);
     Route::get('/bankAccount',[BankController::class,'bankAccount']);
     Route::get('/bankAccount/info/{id}',[BankController::class,"bankInfo"]);
     Route::get('/bankAccount/transfer/{id}',[BankController::class,"bankTransfer"]);

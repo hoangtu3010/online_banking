@@ -27,6 +27,7 @@ class CustomerInfoFactory extends Factory
         return [
             "name"=>$this->faker->name(),
             "birthday"=>$this->faker->dateTimeBetween("-30 years", "-16 years"),
+            "address"=>$this->faker->address,
             "tel"=>$this->faker->phoneNumber(),
             "cmnd"=>$this->faker->numberBetween(100000000, 999999999),
             "user_id"=>$user->random()

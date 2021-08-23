@@ -13,7 +13,7 @@ class CustomerInfoController extends Controller
     public function CustomerInfo()
     {
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
-            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", 'c.id', 'c.user_id','c.image' )->get();
+            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", "c.address", 'c.id', 'c.user_id','c.image' )->get();
 
         return view('User.Infomation.Customer_info', [
             'customer' => $item
@@ -23,7 +23,7 @@ class CustomerInfoController extends Controller
     public function edit($id)
     {
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
-            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", 'c.id as cusID','c.image')->get();
+            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", "c.address", 'c.id as cusID','c.image')->get();
 
         $item2 = $item->where('id', '=', $id)->first();
 
@@ -55,13 +55,14 @@ class CustomerInfoController extends Controller
         }
 
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
-            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd", 'c.id as cusID','c.image')->get();
+            ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd","c.address", 'c.id as cusID','c.image')->get();
 
         $cat = CustomerInfo::findOrFail($id);
         $cat->update([
             'name' => $request->__get('name'),
             'tel' => $request->__get('tel'),
             'cmnd' => $request->__get('cmnd'),
+            'address' => $request->__get('address'),
             'birthday' => $request->__get('birthday'),
             'image'=>$image
 
@@ -98,6 +99,7 @@ class CustomerInfoController extends Controller
             'birthday' => $request->__get('birthday'),
             'tel' => $request->__get('tel'),
             'cmnd' => $request->__get('cmnd'),
+            'address' => $request->__get('address'),
             'user_id' => $cat,
 
             'image'=>$image

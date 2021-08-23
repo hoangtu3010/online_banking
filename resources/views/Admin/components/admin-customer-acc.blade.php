@@ -37,7 +37,8 @@
                         <th>Birthday</th>
                         <th>Tel</th>
                         <th>Cmnd</th>
-                        <th>Action</th>
+                        <th width="20%">Address</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,7 +50,8 @@
                             <td>{{ $d->birthday }}</td>
                             <td>{{ $d->tel}}</td>
                             <td>{{ $d->cmnd }}</td>
-                            <td class="p-1 text-center">
+                            <td>{{ $d->address }}</td>
+                            <td class="text-center">
                                 <a href="{{url("admin/customer/edit",["id"=>$d->id])}}"><i
                                         class="ion-compose edit"></i></a>
                             </td>

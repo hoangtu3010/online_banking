@@ -45,6 +45,10 @@
                                 <input type="text" class="form-control" placeholder="name" name="cmnd"
                                        value="{{$customer->cmnd}}">
                             </div>
+                            <div class="col-md-6" style="margin-top: 20px">
+                                <label class="form-label" for="">Address</label>
+                                <input class="form-control" type="text" name="address" placeholder="address">
+                            </div>
                             {{--<div class="col-md-4" style="margin-top: 20px">
                                 <label class="form-label" for="">Email</label>
                                 <input type="text" class="form-control" placeholder="name"  value="{{$customer->email}}">

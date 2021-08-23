@@ -1,59 +1,166 @@
-.mannaka{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.sidebar_name_bank{
-    color: white;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-.sidebar_nameUser_image{
-    color: white;
-    background-color: #696d70;
-    height: 200px;
-    width: 210px;
-    border-radius:5% ;
-    text-align: center;
-}
-.sidebar_nameUser_image_img{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-}
-.sidebar_nameUser_image_name{
-    font-size: 20px;
-}
-.sidebar_infomation{
-    padding-left: 15px;
-    color: white;
-    margin-top: 10px;
-    background-color: #696d70;
-    border-radius:5% ;
-    width: 210px;
-}
-.sidebar_infomation_list_name{
-    margin-bottom: 15px;
-    margin-top: 20px;
-    font-size: 15px;
-}
-.sidebar_telephone{
-    background-color: #696d70;
-    height: 60px;
-    width: 210px;
-    margin-top: 10px;
-    border-radius:10%;
+[class*=sidebar-light] .brand-link {
+    border-bottom: none;
 }
 
-.sideber_telephone_icon {
-    font-size: 30px;
-    margin-top: 15px;
-    color: greenyellow;
+[class*=sidebar-light] .user-panel {
+    border-bottom: none;
 }
-.sideber_telephone_sabisu{
-    margin-top: 5px;
+
+.os-content{
+    padding: 40px 8px!important;
 }
+
+.user-panel{
+    position: relative;
+    text-align: center;
+}
+
+.user-panel .info{
+    display: block;
+    margin-bottom: 15px;
+}
+
+.user-panel .info a:nth-child(1){
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.user-panel .info a:nth-child(2){
+    color: #000;
+    opacity: .7;
+}
+
+.user-panel .image {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.user-panel img{
+    width: 4rem;
+}
+
+.header-sidebar{
+    height: 200px;
+    background-color: #68C8D5;
+}
+
+.active-sidebar{
+    background-color: rgba(0,0,0,.1);
+}
+
+.sidebar-item{
+    margin: 15px 0;
+    padding: 0 8px;
+}
+
+.sidebar-item-content{
+    background-color: rgba(0,0,0,5%);
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.count-card-acc{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background-color: #26c6da9e;
+    color: #fff;
+    transform: translateY(60%);
+    padding: 1px 8px;
+    border-radius: 50%;
+}
+
+.sidebar-content-title{
+    height: 38px;
+    line-height: 38px;
+    font-weight: 500;
+}
+
+.sidebar-item-content p{
+    padding-left: 10px;
+}
+
+.sidebar-item-content .btn-check{
+    transition: .3s;
+}
+
+.sidebar-item-content .btn-check:hover{
+    background-color: #d2d4d8;
+    border-radius: 5px;
+}
+
+.modal-backdrop{
+    z-index: 1030;
+}
+
+.modal-content{
+    background-color: #faf6f3;
+    border: none;
+}
+
+.modal-content .modal-header{
+    background: linear-gradient(to right, #3AA7BA 0%, #68C8D5 100%);
+}
+
+.modal-footer{
+    padding: .75rem .75rem 0 .75rem;
+    border-top: none;
+}
+
+.modal-footer .btn-choose-card{
+    background-color: #FED441;
+    color: #fff;
+}
+
+.modal-footer .btn-choose-card:hover{
+    background-color: #f1c40f;
+}
+
+form{
+    margin-block-end: 0;
+}
+
+input[type=radio]{
+    display: none;
+    /*position: absolute;*/
+    /*height: 28px;*/
+    /*line-height: 28px;*/
+}
+
+.radio-toolbar input[type=radio]:checked{
+    background-color: #f1c40f!important;
+}
+
+.radio-toolbar label{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500!important;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+
+.radio-toolbar label input{
+    border: none;
+    float: right;
+    background-color: transparent;
+    width: 50px;
+}
+
+.radio-toolbar label:hover{
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.radio-toolbar input[type=radio]:checked + label{
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+

@@ -15,6 +15,7 @@ class CustomerInfo extends Model
         "image",
         "name",
         "birthday",
+        "address",
         "tel",
         "cmnd",
         "user_id",

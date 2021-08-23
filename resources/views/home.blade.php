@@ -3,16 +3,6 @@
 @section("main")
 
     <div class="xxx">
-        {{--{{Auth::user()->id}}
-        @foreach($customers as $item)
-            @if(Auth::user()->id == $item->id)
-                <p>{{$item->name}}</p>
-                <p>{{$item->email}}</p>
-                <p>{{$item->birthday}}</p>
-                <p>{{$item->tel}}</p>
-                <p>{{$item->cmnd}}</p>
-            @endif
-        @endforeach--}}
         <div >
             <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg" height="400px" width="100%" alt="">
         </div>
