@@ -31,6 +31,32 @@ class SaveMoneyController extends Controller
             'bank'=>$bank
         ]);
     }
+    public function thongtin1(Request $request,$id){
+        $id = $request->id;
+
+        $stk = $request->stk;
+        $balance = $request->balance;
+        $money = $request->money;
+        $time = $request->time;
+        if ($time ==='3 giờ'){
+            $interest = 0.03;
+        }
+        if ($time ==='6 giờ'){
+            $interest = 0.06;
+        }
+        if ($time ==='12 giờ'){
+            $interest = 0.12;
+        }
+        return view('User.SaveMoney.thongtin1',[
+            'stk'=>$stk,
+            'balance'=>$balance,
+            'money'=>$money,
+            'time'=>$time,
+            'interest'=>$interest,
+            'id'=>$id
+        ]);
+
+    }
     public function thongtin(Request $request,$id){
         $bank =BankAccount::findOrFail($id);
         $money = $request->money;
@@ -44,7 +70,9 @@ class SaveMoneyController extends Controller
                 session()->forget("saveMoney");
                 $data=session()->get("saveMoney");
                 $data[]=$request->all();
+                //dd($request->all());
                 Session::put("saveMoney",$data);
+
             }
             else{
                 $data=session()->get("saveMoney");
@@ -60,6 +88,7 @@ class SaveMoneyController extends Controller
             $tkg =$cat[0]['stk'];
             $money=$cat[0]['money'];
             $time =$cat[0]['time'];
+            $interest= $cat[0]['interest'];
         }
         else{
             return redirect()->back();
@@ -67,7 +96,8 @@ class SaveMoneyController extends Controller
         return view('User.SaveMoney.showComfirm',[
             'tkg'=>$tkg,
             'money'=>$money,
-            'time'=>$time
+            'time'=>$time,
+            'interest'=>$interest
         ]);
     }
     public function otp(){
@@ -82,8 +112,8 @@ class SaveMoneyController extends Controller
     }
     public function checkOtp(){
         $bank=\session()->get('saveMoney');
+        //dd($bank);
         $id= $bank[0]['id'];
-
          return view('User.SaveMoney.checkOtp',[
              'id'=>$id
          ]);
@@ -103,11 +133,15 @@ class SaveMoneyController extends Controller
         //dd($cat->toArray());
        if (Session::has('saveMoney')){
            $saveMoney = Session::get('saveMoney');
-           //dd($saveMoney);
+
+
            $dola= $saveMoney[0]['money'];
            //dd($dola);
            $id_saveMoney=$saveMoney[0]['id'];
            //dd($id_x);
+           $time= $saveMoney[0]['time'];
+            $interest = $saveMoney[0]['interest'];
+          //  dd($interest);
 
            if ($id_saveMoney==$id){
                $cat->update([
@@ -118,11 +152,15 @@ class SaveMoneyController extends Controller
                    'money'=>$saveMoney[0]['money'],
                    'timeSave'=>$saveMoney[0]['time'],
                    'bankAcc_id'=>$saveMoney[0]['id'],
+                   'interest'=>$saveMoney[0]['interest']
                ]);
            };
        }
        return view('User.SaveMoney.Success');
     }
+
+
+
 
 
     public function save(){
@@ -133,7 +171,9 @@ class SaveMoneyController extends Controller
     }
     public function watch($id){
         $cat = SaveMoney::findOrFail($id);
-      //  dd($cat->toArray());
+        $interest = $cat->interest;
+        //dd($interest);
+      // dd($cat->toArray());
         $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
         $package = $cat['timeSave'];//gói thời gian gửi
 
@@ -186,14 +226,14 @@ class SaveMoneyController extends Controller
         ///////////////////////
         if ($package==='3 giờ'){
                 for ($i=0;$i<$h;$i++){
-                    $laihd += $afterhd*3/100;
+                    $laihd += $afterhd*$interest;
                     $afterhd = $money+$laihd;
                 }
         }
         if ($package==='3 giờ'){
             if ($timestamp>$total3th){
                 for ($i=0;$i<$h;$i++){
-                    $laicc += $aftercc*3/100;
+                    $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
             }else{
@@ -206,7 +246,7 @@ class SaveMoneyController extends Controller
         //////////////////////////////////////////////////
         if ($package==='6 giờ'){
             for ($i=0;$i<$h;$i++){
-                $laihd += $afterhd*6/100;
+                $laihd += $afterhd*$interest;
                 $afterhd = $money+$laihd;
 
             }
@@ -214,7 +254,7 @@ class SaveMoneyController extends Controller
         if ($package==='6 giờ'){
             if ($timestamp>$total6th){
                 for ($i=0;$i<$h;$i++){
-                    $laicc += $aftercc*6/100;
+                    $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
             }else{
@@ -227,14 +267,14 @@ class SaveMoneyController extends Controller
         /////////////////////////////////////
         if ($package==='12 giờ'){
             for ($i=0;$i<$h;$i++){
-                $laihd += $afterhd*12/100;
+                $laihd += $afterhd*$interest;
                 $afterhd = $money+$laihd;
             }
         }
         if ($package==='12 giờ'){
             if ($timestamp>$total1y){
                 for ($i=0;$i<$h;$i++){
-                    $laicc += $aftercc*12/100;
+                    $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
             }else{
