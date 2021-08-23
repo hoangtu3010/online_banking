@@ -1,0 +1,48 @@
+h1.contact {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 60px;
+    color: #9c9ca6;
+}
+
+.breadcrumbs .breadcrumbs_delimiter {
+    margin: 0 1.1em;
+}
+
+.content-wrapper {
+    position: relative;
+}
+
+.content-contact{
+    position: relative;
+    left: -159.6px;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    box-sizing: border-box;
+    width: 1310px;
+    text-align: center;
+    padding-left: 270.6px;
+    padding-right: 126.4px;
+}
+
+.wp_wrapper {
+    margin-top: 10%;
+}
+
+p.contact {
+    font-size: 15px;
+    margin-top: 18px;
+    color: #958d99;
+}
+
+.tag-icon {
+    font-size: 60px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    color: #0c84ff;
+}
+
+button.btn.btn-primary.text-center.send {
+    margin-left: 40%;
+    margin-bottom: 10%;
+}

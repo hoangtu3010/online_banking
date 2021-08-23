@@ -153,13 +153,82 @@
     color: #fff;
     background-color: #ffc10d;
 }
+
 .box{
- margin: 15px;
+    margin: 15px;
 }
-.box-content{
+.box-content {
     background-color: #e3e2e2;
     margin-left: 20px;
+    margin-top: 23%;
+    border-radius: 5px;
 }
+
 .text-box{
-    margin-top: 109px;
+    padding-top: 22px;
+    font-size: 26px;
+}
+
+.box-text1 {
+    display: flex;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+p.box-blog {
+    font-size: 21px;
+    margin-left: 46px;
+    margin-top: -8px;
+    font-weight: 600;
+}
+span.box-span {
+    font-weight: 200;
+    font-size: 15px;
+    color: #9c9ca6;
+}
+
+caption {
+    font-size: 18px;
+    padding-bottom: 0.8em;
+    font-weight: 700;
+
+}
+
+h5.text-box {
+    padding-left: 4%;
+    color: #212558;
+}
+
+.box-content-calender {
+    background-color: #e3e2e2;
+    margin-left: 20px;
+    margin-top: 5%;
+    border-radius: 5px;
+}
+
+h3.calender {
+    margin-left: 30%;
+    font-size: 20px;
+    color: #212558;
+}
+
+
+.widget_calendar th, .widget_calendar td {
+    font-size: 12px !important;
+    line-height: 1.5em;
+    font-weight: 600 !important;
+    font-style: normal;
+    text-align: center;
+    padding: 2px;
+    border: none !important;
+    background-color: transparent !important;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 14.2857%;
 }
