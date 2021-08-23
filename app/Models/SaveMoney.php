@@ -14,6 +14,7 @@ class SaveMoney extends Model
         'money',
         'timeSave',
         'code',
+        'interest',
         'bankAcc_id',
     ];
     public function BankAcc(){

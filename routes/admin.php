@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Bank\Auth\BankAccountController;
 use App\Http\Controllers\Bank\BankController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\InterestController;
 
 Route::middleware("auth:admin")->group(function (){
     Route::get('/', function () {
@@ -65,6 +66,9 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"]);
 
 
+    Route::get('/manageInterest',[InterestController::class,"show"]);
+    Route::get('/manageInterest/changeInterest/{id}',[InterestController::class,"change"]);
+    Route::post('/manageInterest/actionChange/{id}',[InterestController::class,"action"]);
 
 
 
