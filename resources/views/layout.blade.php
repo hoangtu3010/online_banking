@@ -23,6 +23,7 @@
     </aside>
 </div>
 
+@include('sweetalert::alert')
 </body>
 
 <script>

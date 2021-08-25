@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Bank\Auth;
 
 use App\Http\Controllers\Bank\BankController;
 use App\Http\Controllers\Controller;
+use App\Models\BankAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BankAccountController extends Controller
 {
@@ -16,11 +19,15 @@ class BankAccountController extends Controller
 //        dd($bankAccount);
 
         if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass,"user_id"=>null])){
-            return  redirect()->to("user/bankAccount/linkInfo");
+            $backAccount = BankAccount::where('stk', '=', $stk)->first();
+            Session::put("bankLink", $backAccount);
+            return  redirect()->to("user/bankAccount/link/accept");
         }else if (Auth::guard("bank")->attempt(["stk"=>$stk,"password"=>$pass])){
-            return back()->withErrors(["Bank account đã được liên kết","MSG"]);
+            return back()->withErrors(["Bank account has been linked","MSG"]);
         }else{
-            return back()->withErrors(["Sai mật khẩu hoặc tài khoản","MSG"]);
+            Alert::error("ERROR", "Password or account Wrong!");
+            return back();
         }
+
     }
 }

@@ -19,8 +19,6 @@ Route::middleware("auth:user")->group(function (){
     Route::post('/customer/create',[CustomerInfoController::class,'create']);
 
 
-
-
     Route::get('/saveMoney',[SaveMoneyController::class,'show']);
     Route::get('/saveMoney/select',[SaveMoneyController::class,'selectBank']);
     Route::get('/saveMoney/choose/{id}',[SaveMoneyController::class,'choose']);
@@ -39,13 +37,6 @@ Route::middleware("auth:user")->group(function (){
     Route::post('/saveMoney/comebackMoney/{id}',[SaveMoneyController::class,'comebackMoney']);
 
 
-
-
-
-
-
-
-
    // Route::post('/saveMoney/confirm/{id}',[SaveMoneyController::class,'confirm']);
 
     Route::post('/card-choose/{id}',[BankController::class,'cardChoose']);
@@ -56,6 +47,7 @@ Route::middleware("auth:user")->group(function (){
     Route::post('/bankAccount/treatment',[BankController::class,"treatment"]);
     Route::get('/bankAccount/check',[BankController::class,"bankChecker"]);
     Route::get('/bankAccount/login',[BankController::class,"bankLogin"]);
+    Route::get('/bankAccount/resetOTP',[BankController::class,"resetOTP"]);
     Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
     Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"])->name("Accept");
@@ -65,10 +57,7 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount/link',[BankController::class,"bankLink"]);
     Route::post('/bankAccount/link', [BankAccountController::class, "loginLink"]);
     Route::middleware("auth:bank")->group(function () {
-        Route::get('/bankAccount/linkInfo',[BankController::class,"bankLinkInfo"]);
+//        Route::get('/bankAccount/linkInfo',[BankController::class,"bankLinkInfo"]);
     });
     Route::get('/bankAccount/link/accept', [BankController::class, "bankLinkAccept"]);
-
-
-
 });

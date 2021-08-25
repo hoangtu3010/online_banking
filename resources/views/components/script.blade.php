@@ -6,6 +6,8 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Sweet Alert -->
+<script src="{{asset("https://cdn.jsdelivr.net/npm/sweetalert2@11")}}"></script>
 <!-- Swiper -->
 <script src="{{asset("https://unpkg.com/swiper/swiper-bundle.min.js")}}"></script>
 <!-- Bootstrap 4 -->

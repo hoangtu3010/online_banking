@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BankController extends Controller
 {
@@ -20,7 +21,6 @@ class BankController extends Controller
 //        dd($request->toArray());
         $choose = $request->get("accChoose");
 //        $level = "accLevel" . $choose;
-        $findId = BankAccount::findOrFail($choose);
 
         $extra = BankAccount::where("user_id", "=", $id)->get();
         foreach ($extra as $item) {
@@ -29,9 +29,13 @@ class BankController extends Controller
             ]);
         }
 
+        $findId = BankAccount::findOrFail($choose);
+//        dd($findId);
+
         $findId->update([
             "level" => "Main"
         ]);
+
 
 //        dd($findId->toArray());
 
@@ -40,9 +44,11 @@ class BankController extends Controller
 
     public function bankAccount()
     {
+
         $data = User::with("bankAccount")->get();
 //        dd($data);
         $bank = BankAccount::all();
+
         return view("User.BankAccount.BankAccount", [
             "data" => $data,
             "bank" => $bank
@@ -154,9 +160,24 @@ class BankController extends Controller
             "two_factor_expires_at" => now()->addMinutes(5)
         ]);
         Mail::to(Auth::user()->email)->send(new MailNotify($name, $OTP));
+        Alert::success("Successfully", "Please check OTP your mail!");
 
         return redirect()->to("user/bankAccount/OTP");
 
+    }
+
+    public function resetOTP(){
+        $name = Auth::user()->name;
+        $OTP = random_int(100000, 999999);
+        $find = User::findOrFail(Auth::user()->id);
+        /*      dd($find->toArray());*/
+        $find->update([
+            "two_factor_code" => $OTP,
+            "two_factor_expires_at" => now()->addMinutes(5)
+        ]);
+        Mail::to(Auth::user()->email)->send(new MailNotify($name, $OTP));
+        Alert::success("Successfully", "Please check OTP your mail!");
+        return back();
     }
 
     public function checkOTP()
@@ -176,15 +197,18 @@ class BankController extends Controller
         $find = BankAccount::findOrFail($id);
         if (Auth::user()->two_factor_code == $OTP && Auth::user()->two_factor_expires_at > now()) {
             if ($find->status != "Active") {
-                return back()->withErrors(["OTP" => ["Thẻ đã bị đóng băng"]]);
+                Alert::error('Oops...', 'Card has been frozen!');
+                return back();
             }
             return redirect()->route("Accept", ["id" => $id]);
         }
         if (Auth::user()->two_factor_code == $OTP && Auth::user()->two_factor_expires_at < now()) {
             //login admin
-            return back()->withErrors(["OTP" => ["Mã bảo mật hết hạn"]]);
+            Alert::error('Oops...', 'Security code has expired!');
+            return back();
         }
-        return back()->withErrors(["OTP" => ["Sai mã bảo mật"]]);
+        Alert::error('Oops...', 'Bad security code!');
+        return back();
     }
 
 
@@ -201,7 +225,7 @@ class BankController extends Controller
             if (Auth::user()->id == $user_getter_id) {
                 $money_c = $money;
             } else {
-                if ($money * 0.05 > 5000) {
+                if ($money * 0.05 >= 5000) {
                     $money_c = $money + 5000;
                 } else {
                     $money_c = $money * 1.05;
@@ -249,13 +273,15 @@ class BankController extends Controller
         } else {
             return redirect()->back();
         }
-        return view("BankAccount.transfer.Success", [
-            "Title" => $title
-        ]);
+
+        Alert::success('Success', 'The money has been transferred successfully!');
+
+        return redirect()->to("user/bankAccount");
     }
 
     public function bankHistory($id)
     {
+//        dd(Auth::user());
         $all_acc = BankAccount::with("user")->get();
         $stk = BankAccount::findOrFail($id);
         $sender = Transaction::all()->where("bank_account_id", "=", $id)->where("sender", "=", $stk->stk)->sortByDesc("created_at");
@@ -270,6 +296,7 @@ class BankController extends Controller
 
     public function bankLink()
     {
+//        Alert::success('Success', 'Update successfully!');
         return view("User.BankAccount.link");
     }
 
@@ -287,6 +314,7 @@ class BankController extends Controller
         $bank_Acc->update([
             "user_id" => $id
         ]);
-        return view("User.BankAccount.success");
+
+        return redirect()->to("user/bankAccount");
     }
 }
