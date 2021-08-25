@@ -1,48 +1,92 @@
-h1.contact {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: 60px;
+h2.info-content {
+    margin-top: 40px;
+    font-size: 50px;
     color: #9c9ca6;
 }
 
-.breadcrumbs .breadcrumbs_delimiter {
+.title-info {
+    margin-top: 23px;
+    margin-bottom: 20px;
+    letter-spacing: 0.7px;
+}
+
+span.i-tag {
     margin: 0 1.1em;
 }
 
-.content-wrapper {
-    position: relative;
+span.title-tag {
+    color: #000000fa;
 }
 
-.content-contact{
+.wb-wrapper-content{
     position: relative;
-    left: -159.6px;
-    margin-top: 7%;
-    margin-bottom: 7%;
+    margin-bottom: 750px;
+    margin-top: 80px;
+}
+
+.images-bg{
+    position: absolute;
+    left: -194.6px;
     box-sizing: border-box;
-    width: 1310px;
-    text-align: center;
-    padding-left: 270.6px;
-    padding-right: 126.4px;
+    width: 1519px;
+    padding-left: 159.6px;
+    padding-right: 159.4px;
+    height: 507px;
+    background-image: url(http://creditcard.axiomthemes.com/wp-content/uploads/2017/06/bg_contacts.jpg?id=150);
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
-.wp_wrapper {
-    margin-top: 10%;
+.wrap-title-content {
+    position: absolute;
+    z-index: 5;
+    top: 90px;
+    left: 205px;
+}
+p.text-center.tag {
+    margin-bottom: 80px;
+    color: #84848c;
 }
 
-p.contact {
-    font-size: 15px;
-    margin-top: 18px;
-    color: #958d99;
-}
-
-.tag-icon {
+.icon_title {
     font-size: 60px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    color: #0c84ff;
+    color: blue;
+    margin-bottom: 50px;
+    display: inline-block;
+
+    z-index: 1;
+    left: 0;
+    top: 0;
 }
 
-button.btn.btn-primary.text-center.send {
-    margin-left: 40%;
-    margin-bottom: 10%;
+.content-tag-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
+.sc_icons_item_description {
+    font-size: 14px;
+    line-height: 1.6em;
+    font-weight: 400;
+    font-style: normal;
+    color: #00000033;
+    margin-top: 0.45em;
+}
+
+h3.messsage-info {
+    margin-bottom: 30px;
+}
+
+button.btn.btn-primary.tag-button {
+    margin-left: 44%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 50px;
+}
+
+
+
+
