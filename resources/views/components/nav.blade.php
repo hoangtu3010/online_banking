@@ -22,12 +22,7 @@
                 </a>
                 <form method="POST" class="dropdown-item text-center" action="{{ route('logout') }}">
                     @csrf
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                        <i class="ion ion-log-out mr-2"></i>
-                        {{ __('Log Out') }}
-                    </x-jet-dropdown-link>
+
                 </form>
             </div>
         </li>

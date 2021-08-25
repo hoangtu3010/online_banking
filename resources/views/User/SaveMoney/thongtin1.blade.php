@@ -25,6 +25,10 @@
                 <input type="text" name="time" value="{{$time}}">
             </div>
             <div>
+                <label for="">Mong muốn gửi</label>
+                <input type="text" name="desire" value="{{$desire}}">
+            </div>
+            <div>
                 <label for="">Lãi suất</label>
                 <input type="text" name="interest" value="{{$interest}}">
             </div>

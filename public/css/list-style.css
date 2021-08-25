@@ -37,6 +37,14 @@
     font-size: 22px;
 }
 
+.table-form td .transfer{
+    color: #ff98008a;
+}
+
+.table-form td .history{
+    color: #2196f3b3;
+}
+
 .table-form td .delete{
     color: #ff5c6c;
     font-size: 22px;

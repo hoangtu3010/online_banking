@@ -46,13 +46,13 @@ $cardInfo = \App\Models\BankAccount::all();
                                     @if($card->level == "Main")
                                         <p type="button" class="btn-check" data-toggle="modal"
                                            data-target="#exampleModalCenter">
-                                            Tài khoản thanh toán
+                                            Account number
                                             <br>
                                             {{$card->stk}}
                                         </p>
 
                                         <p>
-                                            Số dư
+                                            Balance
                                             <br>
                                             {{$card->balance}}
                                         </p>
@@ -125,6 +125,20 @@ $cardInfo = \App\Models\BankAccount::all();
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="sidebar-item">
+                    <div class="sidebar-item-content">
+                        <i class="fas fa-phone-volume"></i>
+                        <a href="tel: 0999999999">
+                            <button class="help-phone">
+                                <span class="sidebar-content-title">Support service 24/7</span>
+                                <br>
+                                <span style="font-size: 1.2em; padding-left: 20px; color: #ff9800"> 0-999-999-999 </span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </li>

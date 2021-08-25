@@ -16,14 +16,27 @@
                 <label for="">Số dư</label>
                 <input type="text" name="balance" value="{{$bank->balance}}"  >
             </div>
-            <input type="text" name="money" placeholder="Nhập số tiền ...">
-            <p class="text-red ">{{ $errors->first('money') }}</p>
-            <select name="time" id="">
-                <option >Chọn thời gian gửi</option>
-                <option >3 giờ </option>
-                <option >6 giờ</option>
-                <option >12 giờ</option>
-            </select>
+            <div>
+                <label for="">Số tiền muốn gửi</label>
+                <input type="text" name="money" placeholder="Nhập số tiền ...">
+                <p class="text-red ">{{ $errors->first('money') }}</p>
+            </div>
+            <div>
+                <label for="">Thời gian gửi</label>
+                <select name="time" id="">
+                    <option >Chọn thời gian gửi</option>
+                    <option >3 giờ </option>
+                    <option >6 giờ</option>
+                    <option >12 giờ</option>
+                </select>
+            </div>
+            <div>
+                <label for="">Mong muốn gửi</label>
+                <select name="desire" id="">
+                    <option>Half</option>
+                    <option>Full</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-outline-primary">Gửi tiền </button>
         </form>
     </div>

@@ -9,6 +9,7 @@
                 <h4>Số tài khoản gửi : {{$cat->stk}}</h4>
                 <h4>Số tiền gửi : {{$cat->money}}</h4>
                 <h4>Gói gửi tiền : {{$cat->timeSave}}</h4>
+                <h4>Quyền rút tiền : {{$cat->permission}}</h4>
             </div>
             <div class="col-md-6">
                 kết quả

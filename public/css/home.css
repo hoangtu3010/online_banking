@@ -1,41 +1,134 @@
+.slider-banner{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background-color: #68C8D5 ;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
 
-.home_home{
-    height: 80px;
+.slides{
+    width: 500%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 100%;
+    transition: 2s;
+}
+
+.slide img{
+    width:  1500px;
+    height: 400px;
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #23B8C3;
     padding: 5px;
-}
-.onaji{
-    margin-top: 70px;
-    background-color: #00a87d;
-    height: 100px;
-    width: 120px;
-    text-align: center;
-    color: white;
-    border-radius: 30%;
+    border-radius: 10px;
     cursor: pointer;
+    transition: .5s;
+    margin-bottom: 0;
 }
-.onaji:hover{
-    background-color: #0e5b44;
-}
-.home_home_a {
-    color: white;
-    text-decoration:none;
-}
-.home_home_a:hover{
-    color: white;
-}
-.home_change_icon{
-    font-size: 30px;
-}
-.home_surplus_icon{
-    font-size: 30px;
-}
-.home_people_icon{
-    font-size: 30px;
-}
-.home_history_icon{
-    font-size: 30px;
-}
-.home_logout_icon{
-    font-size: 30px;
 
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background-color: #23B8C3;
+}
+
+#slide_radio_1:checked ~ .first{
+    margin-left: 0;
+}
+#slide_radio_2:checked ~ .first{
+    margin-left: -30%;
+}
+#slide_radio_3:checked ~ .first{
+    margin-left: -50%;
+}
+#slide_radio_4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    bottom: 10px;
+}
+
+.navigation-auto div{
+    border: 2px solid #23B8C3;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#slide_radio_1:checked ~ .navigation-auto .auto-btn1{
+    background-color: #23B8C3;
+}
+#slide_radio_2:checked ~ .navigation-auto .auto-btn2{
+    background-color: #23B8C3;
+}
+#slide_radio_3:checked ~ .navigation-auto .auto-btn3{
+    background-color: #23B8C3;
+}
+#slide_radio_4:checked ~ .navigation-auto .auto-btn4{
+    background-color: #23B8C3;
+}
+
+.actions{
+    margin-top: 50px;
+}
+
+.actions .nav{
+    justify-content: space-between;
+}
+
+.actions .nav-item{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #3AA7BA 0%, #68C8D5 100%);
+    border-radius: 30px;
+    width: 130px;
+    height: 100px;
+    transition: .3s;
+}
+
+.actions .nav-item:hover{
+    background: linear-gradient(to left, #3AA7BA 0%, #68C8D5 100%);
+    opacity: .9;
+}
+
+.actions .nav-link  i{
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.actions .nav-link{
+    font-size: 1em;
+    color: #fff;
 }

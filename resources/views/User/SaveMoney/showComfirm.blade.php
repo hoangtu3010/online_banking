@@ -19,6 +19,9 @@
         <h3>
             Lãi suất gửi : {{$interest}}
         </h3>
+        <h3>
+            Sự cho phép : {{$desire}}
+        </h3>
         <a href="{{url('user/saveMoney/otp')}}" class="btn btn-outline-primary">Xác nhận OTP</a>
     </div>
 @endsection
