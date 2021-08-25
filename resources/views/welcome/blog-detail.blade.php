@@ -41,12 +41,9 @@
                                                 <a>Funding Trends</a>
                                             </span>
                             <span class="post-meta-item post-date">
-                                                <a> June 26, 2017</a>
-                                            </span>
-                            <span class="post-meta-item post-comments">
+                                <a> June 26, 2017</a>
+                            </span>
 
-                                                <a>3-Comments</a>
-                                            </span>
                         </div>
                         <div class="post-content">
                             <div class="post-content-inne">
@@ -141,10 +138,7 @@
                             <span class="post-meta-item post-date">
                                                 <a> June 26, 2017</a>
                                             </span>
-                            <span class="post-meta-item post-comments">
 
-                                                <a>3-Comments</a>
-                                            </span>
                         </div>
                         <div class="post-content">
                             <div class="post-content-inne">
@@ -182,6 +176,118 @@
                 </div>
             </div>
         </div>
+        <hr>
+
+        <section class="comments_list_title">
+            <div class="comments_list_wrap">
+                <h3 class="section_title comments_list_title">2 Comments</h3>
+                <ul class="comments_list">
+                    <li class="comment even thread-even depth-1 comment_item">
+                        <div class="post-comments">
+                            <div class="author-img">
+                                <img src="http://2.gravatar.com/avatar/ba7c516645337a87711c98fe6e548402?s=200&d=mm&r=g"
+                                     width="180px" height="180px" alt="">
+                            </div>
+                            <div class="comment_content">
+                                <div class="comment_info">
+                                    <h6 class="comment_author">Martin Moore
+                                        <span class="comment_date">June 27, 2017</span>
+                                    </h6>
+
+                                    <div class="comment_text_wrap">
+                                        <div class="comment_text">
+                                            <p>
+                                                Never have I ever thought that using this type of services is going to
+                                                bring me additional rewards,
+                                                points and joy! Thanks for the great experience
+                                            </p>
+
+                                        </div>
+                                        <a href="#" class="reply comment_reply">Reply</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="comment even thread-even depth-1 comment_item">
+                        <div class="post-comments">
+                            <div class="author-img">
+                                <img src="http://2.gravatar.com/avatar/ba7c516645337a87711c98fe6e548402?s=200&d=mm&r=g"
+                                     width="180px" height="180px" alt="">
+                            </div>
+                            <div class="comment_content">
+                                <div class="comment_info">
+                                    <h6 class="comment_author">Martin Moore
+                                        <span class="comment_date">June 27, 2017</span>
+                                    </h6>
+
+                                    <div class="comment_text_wrap">
+                                        <div class="comment_text">
+                                            <p>
+                                                Never have I ever thought that using this type of services is going to
+                                                bring me additional rewards,
+                                                points and joy! Thanks for the great experience
+                                            </p>
+
+                                        </div>
+                                        <a href="#" class="reply comment_reply">Reply</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+        <div class="message-content">
+            <h3 class="messsage-info">
+                Leave a comment
+            </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="form-message">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   placeholder="Enter email">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <form class="form-message">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   placeholder="Enter email">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <p class="wpgdprc-checkbox">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                By using this form you agree with the storage and handling of your data by this website
+                            </label>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary tag-button">Send message</button>
+
+            </div>
+
+
+        </div>
+
 
     </div>
 @endsection
