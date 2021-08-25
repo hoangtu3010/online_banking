@@ -17,19 +17,21 @@ class InterestController extends Controller
     public function change($id){
         $cat = SaveMoney::findOrFail($id);
         $inserest =  $cat->interest;
-       return view('Admin.Interest.change',[
-           'cat'=>$cat,
-           'inserest'=>$inserest
-       ]);
+        return view('Admin.Interest.change',[
+            'cat'=>$cat,
+            'inserest'=>$inserest
+        ]);
     }
     public function action(Request $request,$id){
-       $x = $request->__get('interest');
+        $x = $request->__get('interest');
+        $t = $request->__get('mon');
+        //     dd($t);
+        $cat = SaveMoney::findOrfail($id);
+        $cat->update([
+            'timeSave'=>$t,
+            'interest'=>$x
+        ]);
 
-       $cat = SaveMoney::findOrfail($id);
-       $cat->update([
-          'interest'=>$x
-       ]);
-
-       return redirect()->to('admin/manageInterest');
+        return redirect()->to('admin/manageInterest');
     }
 }

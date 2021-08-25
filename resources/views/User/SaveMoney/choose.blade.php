@@ -23,12 +23,7 @@
             </div>
             <div>
                 <label for="">Thời gian gửi</label>
-                <select name="time" id="">
-                    <option >Chọn thời gian gửi</option>
-                    <option >3 giờ </option>
-                    <option >6 giờ</option>
-                    <option >12 giờ</option>
-                </select>
+                <input type="text" name="time">h
             </div>
             <div>
                 <label for="">Mong muốn gửi</label>

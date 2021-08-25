@@ -19,12 +19,30 @@
                 <th>{{$cat->id}}</th>
                 <th>{{$cat->stk}}</th>
                 <th>{{$cat->money}}</th>
-                <th>{{$cat->timeSave}}</th>
+                <th>
+                    <select name="mon" >
+                        <option>{{$cat->timeSave}}</option>
+                        <option >1</option>
+                        <option >2</option>
+                        <option >3</option>
+                        <option >4</option>
+                        <option >5</option>
+                        <option >6</option>
+                        <option >7</option>
+                        <option >8</option>
+                        <option >9</option>
+                        <option >10</option>
+                        <option >11</option>
+                        <option >12</option>
+                        <option >18</option>
+                        <option >24</option>
+                    </select> giờ
+                </th>
                 <th>
                     <select name="interest">
-                            <option>
-                                {{$inserest}}
-                            </option>
+                        <option>
+                            {{$inserest}}
+                        </option>
                         <option >0.01</option>
                         <option >0.02</option>
                         <option >0.03</option>
