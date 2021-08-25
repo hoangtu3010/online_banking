@@ -39,14 +39,17 @@ class SaveMoneyController extends Controller
         $money = $request->money;
         $time = $request->time;
         $desire = $request->desire;
-        if ($time ==='3 giờ'){
+        if (1<=$time&&$time<=3){
             $interest = 0.03;
         }
-        if ($time ==='6 giờ'){
+        if (3<$time && $time<=6){
             $interest = 0.06;
         }
-        if ($time ==='12 giờ'){
+        if (6<$time && $time<=12){
             $interest = 0.12;
+        }
+        if (12<$time && $time<=24){
+            $interest = 0.16;
         }
         return view('User.SaveMoney.thongtin1',[
             'stk'=>$stk,
@@ -118,9 +121,9 @@ class SaveMoneyController extends Controller
         $bank=\session()->get('saveMoney');
         //dd($bank);
         $id= $bank[0]['id'];
-         return view('User.SaveMoney.checkOtp',[
-             'id'=>$id
-         ]);
+        return view('User.SaveMoney.checkOtp',[
+            'id'=>$id
+        ]);
     }
     public function action(Request $request){
         $OTP = $request->otp;
@@ -135,32 +138,32 @@ class SaveMoneyController extends Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $cat = BankAccount::findOrFail($id);
         //dd($cat->toArray());
-       if (Session::has('saveMoney')){
-           $saveMoney = Session::get('saveMoney');
+        if (Session::has('saveMoney')){
+            $saveMoney = Session::get('saveMoney');
 //dd($saveMoney);
-           $dola= $saveMoney[0]['money'];
-           //dd($dola);
-           $id_saveMoney=$saveMoney[0]['id'];
-           //dd($id_x);
-           $time= $saveMoney[0]['time'];
+            $dola= $saveMoney[0]['money'];
+            //dd($dola);
+            $id_saveMoney=$saveMoney[0]['id'];
+            //dd($id_x);
+            $time= $saveMoney[0]['time'];
             $interest = $saveMoney[0]['interest'];
-          //  dd($interest);
+            //  dd($interest);
 
-           if ($id_saveMoney==$id){
-               $cat->update([
-                   $cat->balance=$cat->balance-$dola
-               ]);
-               SaveMoney::create([
-                   'stk'=>$saveMoney[0]['stk'],
-                   'money'=>$saveMoney[0]['money'],
-                   'timeSave'=>$saveMoney[0]['time'],
-                   'bankAcc_id'=>$saveMoney[0]['id'],
-                   'interest'=>$saveMoney[0]['interest'],
-                   'permission'=>$saveMoney[0]['desire'],
-               ]);
-           };
-       }
-       return view('User.SaveMoney.Success');
+            if ($id_saveMoney==$id){
+                $cat->update([
+                    $cat->balance=$cat->balance-$dola
+                ]);
+                SaveMoney::create([
+                    'stk'=>$saveMoney[0]['stk'],
+                    'money'=>$saveMoney[0]['money'],
+                    'timeSave'=>$saveMoney[0]['time'],
+                    'bankAcc_id'=>$saveMoney[0]['id'],
+                    'interest'=>$saveMoney[0]['interest'],
+                    'permission'=>$saveMoney[0]['desire'],
+                ]);
+            };
+        }
+        return view('User.SaveMoney.Success');
     }
 
 
@@ -168,52 +171,31 @@ class SaveMoneyController extends Controller
 
 
     public function save(){
-       $save= SaveMoney::all();
-       return view('User.SaveMoney.Save.save',[
-           'save'=>$save
-       ]);
+        $save= SaveMoney::all();
+        return view('User.SaveMoney.Save.save',[
+            'save'=>$save
+        ]);
     }
     public function watch($id){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
         $cat = SaveMoney::findOrFail($id);
+        $timeSave = $cat['created_at']; //thời gian khi gửi tiền
+        //  dd($cat);
+
         $interest = $cat->interest;
-       // dd($cat);
-      // dd($cat->toArray());
         $money = $cat['money'];//tiền đã gửi vào trong ngân hàng
         $package = $cat['timeSave'];//gói thời gian gửi
-
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $timeSave = $cat['created_at']; //thời gian cũ
-        $totalS = strtotime($timeSave);//tổng số giây thời gian cũ .
-        $timestamp =time();//số giây đến thời điểm hiện tại;
-        $timepass = $timestamp-$totalS;//hiệu số giây của thời gian hiện tại và thời gian lưu
-       // dd($timeSave);
-       // dd($timepass);
-
-        $time3th =  date_modify($timeSave,'+3 hours');//thời gian cũ công thêm 3 tháng
-        $total3th = strtotime($time3th);///sô giây từ thời gian cộng thêm 3 tháng
-        $timepass3th=$total3th - $totalS;//so giây khi tăng 3 tháng - số giây lúc lưu
-        $h3th = $timepass3th/(60*60);//số giờ từ lúc gủi đến thời gian 3 h
-        //dd($time3th);
-        //dd($timepass3th);
-
-        $time6th=  date_modify($timeSave,'+3 hours');//thời gian cũ công thêm 6 tháng
-        $total6th = strtotime($time6th);//sô giây từ thời gian cộng thêm 6 tháng
-        $timepass6th=$total6th-$totalS;//so giây khi tăng 6 tháng - số giây lúc lưu
-        $h6th = $timepass6th/(60*60);//số giờ từ lúc gủi đến thời gian 6 h
-        //dd($time6th);
-        //dd($timepass6th);
-//
-        $time1y=  date_modify($timeSave,'+6 hours');//thời gian cũ công thêm 1 năm
-        $total1y = strtotime($time1y);//sô giây từ thời gian cộng thêm 1 năm
-        $timepass1y=$total1y-$totalS;//so giây khi tăng 1 năm - số giây lúc lưu
-        $h1y = $timepass1y/(60*60);//số giờ từ lúc gủi đến thời gian 1 h
-        //dd($time1y);
-        //dd($timepass1y);
+        $create_up = strtotime($timeSave);//tổng số giây thời gian gửi tiền từ năm 1970
+        $now =time();//số giây đến thời điểm hiện tại từ năm 1970
 
 
-        $h = $timepass/(60*60);//số giờ từ lúc gửi đến hiện tại
+        $hd = $create_up+$package*60*60;
+        $x = $now-$hd;
+        $min = $create_up+ ($package/2)*60*60;
 
-//dd($h);
+
+        $h =($now-$create_up)/3600;//số giờ từ lúc gửi đến hiện tại
         $after = $money;// tiền cộng dồn sau lãi
         $afterhd =$money;//tiền cộng dồn sau lãi có hợp dồng
         $aftercc = $money;
@@ -221,79 +203,37 @@ class SaveMoneyController extends Controller
         $laihd=0;
         $laicc= 0;
 
-        if ($timepass>7200){
-            $lai = $after*1/100;
+
+        if ($now>$min){
+            $lai = $after*0.01;
         }else{
-            $lai = 0;
-
+            $lai =0;
         }
-        ///////////////////////
-        if ($package==='3 giờ'){
-                    $laihd += $afterhd*$interest;
-                    $afterhd = $money+$laihd;
+        if ($package === $cat->timeSave ){
+            $laihd = $afterhd*$interest;
         }
-        if ($package==='3 giờ'){
-            if ($timestamp>$total3th && $timepass>7200){
-                for ($i=3;$i<$h;$i+=3){
-                    $laicc += $aftercc*$interest;
-                    $aftercc = $money+$laicc;
-
-                }
-            }
-            else{
-                for ($i=0;$i<$h;$i+=3){
-                    $laicc += 0;
-                    $aftercc = $money+$laicc;
-                }
-            }
-        }
-        /////////////////////////////////////
-        if ($package==='6 giờ'){
-                $laihd += $afterhd*$interest;
-                $afterhd = $money+$laihd;
-
-
-        }
-        if ($package==='6 giờ'){
-            if ($timestamp>$total6th){
-                for ($i=6;$i<$h;$i+=6){
+        if ($package === $cat->timeSave ){
+            if ($now>$hd ){
+                for ($i=$package;$i<$h;$i+=$package){
                     $laicc += $aftercc*$interest;
                     $aftercc = $money+$laicc;
                 }
-            }else{
-                for ($i=6;$i<$h;$i+=6){
-                    $laicc += $aftercc*1/100;
-                    $aftercc = $money+$laicc;
-                }
             }
-        }
-        /////////////////////////////////////
-        if ($package==='12 giờ'){
-                $laihd += $afterhd*$interest;
-                $afterhd = $money+$laihd;
+            if ($now<$min){
+                $laicc =0;
+            }
+            if ($now>$min && $now<$hd){
+                $laicc = $aftercc*0.01;
+            }
 
         }
-        if ($package==='12 giờ'){
-            if ($timestamp>$total1y){
-                for ($i=12;$i<$h;$i+=12){
-                    $laicc += $aftercc*$interest;
-                    $aftercc = $money+$laicc;
-                }
-            }else{
-                for ($i=12;$i<$h;$i+=12){
-                    $laicc += $aftercc*1/100;
-                    $aftercc = $money+$laicc;
-                }
-            }
-        }
-
         return view('User.SaveMoney.Save.detail',[
             'cat'=>$cat,
             'h'=>$h,
             'lai'=>$lai,
             'laihd'=>$laihd,
             'laicc'=>$laicc,
-            "now"=>$timestamp,
+            "now"=>$now,
         ]);
     }
     public function comebackMoney(Request $request,$id){

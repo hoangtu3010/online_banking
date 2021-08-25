@@ -105,4 +105,30 @@
     border-radius: 50%;
 }
 
+.form-check-transfer{
+    position: relative;
+}
+
+
+
+.form-check-transfer p{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-role{
+    padding: 0 50px;
+}
+
+.border-center{
+    content: "";
+    width: 1px;
+    position: absolute;
+    left: 50%;
+    background-color: #ccc;
+    height: 100%;
+}
+
+
+
 

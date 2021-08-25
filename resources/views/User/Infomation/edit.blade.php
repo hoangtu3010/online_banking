@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-md-6" style="margin-top: 20px">
                                 <label class="form-label" for="">Address</label>
-                                <input class="form-control" type="text" name="address" placeholder="address">
+                                <input class="form-control" type="text" name="address" value="{{$customer->address}}" placeholder="address">
                             </div>
                             {{--<div class="col-md-4" style="margin-top: 20px">
                                 <label class="form-label" for="">Email</label>

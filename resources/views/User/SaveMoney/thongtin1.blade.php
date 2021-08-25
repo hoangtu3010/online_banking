@@ -22,7 +22,7 @@
             </div>
             <div>
                 <label for="">Kì hạn</label>
-                <input type="text" name="time" value="{{$time}}">
+                <input type="text" name="time" value="{{$time}}">hour
             </div>
             <div>
                 <label for="">Mong muốn gửi</label>

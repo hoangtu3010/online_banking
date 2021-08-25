@@ -1,34 +1,91 @@
 @extends("layout")
 @section("main")
-    <div class="content-wrapper" style="min-height: 1299.69px;">
-        <div class="container">
-            <h2>người gửi</h2>
-            <h3>STK: {{ $data->stk }}</h3>
-            <h3>Số dư: {{ $data->balance}}</h3>
-            <h3>Trạng thái{{ $data->status }}</h3>
+    <link rel="stylesheet" href="{{asset("css/form-style.css")}}">
 
-            <h3>Số tiền chuyển:{{ $money }} VND</h3>
-            @if(Auth::user()->id==$user_getter_id)
-                <h3>Phí chuyển tiền:{{ 0 }} VND</h3>
-            @else
-                @if($money*0.05>5000)
-                <h3>Phí chuyển tiền:{{ 5000 }} VND</h3>
-                @else
-                <h3>Phí chuyển tiền:{{ $money*0.05 }} VND</h3>
-                @endif
-            @endif
-            <h3>lời nhắn:{{ $message }}</h3>
+    <div class="bgr-head-list"></div>
 
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6 content-header-left">
+                    <a href="{{url("user/bankAccount")}}">
+                        <i class="button-back ion-ios-arrow-thin-left"></i>
+                    </a>
+                    <h1>Transfer</h1>
+                </div>
+                <div class="col-md-6">
 
-            <h2>người nhận</h2>
-            <h3>STK: {{ $getter->stk }}</h3>
-            @if($getter->user)
-                <h3>Tên:{{$getter->user->name}} </h3>
-            @else
-                <h3>Chưa liên kết account</h3>
-            @endif
-            <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount/login")}}">Accept</a></p>
-            <p><a class="btn btn-outline-primary" href="{{url("user/bankAccount")}}">Home</a></p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <section class="content content-main">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="text-center text-secondary">Sender</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-center text-secondary">Getter</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-check-transfer row">
+                        <div class="section-role col-md-6">
+                            <p>
+                                <label>Name: </label> <span>{{Auth::user()->name}}</span>
+                            </p>
+                            <p>
+                                <label>Account number: </label> <span>{{ $data->stk }}</span>
+                            </p>
+                            <p>
+                                <label>Balance: </label> <span>{{ $data->balance}} VNĐ</span>
+                            </p>
+                            <p>
+                                <label>Transfer amount: </label> <span>{{ $money }} VNĐ</span>
+                            </p>
+                            @if(Auth::user()->id==$user_getter_id)
+                                <p>
+                                    <label>Transfer fee: </label> <span> 0 VNĐ</span>
+                                </p>
+                            @else
+                                @if($money*0.05>5000)
+                                    <p>
+                                        <label>Transfer fee: </label> <span> 5000 VNĐ</span>
+                                    </p>
+                                @else
+                                    <p>
+                                        <label>Transfer fee: </label> <span>{{ $money*0.05}} VNĐ </span>
+                                    </p>
+                                @endif
+                            @endif
+                            <p>
+                                <label>Message:</label>
+                                <span>{{ $message }}</span>
+                            </p>
+
+                        </div>
+                        <div class="border-center"></div>
+                        <div class="section-role col-md-6">
+
+                            @if($getter->user)
+                                <p><label>Name: </label> <span>{{$getter->user->name}}</span></p>
+                            @else
+                                <h5 class="text-center">Chưa liên kết account</h5>
+                            @endif
+
+                            <p><label>Account number: </label> <span>{{ $getter->stk }}</span></p>
+
+                                <div class="button-form-transfer">
+                                    <a href="{{url("user/bankAccount/login")}}" class="btn" type="submit" style="float: right">Accept</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

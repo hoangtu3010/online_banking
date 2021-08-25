@@ -37,13 +37,14 @@ $cardInfo = \App\Models\BankAccount::all();
             <li class="nav-item">
                 <div class="sidebar-item">
                     <div class="sidebar-item-content">
-                        <?php $count = 0; ?>
+                        <?php $count1 = 0; $count2 = 0 ?>
                         <p class="sidebar-content-title"><i class="fas fa-credit-card"></i> Card / Account: </p>
                         <div class="d-flex flex-column">
                             @foreach($cardInfo as $card)
                                 @if($card->user_id == Auth::user()->id)
-                                    <?php $count++ ?>
+                                    <?php $count1++ ?>
                                     @if($card->level == "Main")
+                                            <?php $count2++ ?>
                                         <p type="button" class="btn-check" data-toggle="modal"
                                            data-target="#exampleModalCenter">
                                             Account number
@@ -59,7 +60,11 @@ $cardInfo = \App\Models\BankAccount::all();
                                     @endif
                                 @endif
                             @endforeach
-                            <div class="count-card-acc">{{$count}}</div>
+                                @if($count2 == 0)
+                                    <button type="button" class="btn-check" data-toggle="modal"
+                                            data-target="#exampleModalCenter"> Add </button>
+                                @endif
+                            <div class="count-card-acc">{{$count1}}</div>
                         </div>
                     </div>
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"

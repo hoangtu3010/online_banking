@@ -26,7 +26,7 @@
                     <h3 class="card-title">Add</h3>
                 </div>
                 <div class="card-body">
-                    <form class="row needs-validation" action="{{url("user/bankAccount/link")}}" method="post"
+                    <form id="myForm" class="row needs-validation" action="{{url("user/bankAccount/link")}}" method="post"
                           novalidate>
                         @csrf
                         <div class="col-md-12 flex-column pl-3">
@@ -52,11 +52,34 @@
                             @endif
                         </div>
                         <div class="button-form">
-                            <button class="btn" type="submit" style="float: right">Add</button>
+                            <button class="btn" type="button" onclick="testClick()" id="btn-submit" style="float: right">Add</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        function testClick(){
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Are you sure you want to link this account",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#47b0c2',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Success',
+                        'Account link successful!',
+                        'success'
+                    )
+                    document.getElementById("myForm").submit();
+                }
+            })
+        }
+    </script>
 @endsection

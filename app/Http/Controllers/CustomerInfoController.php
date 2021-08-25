@@ -7,6 +7,7 @@ use App\Models\CustomerInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CustomerInfoController extends Controller
 {
@@ -54,6 +55,8 @@ class CustomerInfoController extends Controller
             }
         }
 
+
+
         $item = DB::table("users")->leftJoin("customer_info as c", "users.id", "=", "c.user_id")
             ->select("users.*", "c.name as cusName", "c.birthday", "c.tel", "c.cmnd","c.address", 'c.id as cusID','c.image')->get();
 
@@ -64,9 +67,15 @@ class CustomerInfoController extends Controller
             'cmnd' => $request->__get('cmnd'),
             'address' => $request->__get('address'),
             'birthday' => $request->__get('birthday'),
-            'image'=>$image
-
+            'image'=>$image,
         ]);
+
+//        swal({
+//          title: "Good job!",
+//          text: "You clicked the button!",
+//          icon: "success",
+//        });
+        Alert::success('Success', 'Update successfully!');
         return redirect()->to("user/customer");
         /*return view('user.Infomation.Customer_info',[
 

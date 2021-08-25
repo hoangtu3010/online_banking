@@ -140,7 +140,7 @@ class AdminController extends Controller
                 ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd", "a.address")->get();
         } else {
             $data=DB::table("users")->leftJoin("customer_info as a","users.id","=","a.user_id")
-                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd")
+                ->select("users.*","a.name as CusName","a.birthday","a.tel","a.cmnd", "address")
                 ->where("users.name", "like", "%" . $request->get("table_search") . "%")
                 ->orwhere("a.name", "like", "%" . $request->get("table_search") . "%")
                 ->orWhere("email", "like", "%" . $request->get("table_search") . "%")
