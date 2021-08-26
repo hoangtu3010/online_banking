@@ -14,16 +14,16 @@
                     <input type="radio" name="slide-radio" id="slide_radio_4">
 
                     <div class="slide first">
-                        <img src="http://www.elledecoration.vn/wp-content/uploads/2017/10/Bangkok-1.jpg" alt="slide1">
+                        <img src="{{asset("../imgs/slide-img-1.jpeg")}}" alt="slide1">
                     </div>
                     <div class="slide first">
-                        <img src="https://i.pinimg.com/originals/79/ba/e1/79bae1a5a8b2cb3c050944e32ebcb46c.jpg" alt="slide2">
+                        <img src="{{asset("../imgs/slide-img-2.jpeg")}}" alt="slide2">
                     </div>
                     <div class="slide first">
-                        <img src="https://i.pinimg.com/originals/79/ba/e1/79bae1a5a8b2cb3c050944e32ebcb46c.jpg" alt="slide3">
+                        <img src="{{asset("../imgs/slide-img-3.jpeg")}}" alt="slide3">
                     </div>
                     <div class="slide first">
-                        <img src="https://media.istockphoto.com/vectors/online-internet-banking-3d-isometric-banner-a-bank-building-with-of-vector-id1202705835?k=6&m=1202705835&s=612x612&w=0&h=7l9imSOPFmrbi6AfmcPSTl9qbkvbSM-7_zb0K17EC9o=" alt="slide4">
+                        <img src="{{asset("../imgs/slide-img-4.jpeg")}}" alt="slide4">
                     </div>
 
                     <div class="navigation-auto">

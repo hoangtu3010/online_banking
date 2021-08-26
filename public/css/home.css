@@ -24,7 +24,7 @@
 }
 
 .slide img{
-    width:  1500px;
+    width:  1300px;
     height: 400px;
 }
 
@@ -57,7 +57,7 @@
     margin-left: 0;
 }
 #slide_radio_2:checked ~ .first{
-    margin-left: -30%;
+    margin-left: -25%;
 }
 #slide_radio_3:checked ~ .first{
     margin-left: -50%;
