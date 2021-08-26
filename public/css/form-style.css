@@ -42,7 +42,13 @@ input:-webkit-autofill:active
 #img_tag{
     width: 100%;
     height: auto;
-    border-radius: 5px
+    border-radius: 5px;
+}
+
+#img_customer{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .form-image{
@@ -71,6 +77,14 @@ input:-webkit-autofill:active
 }
 
 .input-post-image{
+    top: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.input-customer-image{
     top: 0;
     height: 100%;
     opacity: 0;
@@ -170,5 +184,9 @@ input:-webkit-autofill:active
     background-color: #FDB91C;
 }
 
+.detail-account-number p{
+    display: flex;
+    justify-content: space-between;
+}
 
 

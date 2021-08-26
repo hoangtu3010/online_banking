@@ -1,3 +1,6 @@
+<?php
+    $cardInfo = \App\Models\BankAccount::all();
+?>
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
 @extends("layout")
 @section("main")
@@ -51,10 +54,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url("user/")}}" >
-                            <i class="nav-icon fas fa-exchange-alt"></i>
-                            <p>Transfer</p>
-                        </a>
+                        @foreach($cardInfo as $card)
+                            @if($card->user_id == Auth::user()->id && $card->level == "Main")
+                                <a class="nav-link" href="{{url("user/bankAccount/transfer", [$card->id])}}" >
+                                    <i class="nav-icon fas fa-exchange-alt"></i>
+                                    <p>Transfer</p>
+                                </a>
+                            @endif
+                        @endforeach
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('user/saveMoney')}}">
@@ -63,7 +70,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('user/customer')}}">
+                        <a class="nav-link" href="{{url('user/customer', ['id'=>Auth::user()->id])}}">
                             <i class="nav-icon far fa-user"></i>
                             <p>Infomation</p>
                         </a>

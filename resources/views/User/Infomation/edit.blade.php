@@ -1,69 +1,100 @@
-<link rel="stylesheet" href="{{asset('css/customer_info_edit.css')}}">
 @extends("layout")
 @section("main")
-    <div>
-        <div class="row">
-            <div>
-                <img src="https://bloganh.net/wp-content/uploads/2021/03/chup-anh-dep-anh-sang-min.jpg"
-                     height="400px" width="100%" alt="">
-            </div>
-            <div>
-                <h3 style="text-align: center ; padding: 10px 0 10px 0 ">Customer</h3>
-            </div>
-            <div class="customer_list_all">
-                <div class="customer_list_all_info">
-                    <h3>Update Customer Infomation</h3>
+    <link rel="stylesheet" href="{{asset("css/form-style.css")}}">
+
+    <div class="bgr-head-list"></div>
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-md-6 content-header-left">
+                    <a href="{{url()->previous()}}">
+                        <i class="button-back ion-ios-arrow-thin-left"></i>
+                    </a>
+                    <h1>Information</h1>
                 </div>
-                <div class="customer_list_all_col">
-                    <form action="{{url('user/customer/save',['id'=>$customer->cusID])}}" method="post"
-                          enctype="multipart/form-data"
-                    >
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content content-main">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Information</h3>
+                </div>
+                <div class="card-body">
+                    <form class="row needs-validation"
+                          action="{{url('user/customer/save',Auth::user()->id)}}" method="post"
+                          novalidate enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="form-label" for="">Image</label>
-                                <input class="form-control" type="file" name="image" placeholder="name">
+                        <div class="col-md-4 pr-3">
+                            <div class="form-image">
+                                <i class="ion-upload"></i>
+                                <img src="{{$customer->getImage()}}" id="img_customer"/>
+                                <input name="image" class="form-control input-customer-image" type="file" id="inputCusImage">
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 flex-column pl-3">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="validationCustom01"
+                                       value="{{$customer->name}}" placeholder=" " autocomplete="off"
+                                       required/>
+                                <label for="validationCustom01" class="form-label">Name</label>
+                                <div class="invalid-feedback">
+                                    Please enter name.
+                                </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="form-label" for="">Name</label>
-                                <input type="text" class="form-control" placeholder="name" name="name"
-                                       value="{{$customer->cusName}}">
+                            <div class="form-group">
+                                <input name="birthday" type="date" class="form-control" id="validationCustom04"
+                                       value="{{$customer->birthday}}" placeholder=" "
+                                       required/>
+                                <label for="validationCustom04" class="form-label">Birthday</label>
+                                <div class="invalid-feedback">
+                                    Please enter birthday.
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="">Birthday</label>
-                                <input type="date" class="form-control" placeholder="name" name="birthday"
-                                       value="{{$customer->birthday}}">
-                            </div>
-                            <div class="col-md-6" style="margin-top: 20px">
-                                <label class="form-label" for="">Phone</label>
-                                <input type="text" class="form-control" placeholder="name" name="tel"
-                                       value="{{$customer->tel}}">
-                            </div>
-                            <div class="col-md-6" style="margin-top: 20px">
-                                <label class="form-label" for="">CMND</label>
-                                <input type="text" class="form-control" placeholder="name" name="cmnd"
-                                       value="{{$customer->cmnd}}">
-                            </div>
-                            <div class="col-md-6" style="margin-top: 20px">
-                                <label class="form-label" for="">Address</label>
-                                <input class="form-control" type="text" name="address" value="{{$customer->address}}" placeholder="address">
-                            </div>
-                            {{--<div class="col-md-4" style="margin-top: 20px">
-                                <label class="form-label" for="">Email</label>
-                                <input type="text" class="form-control" placeholder="name"  value="{{$customer->email}}">
-                            </div>--}}
 
-                            <div style="margin-top: 20px ; margin-bottom: 20px">
-                                <a href="{{'/user'}}" class="btn btn-outline-dark">Back</a>
-                                <button type="submit" class="btn btn-outline-primary" style="float: right">Save
-                                </button>
+                            <div class="form-group">
+                                <input name="tel" type="tel" class="form-control" id="validationCustom05"
+                                       value="{{$customer->tel}}" placeholder=" "
+                                       required/>
+                                <label for="validationCustom05" class="form-label">Phone number</label>
+                                <div class="invalid-feedback">
+                                    Please enter tel.
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <input name="cmnd" type="text" class="form-control" id="validationCustom06"
+                                       value="{{$customer->cmnd}}" placeholder=" "
+                                       required/>
+                                <label for="validationCustom06" class="form-label">Cmnd</label>
+                                <div class="invalid-feedback">
+                                    Please enter cmnd.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="5" name="address" class="form-control" placeholder=" "
+                                          id="validationCustom03"
+                                          required>{{$customer->address}}</textarea>
+                                <label for="validationCustom03" class="form-label">Address</label>
+                                <div class="invalid-feedback">
+                                    Please enter address.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-form">
+                            <button class="btn" type="submit" style="float: right">Save</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
 @endsection

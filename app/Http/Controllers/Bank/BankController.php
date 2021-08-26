@@ -55,20 +55,11 @@ class BankController extends Controller
         ]);
     }
 
-    public function bankInfo($id)
-    {
-        $find = BankAccount::with("user")->findOrFail($id);
-        return view("BankAccount.bankAccount", [
-            "data" => $find
-        ]);
-    }
-
     public function bankTransfer($id)
     {
         $find = BankAccount::with("user")->findOrFail($id);
         return view("BankAccount.transfer.transfer", [
             "data" => $find,
-            "select" => BankAccount::all()
         ]);
     }
 
@@ -102,8 +93,10 @@ class BankController extends Controller
                 $money = $request->money * 1.05;
             }
         }
-        if ($money > $find->balance)
-            return back()->withInput()->withErrors(["money" => ["Không đủ tiền, số tiền cần có để chuyển là " . $money . " VND"]]);
+        if ($money > $find->balance){
+            Alert::error('Oops...', 'There is not enough money in your account to make this transaction!');
+            return back();
+        }
 
         $data = session()->get("bank");
         if ($request->toArray() != []) {

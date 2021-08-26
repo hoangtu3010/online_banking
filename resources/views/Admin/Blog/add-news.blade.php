@@ -32,7 +32,7 @@
                         <div class="col-md-4 pr-3">
                             <div class="form-image">
                                 <i class="ion-upload"></i>
-                                <img src="{{asset("../upload/default.png")}}" id="img_tag" style=""/>
+                                <img src="{{asset("../upload/default.png")}}" id="img_tag" />
                                 <input name="image" class="form-control input-post-image" type="file" id="inputImage">
                             </div>
                         </div>

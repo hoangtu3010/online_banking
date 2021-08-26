@@ -59,10 +59,12 @@
                                             </a>
                                         </td>
                                         <td aria-label="Detail">
-                                            <a href="{{url("user/bankAccount/info",["id"=>$b->id])}}">
+{{--                                            href="{{url("user/bankAccount/info",["id"=>$b->id])}}"--}}
+                                            <a type="button" data-toggle="modal" data-target="#detailAccountNumber{{$b->id}}" >
                                                 <i class="fas fa-info-circle detail"></i>
                                             </a>
                                         </td>
+                                        @include('BankAccount.detailAccountNumber')
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -70,6 +72,7 @@
                         </div>
                     </div>
                 </section>
+
             @else
                 <section class="content content-main">
                     <div class="container-fluid">
