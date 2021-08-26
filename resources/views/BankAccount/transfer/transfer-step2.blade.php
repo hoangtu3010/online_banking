@@ -29,8 +29,6 @@
                     <form class="row needs-validation" action="{{url("user/bankAccount/treatment")}}" method="post"
                           novalidate>
                         @csrf
-                        <input type="hidden" value="{{$data->id}}"  name="id_setter" class="form-control">
-
                         <div class="col-md-12 flex-column pl-3">
                             <div class="form-group">
                                 <input disabled type="text" class="form-control" id="validationCustom01" value="{{$data->stk}}" placeholder=" " autocomplete="off"

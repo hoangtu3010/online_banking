@@ -104,11 +104,7 @@ class BankController extends Controller
         }
         if ($money > $find->balance)
             return back()->withInput()->withErrors(["money" => ["Không đủ tiền, số tiền cần có để chuyển là " . $money . " VND"]]);
-        $request->validate([
-            "money" => "required",
-        ], [
-            "money.required" => "Vui lòng nhập số tiền",
-        ]);
+
         $data = session()->get("bank");
         if ($request->toArray() != []) {
             if (session()->has("bank")) {

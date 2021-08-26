@@ -61,8 +61,8 @@ $cardInfo = \App\Models\BankAccount::all();
                                 @endif
                             @endforeach
                                 @if($count2 == 0)
-                                    <button type="button" class="btn-check" data-toggle="modal"
-                                            data-target="#exampleModalCenter"> Add </button>
+                                    <button type="button" class="btn-check-null" data-toggle="modal"
+                                            data-target="#exampleModalCenter"> <i class="ion-plus-round"></i> </button>
                                 @endif
                             <div class="count-card-acc">{{$count1}}</div>
                         </div>

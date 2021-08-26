@@ -169,7 +169,7 @@
                 </div>
                 <div class="col-md-12" style="margin-bottom: 50px">
                     <h2 class="blog-category text-center">Find a Card from your Favorite <br> Financial Institution</h2>
-                    <div class="swiper-container mySwiper">
+                    <div class="swiper-container mySwiper" style="overflow: hidden">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <a href="#"><img src="{{asset("imgs/slide-logo-1.webp")}}" alt="slide-logo"></a>
