@@ -8,6 +8,7 @@
                 <th>Số tài khoản</th>
                 <th>Số tiền gửi</th>
                 <th>Gói gửi</th>
+                <th>Quyền rút tiền</th>
                 <th>Thời gian lúc gửi</th>
                 <th>Action</th>
             </tr>
@@ -18,6 +19,7 @@
                     <th>{{$item->stk}}</th>
                     <th>{{$item->money}}</th>
                     <th>{{$item->timeSave}}</th>
+                    <th>{{$item->permission}}</th>
                     <th>{{$item->created_at}}</th>
                     <th>
                         <a href={{url('user/saveMoney/watch',['id'=>$item->id])}}>Xem số tiền</a>

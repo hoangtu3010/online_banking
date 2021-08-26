@@ -24,9 +24,7 @@
                     <input type="text" name="von" value="{{$cat->money}}" hidden>
                     <h4>{{$laicc}}</h4>
                     <input type="text" name="lai" value="{{$laicc}}" hidden>
-
-
-                    <button class="btn btn-outline-primary">Rút tiền</button>
+                    <button type="submit" class="btn btn-outline-primary">Rút tiền</button>
                 </form>
             </div>
         </div>

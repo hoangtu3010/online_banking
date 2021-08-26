@@ -256,7 +256,7 @@ class SaveMoneyController extends Controller
             $cat->delete();
         }
         else{
-            return back();
+            return view('User.SaveMoney.dontSuss');
         }
 
 
