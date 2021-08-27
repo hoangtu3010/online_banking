@@ -15,6 +15,8 @@ class Transaction extends Model
         "content",
         "money",
         "sender",
+        "fee",
+        "who",
         "getter",
         "bank_account_id",
         "created_at",

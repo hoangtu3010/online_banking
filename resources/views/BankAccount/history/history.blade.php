@@ -50,6 +50,7 @@
                                     <th>Getter</th>
                                     <th>Amount of money</th>
                                     <th>Transfer fee</th>
+                                    <th>fee bearer</th>
                                     <th>Content</th>
                                     <th>Time</th>
                                 </tr>
@@ -71,18 +72,16 @@
                                             @endif
                                         @endforeach
                                         <td>{{$s->money}} VNĐ</td>
-                                        <td>
-                                            @if(Auth::user()->id == $id_getter)
-                                                0 VNĐ
-                                            @else
-                                                @if($s->money * 0.5 >= 5000)
-                                                    5000 VNĐ
+                                        <td>{{$s->fee}} VNĐ</td>
+                                        @foreach($all_acc as $acc)
+                                            @if($s->who == $acc->stk )
+                                                @if($acc->user )
+                                                    <td>{{$acc->user->name}}</td>
                                                 @else
-                                                    {{$s->money * 0.5}} VNĐ
+                                                    <td>{{$s->who}}</td>
                                                 @endif
                                             @endif
-
-                                        </td>
+                                        @endforeach
                                         <td>{{$s->content}}</td>
                                         <td>{{$s->created_at}}</td>
                                     </tr>
@@ -101,9 +100,10 @@
                                     <th>Account number</th>
                                     <th>Sender</th>
                                     <th>Amount of money</th>
+                                    <th>Transfer fee</th>
+                                    <th>fee bearer</th>
                                     <th>Content</th>
                                     <th>Time</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -111,9 +111,8 @@
                                     <tr>
                                         <td>{{$s->sender}}</td>
                                         @foreach($all_acc as $acc)
-                                            @if($s->getter == $acc->stk )
+                                            @if($s->sender == $acc->stk )
                                                 @if($acc->user )
-
                                                     <td>{{$acc->user->name}}</td>
                                                 @else
                                                     <td>Chưa liên kết người dùng</td>
@@ -121,9 +120,19 @@
                                             @endif
                                         @endforeach
                                         <td>{{$s->money}} VNĐ</td>
+                                        <td>{{$s->fee}} VNĐ</td>
+                                        @foreach($all_acc as $acc)
+                                            @if($s->who == $acc->stk )
+                                                @if($acc->user )
+                                                    <td>{{$acc->user->name}}</td>
+                                                @else
+                                                    <td>{{$s->who}}</td>
+                                                @endif
+                                            @endif
+                                        @endforeach
+
                                         <td>{{$s->content}}</td>
                                         <td>{{$s->created_at}}</td>
-                                        <td></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -19,6 +19,8 @@ class CreateTableTransactions extends Migration
             $table->decimal("money", 16, 2);
             $table->string("sender");
             $table->string("getter");
+            $table->decimal("fee", 16, 2);
+            $table->string("who");
             $table->unsignedBigInteger("bank_account_id");
             $table->timestamps();
             $table->foreign("bank_account_id")->references("id")->on("bank_account");

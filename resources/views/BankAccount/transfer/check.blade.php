@@ -47,6 +47,7 @@
                             <p>
                                 <label>Transfer amount: </label> <span>{{ $money }} VNĐ</span>
                             </p>
+                            @if($who==0)
                             @if(Auth::user()->id==$user_getter_id)
                                 <p>
                                     <label>Transfer fee: </label> <span> 0 VNĐ</span>
@@ -61,6 +62,7 @@
                                         <label>Transfer fee: </label> <span>{{ $money*0.05}} VNĐ </span>
                                     </p>
                                 @endif
+                            @endif
                             @endif
                             <p>
                                 <label>Message:</label>
@@ -82,6 +84,23 @@
                                 <div class="button-form-transfer">
                                     <a href="{{url("user/bankAccount/login")}}" class="btn" type="submit" style="float: right">Accept</a>
                                 </div>
+                                @if($who==1)
+                                    @if(Auth::user()->id==$user_getter_id)
+                                        <p>
+                                            <label>Transfer fee: </label> <span> 0 VNĐ</span>
+                                        </p>
+                                    @else
+                                        @if($money*0.05>5000)
+                                            <p>
+                                                <label>Transfer fee: </label> <span> 5000 VNĐ</span>
+                                            </p>
+                                        @else
+                                            <p>
+                                                <label>Transfer fee: </label> <span>{{ $money*0.05}} VNĐ </span>
+                                            </p>
+                                        @endif
+                                    @endif
+                                @endif
                         </div>
                     </div>
                 </div>

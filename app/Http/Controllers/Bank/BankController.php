@@ -83,25 +83,30 @@ class BankController extends Controller
 
     public function treatment(Request $request)
     {
+
         $find = BankAccount::with("user")->findOrFail($request->id_setter);
+        $fee = $request->fee;
         if (Auth::user()->id == $request->user_id_getter) {
             $money = $request->money;
         } else {
-            if ($request->money * 0.05 > 5000) {
-                $money = $request->money + 5000;
-            } else {
-                $money = $request->money * 1.05;
+            if ($fee==0){
+                if ($request->money * 0.05 > 5000) {
+                    $money = $request->money + 5000;
+                } else {
+                    $money = $request->money * 1.05;
+                }
+            }else{
+                $money = $request->money;
             }
+
         }
         if ($money > $find->balance){
             Alert::error('Oops...', 'There is not enough money in your account to make this transaction!');
             return back();
         }
 
-        $data = session()->get("bank");
         if ($request->toArray() != []) {
             if (session()->has("bank")) {
-                $data = [];
                 session()->forget("bank");
                 $data = session()->get("bank");
                 $data[] = $request->all();
@@ -120,6 +125,7 @@ class BankController extends Controller
         if (Session::has("bank")) {
             $bank = Session::get("bank");
             $id_setter = $bank[0]["id_setter"];
+            $who = $bank[0]["fee"];
             $user_getter_id = $bank[0]["user_id_getter"];
             $getter = $bank[0]["getter"];
             $message = $bank[0]["message"];
@@ -130,6 +136,7 @@ class BankController extends Controller
             return redirect()->back();
         }
         return view("BankAccount.transfer.check", [
+            "who"=> $who,
             "money" => $money,
             "message" => $message,
             "data" => $setter,
@@ -206,18 +213,20 @@ class BankController extends Controller
         if (Session::has("bank")) {
             $bank = Session::get("bank");
             $id_setter = $bank[0]["id_setter"];
+            $who = $bank[0]["fee"];
+
             if ($id != $id_setter) {
                 abort(404);
             }
             $money = $bank[0]["money"];
             $user_getter_id = $bank[0]["user_id_getter"];
             if (Auth::user()->id == $user_getter_id) {
-                $money_c = $money;
+                $fee = 0;
             } else {
                 if ($money * 0.05 >= 5000) {
-                    $money_c = $money + 5000;
+                    $fee =  5000;
                 } else {
-                    $money_c = $money * 1.05;
+                    $fee = $money * 0.05;
                 }
             }
             $message = $bank[0]["message"];
@@ -229,14 +238,26 @@ class BankController extends Controller
             else {
                 $getter = BankAccount::all()->where("stk", "=", $get)->first();
 //                $base_money=$getter->balance;
-                $setter->update([
-                    "balance" => $balance - $money_c
-                ]);
-                $getter->update([
-                    "balance" => $getter->balance + $money
-                ]);
-
-
+                if ($who==0){
+                    $setter->update([
+                        "balance" => $balance - $money-$fee
+                    ]);
+                    $getter->update([
+                        "balance" => $getter->balance + $money
+                    ]);
+                }else{
+                    $setter->update([
+                        "balance" => $balance - $money
+                    ]);
+                    $getter->update([
+                        "balance" => $getter->balance + $money -$fee
+                    ]);
+                }
+                if ($who==0){
+                    $who=$setter->stk;
+                }else{
+                    $who=$getter->stk;
+                }
                 //luu transaction
                 Transaction::create([
                     "content" => $message,
@@ -244,6 +265,8 @@ class BankController extends Controller
                     "sender" => $setter->stk,
                     "getter" => $getter->stk,
                     "bank_account_id" => $setter->id,
+                    "fee"=>$fee  ,
+                    "who"=> $who  ,
                     "created_at" => now(),
                     "updated_at" => now()
                 ]);
@@ -252,6 +275,8 @@ class BankController extends Controller
                     "money" => $money,
                     "sender" => $setter->stk,
                     "getter" => $getter->stk,
+                    "fee"=>$fee  ,
+                    "who"=> $who  ,
                     "bank_account_id" => $getter->id,
                     "created_at" => now(),
                     "updated_at" => now()
