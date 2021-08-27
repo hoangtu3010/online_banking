@@ -50,7 +50,7 @@
                                     <th>Getter</th>
                                     <th>Amount of money</th>
                                     <th>Transfer fee</th>
-                                    <th>fee bearer</th>
+                                    <th>Fee bearer</th>
                                     <th>Content</th>
                                     <th>Time</th>
                                 </tr>
@@ -101,7 +101,7 @@
                                     <th>Sender</th>
                                     <th>Amount of money</th>
                                     <th>Transfer fee</th>
-                                    <th>fee bearer</th>
+                                    <th>Fee bearer</th>
                                     <th>Content</th>
                                     <th>Time</th>
                                 </tr>
