@@ -1,3 +1,7 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
 .slider-banner{
     width: 100%;
     height: 400px;
@@ -134,3 +138,22 @@
     display: flex;
     flex-direction: column;
 }
+
+.online-saving .btn-savings a{
+    font-size: 1rem;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #36D1DC 0%, #5B86E5  51%, #36D1DC  100%);
+    color: #fff;
+    transition: 0.5s;
+    box-shadow: 0 0 20px #eee;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.online-saving .btn-savings a:hover{
+    background-image: linear-gradient(to left, #36D1DC 0%, #5B86E5  51%, #36D1DC  100%);
+}
+
+
+

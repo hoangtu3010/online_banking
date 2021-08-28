@@ -18,10 +18,7 @@ Route::middleware("auth:user")->group(function (){
     Route::post('/customer/create/{id}',[CustomerInfoController::class,'create']);
 
 
-    Route::get('/saveMoney',[SaveMoneyController::class,'show']);
-    Route::get('/saveMoney/select',[SaveMoneyController::class,'selectBank']);
-    Route::get('/saveMoney/choose/{id}',[SaveMoneyController::class,'choose']);
-//    Route::post('/saveMoney/thongtin1/{id}',[SaveMoneyController::class,'thongtin1']);
+    Route::get('/saveMoney/choose',[SaveMoneyController::class,'choose']);
     Route::post('/saveMoney/thongtin/{id}',[SaveMoneyController::class,'thongtin']);
 
     Route::get('/saveMoney/check',[SaveMoneyController::class,'checkSave']);

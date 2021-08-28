@@ -15,22 +15,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class SaveMoneyController extends Controller
 {
-    public function show()
-    {
-        return view('User.SaveMoney.list');
-    }
 
-    public function selectBank()
+    public function choose(Request $request)
     {
-        $all_bank = BankAccount::all();
-        return view('User.SaveMoney.listBank', [
-            'listBank' => $all_bank
-        ]);
-    }
-
-    public function choose($id)
-    {
-        $bank = BankAccount::findOrFail($id);
+        $choose = $request->get("accChooseSaving");
+        $bank = BankAccount::findOrFail($choose);
         $package = SavingsPackage::all();
         return view('User.SaveMoney.choose', [
             'bank' => $bank,
@@ -100,6 +89,7 @@ class SaveMoneyController extends Controller
     {
         if (Session::has('saveMoney')) {
             $cat = Session::get('saveMoney');
+//            dd($cat);
             $tkg = $cat[0]['stk'];
             $money = $cat[0]['money'];
             $name_package = $cat[0]["name_package"];
@@ -127,6 +117,7 @@ class SaveMoneyController extends Controller
             "two_factor_code" => $OTP,
         ]);
         Mail::to(Auth::user()->email)->send(new MailNotify($name, $OTP));
+        Alert::success("Successfully", "Please check OTP your mail!");
         return redirect()->to('user/saveMoney/checkOtp');
     }
 
@@ -185,7 +176,9 @@ class SaveMoneyController extends Controller
                 ]);
             };
         }
-        return view('User.SaveMoney.Success');
+        Alert::success("Success", "Complete deposit!");
+
+        return redirect()->to("user/saveMoney/save");
     }
 
 
@@ -290,15 +283,16 @@ class SaveMoneyController extends Controller
                 ]);
                 $cat->delete();
             }else{
-                Alert::warning("Fail!!!", "Withdrawal failed...");
+                Alert::warning("Fail!!!", "You have violated your savings plan rights...");
                 return back();
             }
         }
         else {
-            return view('User.SaveMoney.dontSuss');
+            Alert::error("Fail!!!", "You have violated your savings plan rights...");
+            return redirect()->to("/saveMoney/save");
         }
-
-        return view('User.SaveMoney.Save.comeback');
+        Alert::success("Successful Withdrawal", "Money has been added to your account, please check!");
+        return redirect()->to("/user");
 
     }
 }

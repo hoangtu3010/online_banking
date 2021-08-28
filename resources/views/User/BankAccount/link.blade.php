@@ -72,11 +72,6 @@
                 confirmButtonText: 'Yes!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire(
-                        'Success',
-                        'Account link successful!',
-                        'success'
-                    )
                     document.getElementById("myForm").submit();
                 }
             })

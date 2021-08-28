@@ -90,11 +90,11 @@ $cardInfo = \App\Models\BankAccount::all();
 
                                                     <label for="radio_card{{$card->id}}">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-7">
                                                                 <p>Account number: {{$card->stk}}</p>
                                                                 <p>Balance: {{$card->balance}}</p>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-5">
                                                                 <input type="text" id="level" disabled name="accLevel{{$card->id}}"
                                                                        value="{{$card->level}}">
                                                             </div>
@@ -108,11 +108,11 @@ $cardInfo = \App\Models\BankAccount::all();
                                                            style="transform: translateY(50%)">
                                                     <label for="radio_card{{$card->id}}">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-7">
                                                                 <p>Account number: {{$card->stk}}</p>
                                                                 <p>Balance: {{$card->balance}}</p>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-5">
                                                                 <input type="text" disabled name="accLevel{{$card->id}}"
                                                                        value="{{$card->level}}">
                                                             </div>

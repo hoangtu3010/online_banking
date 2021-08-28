@@ -1,7 +1,9 @@
 <?php
     $cardInfo = \App\Models\BankAccount::all();
+    $bankAccount = \App\Models\BankAccount::where("user_id", "=", Auth::user()->id)->get();
 ?>
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
+<link rel="stylesheet" href="{{asset('css/form-style.css')}}">
 @extends("layout")
 @section("main")
     <section class="content-header">
@@ -64,11 +66,13 @@
                         @endforeach
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('user/saveMoney')}}">
+                        <a type="button" class="nav-link" data-toggle="modal"
+                           data-target="#onlineSavings">
                             <i class="nav-icon fas fa-piggy-bank"></i>
                             <span>Online savings</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('user/customer', ['id'=>Auth::user()->id])}}">
                             <i class="nav-icon far fa-user"></i>
@@ -93,4 +97,6 @@
             </div>
         </div>
     </section>
+    @include("User.SaveMoney.list")
+
 @endsection

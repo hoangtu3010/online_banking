@@ -170,14 +170,30 @@ input:-webkit-autofill:active
     background-color: #FDB91C;
 }
 
+.form-check-transfer label{
+    font-weight: 600!important;
+}
+
 .button-form-transfer{
     position: absolute;
-    bottom: 10px;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
     background-color: #FED441;
     padding: 0 20px;
     border-radius: 20px;
     transition: .2s;
+}
+
+.form-confirm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-confirm .form-confirm-content label{
+    font-weight: 600;
+    width: 300px;
 }
 
 .button-form-transfer:hover{
@@ -229,10 +245,38 @@ input:-webkit-autofill:active
 }
 
 .fee-bearer input[type=radio]:checked + label{
-    background-color: #ddd;
+    background-color: #ddd!important;
 }
 
-.online-saving {
-
+.radio-acc-saving input[type=radio]{
+    display: none;
 }
+
+.radio-acc-saving input[type=radio]:checked{
+    background-color: #f1c40f!important;
+}
+
+.radio-acc-saving label{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500!important;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+
+.radio-acc-saving label:hover{
+    border-radius: 5px;
+    background-color: #ddd!important;
+}
+
+.radio-acc-saving input[type=radio]:checked + label{
+    background-color: #ddd!important;
+}
+
+
+
 

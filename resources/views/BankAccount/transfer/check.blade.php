@@ -81,9 +81,7 @@
 
                             <p><label>Account number: </label> <span>{{ $getter->stk }}</span></p>
 
-                                <div class="button-form-transfer">
-                                    <a href="{{url("user/bankAccount/login")}}" class="btn" type="submit" style="float: right">Accept</a>
-                                </div>
+
                                 @if($who==1)
                                     @if(Auth::user()->id==$user_getter_id)
                                         <p>
@@ -101,6 +99,9 @@
                                         @endif
                                     @endif
                                 @endif
+                        </div>
+                        <div class="button-form-transfer">
+                            <a href="{{url("user/bankAccount/login")}}" class="btn" type="submit" style="float: right">Accept</a>
                         </div>
                     </div>
                 </div>
