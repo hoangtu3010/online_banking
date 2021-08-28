@@ -310,7 +310,6 @@ class BankController extends Controller
 
     public function bankLink()
     {
-//        Alert::success('Success', 'Update successfully!');
         return view("User.BankAccount.link");
     }
 
@@ -328,6 +327,8 @@ class BankController extends Controller
         $bank_Acc->update([
             "user_id" => $id
         ]);
+
+        Alert::success('Success', 'Account link successful!');
 
         return redirect()->to("user/bankAccount");
     }
