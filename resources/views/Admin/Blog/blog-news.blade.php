@@ -38,9 +38,9 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Content</th>
-                    <th>Comment</th>
-                    <th width="5%" colspan="2"></th>
+                    <th >Content</th>
+                    <th class="text-center">Comment</th>
+                    <th colspan="2"></th>
                     </thead>
                     <tbody>
                     @foreach ($data as $item)
@@ -48,7 +48,11 @@
                             <td class="text-center">{{$item->id}}</td>
                             <td><img src="{{$item->getImage()}}"/> {{$item->title}}</td>
                             <td>{{$item->author}}</td>
-                            <td>{{$item->content}}</td>
+                            <td style="max-width: 200px;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;"  >{{$item->content}}</td>
+
                             <td class="text-center">
                                 <?php $count = 0; ?>
                                 @foreach($comments as $cmt)

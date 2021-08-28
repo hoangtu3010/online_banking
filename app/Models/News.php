@@ -19,7 +19,7 @@ class News extends Model
     ];
 
     public function Comment(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class,"new_id");
     }
 
     public function getImage(){

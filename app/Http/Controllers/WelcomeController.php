@@ -23,7 +23,12 @@ class WelcomeController extends Controller
     }
 
     public function newsDetail($id){
-        News::findOrFaild($id);
+        $recent = News::with("comment")->take(3)->get()->sortDesc();
+        $data=News::with("comment")->findOrFail($id);
+        return view("welcome.blog-detail",[
+            "data"=>$data,
+            "recent"=>$recent
+        ]);
     }
 
     public function sendFeedback(Request $request){
@@ -36,7 +41,12 @@ class WelcomeController extends Controller
     }
 
     public function blog(){
-        return view("welcome.blog");
+        $news = News::with("comment")->get()->sortDesc();
+        $recent = News::with("comment")->take(3)->get()->sortDesc();
+        return view("welcome.blog",[
+            "news"=>$news,
+            "recent"=>$recent
+        ]);
     }
     public function contactUs(){
        return view("welcome.contact-us");
