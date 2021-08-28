@@ -40,8 +40,10 @@
     <section class="content content-main">
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col-md-12">
                     <div class="collapse multi-collapse" id="sent">
+                        <h5 class="text-center pt-4 text-secondary">History Sent</h5>
+
                         <div class="card-body table-responsive table-style">
                             <table class="table table-hover table-form text-center">
                                 <thead>
@@ -91,8 +93,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-12">
                     <div class="collapse multi-collapse" id="received">
+                        <h5 class="text-center pt-4 text-secondary">History Received</h5>
+
                         <div class="card-body table-responsive table-style">
                             <table class="table table-hover table-form text-center">
                                 <thead>

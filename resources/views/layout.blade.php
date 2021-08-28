@@ -26,6 +26,7 @@
 @include('sweetalert::alert')
 </body>
 
+
 <script>
     var counter = 1;
     setInterval(function (){

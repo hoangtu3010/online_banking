@@ -47,24 +47,6 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#img_tag').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#inputImage").change(function(){
-        readURL(this);
-    });
-</script>
-
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
                 $('#img_customer').attr('src', e.target.result);
             }
 
@@ -76,6 +58,25 @@
         readURL(this);
     });
 </script>
+
+<script>
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_tag').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputImage").change(function(){
+        readURL2(this);
+    });
+</script>
+
 
 <script>
     scrollToTopBtn = document.querySelector("#scrollToTopBtn");

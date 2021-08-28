@@ -24,7 +24,7 @@
 }
 
 .slide img{
-    width:  1300px;
+    width:  1400px;
     height: 400px;
 }
 
@@ -131,4 +131,6 @@
 .actions .nav-link{
     font-size: 1em;
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }

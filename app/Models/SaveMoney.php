@@ -12,14 +12,16 @@ class SaveMoney extends Model
     protected $fillable =[
         'stk',
         'money',
-        'timeSave',
-        'code',
-        'interest',
         'permission',
         'bankAcc_id',
+        'package_id'
     ];
+
     public function BankAcc(){
         return $this->belongsTo(BankAccount::class, "bankAcc_id");
     }
 
+    public function Package(){
+        return $this->belongsTo(SavingsPackage::class, "package_id");
+    }
 }

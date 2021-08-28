@@ -14,7 +14,11 @@
         </h3>
 
         <h3>
-            Thời hạn gửi : {{$time}}
+            Tên Gói {{$name_package}}
+        </h3>
+
+        <h3>
+            Thời hạn gửi : {{$time_package}}
         </h3>
         <h3>
             Lãi suất gửi : {{$interest}}

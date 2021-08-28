@@ -47,6 +47,14 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/bankAccount/getPassword/{id}',[AdminController::class,"getPassBank"]);
 
 
+    Route::get('/savings-package/',[AdminController::class,"getPackages"]);
+    Route::get('/savings-package/add',[AdminController::class,"addPackage"]);
+    Route::get('/savings-package/edit/{id}',[AdminController::class,"editPackage"]);
+    Route::post('/savings-package/save',[AdminController::class,"savePackage"]);
+    Route::post('/savings-package/update/{id}',[AdminController::class,"updatePackage"]);
+    Route::get('/savings-package/delete/{id}',[AdminController::class,"deletePackage"]);
+
+
     Route::get('/blog/comments',[BlogController::class,"getComments"]);
     Route::get('/blog/comments/delete/{id}',[BlogController::class,"deleteComments"]);
 

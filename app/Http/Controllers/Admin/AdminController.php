@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\BankAccount;
 use App\Models\CustomerInfo;
 use App\Models\Role;
+use App\Models\SavingsPackage;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,6 +16,50 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     //Admin
+    public function getPackages(){
+        $item = SavingsPackage::all();
+        return view("Admin.SavingsPackage.list-package", [
+            "item" => $item
+        ]);
+    }
+
+    public function editPackage($id){
+        $item = SavingsPackage::findOrFail($id);
+        return view("Admin.SavingsPackage.edit-package", [
+            "item" => $item
+        ]);
+    }
+
+    public function addPackage(){
+        return view("Admin.SavingsPackage.add-package");
+    }
+
+    public function savePackage(Request $request){
+        SavingsPackage::create([
+            "name_package"=>$request->get("name_package"),
+            "time_package"=>$request->get("time_package"),
+            "interest"=>$request->get("interest"),
+        ]);
+        return redirect()->to("admin/savings-package/");
+    }
+
+    public function updatePackage(Request $request, $id){
+        $item = SavingsPackage::findOrFail($id);
+
+        $item->update([
+            "name_package"=>$request->get("name_package"),
+            "time_package"=>$request->get("time_package"),
+            "interest"=>$request->get("interest"),
+        ]);
+        return redirect()->to("admin/savings-package/");
+    }
+
+    public function deletePackage($id){
+        $item = SavingsPackage::findOrFail($id);
+        $item->delete();
+        return redirect()->to("admin/savings-package/");
+    }
+
     public function roles(){
         $data= Role::all();
         return view("Admin.mod.roles",[

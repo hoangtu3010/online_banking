@@ -17,12 +17,12 @@ class CreateTableSaveMoney extends Migration
             $table->id();
             $table->string('stk');
             $table->string('money');
-            $table->string('timeSave');
-            $table->string('interest');
-            $table->string('permission')->default('user');
+            $table->string('permission');
             $table->unsignedBigInteger('bankAcc_id');
+            $table->unsignedBigInteger('package_id');
             $table->timestamps();
             $table->foreign("bankAcc_id")->references("id")->on("bank_account");
+            $table->foreign("package_id")->references("id")->on("savings_package");
         });
     }
 

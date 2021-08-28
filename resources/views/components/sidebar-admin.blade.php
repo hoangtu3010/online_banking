@@ -66,6 +66,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{url("admin/savings-package")}}" class="nav-link nav-item-sidebar">
+                    <i class="nav-icon fas fa-box-open"></i>
+                    <p>
+                        Savings Package
+                    </p>
+                </a>
+            </li>
             <li class="nav-item menu-is-opening menu-open">
                 <a href="#" class="nav-link" style="background-color: transparent">
                     <i class="nav-icon fas fa-blog"></i>

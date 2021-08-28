@@ -73,14 +73,17 @@
                                 <textarea type="text" rows="5" name="message" class="form-control" id="validationCustom05" placeholder=" "></textarea>
                                 <label for="validationCustom05" class="form-label">Message</label>
                             </div>
-                            <div class="form-group">
-                                <input type="radio" name="fee" class="form-control"  value="0"
-                                       checked>
-                                <label for="html">You</label><br>
-                                <input type="radio" name="fee"  class="form-control" value="1"
-                                       >
-                                <label for="html">Getter</label><br>
-
+                            <div class="form-group fee-bearer">
+                                <p>Choose a fee bearer</p>
+                                <div class="choose-fee-bearer">
+                                    <input id="choose_fee_bearer_you" type="radio" name="fee"  value="0"
+                                           checked>
+                                    <label for="choose_fee_bearer_you">You</label><br>
+                                </div>
+                                <div class="choose-fee-bearer">
+                                    <input id="choose_fee_bearer_getter" type="radio" name="fee"  value="1">
+                                    <label for="choose_fee_bearer_getter">Getter</label><br>
+                                </div>
                             </div>
                         </div>
                         <div class="button-form">

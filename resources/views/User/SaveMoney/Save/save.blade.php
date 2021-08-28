@@ -8,6 +8,8 @@
                 <th>Số tài khoản</th>
                 <th>Số tiền gửi</th>
                 <th>Gói gửi</th>
+                <th>Thời gian gửi</th>
+                <th>Lãi suất</th>
                 <th>Quyền rút tiền</th>
                 <th>Thời gian lúc gửi</th>
                 <th>Action</th>
@@ -18,7 +20,9 @@
                 <tr>
                     <th>{{$item->stk}}</th>
                     <th>{{$item->money}}</th>
-                    <th>{{$item->timeSave}}</th>
+                    <th>{{$item->Package->name_package}}</th>
+                    <th>{{$item->Package->time_package}}</th>
+                    <th>{{$item->Package->interest}}</th>
                     <th>{{$item->permission}}</th>
                     <th>{{$item->created_at}}</th>
                     <th>

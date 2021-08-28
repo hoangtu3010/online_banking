@@ -188,5 +188,51 @@ input:-webkit-autofill:active
     display: flex;
     justify-content: space-between;
 }
+.fee-bearer{
+    display: flex;
+    align-items: baseline;
+}
 
+.fee-bearer p{
+    color: rgb(107, 114, 128);
+    padding-left: 10px;
+    font-size: 1.1rem;
+
+}
+
+.fee-bearer .choose-fee-bearer{
+    margin-left: 20px;
+}
+
+.fee-bearer input[type=radio]{
+    display: none;
+}
+
+.fee-bearer input[type=radio]:checked{
+    background-color: #f1c40f!important;
+}
+
+.fee-bearer label{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400!important;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #0C1021;
+    transition: .3s;
+}
+
+.fee-bearer label:hover{
+    background-color: #ddd;
+}
+
+.fee-bearer input[type=radio]:checked + label{
+    background-color: #ddd;
+}
+
+.online-saving {
+
+}
 

@@ -50,7 +50,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url("user/bankAccount")}}" >
                             <i class="nav-icon fas fa-money-check-alt"></i>
-                            <p>Bank Account</p>
+                            <span>Bank Account</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -58,7 +58,7 @@
                             @if($card->user_id == Auth::user()->id && $card->level == "Main")
                                 <a class="nav-link" href="{{url("user/bankAccount/transfer", [$card->id])}}" >
                                     <i class="nav-icon fas fa-exchange-alt"></i>
-                                    <p>Transfer</p>
+                                    <span>Transfer</span>
                                 </a>
                             @endif
                         @endforeach
@@ -66,13 +66,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('user/saveMoney')}}">
                             <i class="nav-icon fas fa-piggy-bank"></i>
-                            <p>Gửi tiết kiệm</p>
+                            <span>Online savings</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('user/customer', ['id'=>Auth::user()->id])}}">
                             <i class="nav-icon far fa-user"></i>
-                            <p>Infomation</p>
+                            <span>Infomation</span>
                         </a>
                     </li>
 
@@ -83,9 +83,9 @@
                                  onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>
+                                <span>
                                     {{ __('Log Out') }}
-                                </p>
+                                </span>
                             </a>
                         </form>
                     </li>
