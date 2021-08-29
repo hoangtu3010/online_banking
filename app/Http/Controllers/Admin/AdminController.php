@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\BankAccount;
 use App\Models\CustomerInfo;
+use App\Models\Feedback;
 use App\Models\Role;
 use App\Models\SavingsPackage;
 use App\Models\Transaction;
@@ -15,6 +16,13 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function deleteFeedback($id){
+        $item = Feedback::findOrFail($id);
+        $item->delete();
+//        dd($item);
+        return back();
+    }
+
     //Admin
     public function getPackages(){
         $item = SavingsPackage::all();
@@ -25,6 +33,7 @@ class AdminController extends Controller
 
     public function editPackage($id){
         $item = SavingsPackage::findOrFail($id);
+
         return view("Admin.SavingsPackage.edit-package", [
             "item" => $item
         ]);
@@ -350,8 +359,10 @@ class AdminController extends Controller
             "status"=>"Inactive",
             "user_id"=>null
         ]);
-        return view("Admin.components.CreateBank",[
-            "data"=>$data,"pass"=>$random
+
+        return view("Admin.components.createBank", [
+            'data' => $data,
+            'pass' => $random
         ]);
     }
     public function Active($id){
@@ -359,6 +370,6 @@ class AdminController extends Controller
         $get->update([
             "status"=>"Active"
         ]);
-        return redirect()->to("admin");
+        return redirect()->to("admin/bankAccount");
     }
 }

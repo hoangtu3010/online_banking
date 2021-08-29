@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="{{asset("css/nav.css")}}">
-<?php $feedback = \App\Models\Feedback::orderBy('id', 'DESC')->get() ?>
+<?php
+$feedback = \App\Models\Feedback::orderBy('id', 'DESC')->get()
+?>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-bgr navbar-light" style="background-color: #FAF6F3; font-weight: 500">
+<nav class="main-header navbar navbar-expand navbar-bgr navbar-light"
+     style="background-color: #FAF6F3; font-weight: 500">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -19,7 +22,8 @@
             <div class="navbar-search-block">
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                               aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
@@ -40,31 +44,30 @@
                 <span class="badge badge-danger navbar-badge">{{count($feedback)}}</span>
             </a>
             @if(count($feedback) > 0)
-                <?php $i = 0 ?>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
+                     style="max-height: 200px; overflow-y: auto; background-attachment: local, local, scroll, scroll;">
                     @foreach($feedback as $item)
-                        <?php $i++; ?>
-                        <a href="#" class="dropdown-item">
+                        <a href="{{url("admin/reply-feedback/delete", ['id'=>$item->id])}}"
+                           onclick="replyFeedback('{{$item->email}}')"
+                           class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{url("upload/default-customer.png")}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="{{url("upload/default-customer.png")}}" alt="User Avatar"
+                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         {{$item->name}}
                                     </h3>
                                     <p class="text-sm">{{$item->message}}</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>{{$item->created_at}}</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>{{$item->created_at}}
+                                    </p>
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                            @if($i == 3)
-                                @break($feedback)
-                            @endif
                     @endforeach
-                <a href="#" class="dropdown-item dropdown-footer">See All Feedback</a>
-            </div>
+                </div>
             @endif
         </li>
         <!-- Notifications Dropdown Menu -->
@@ -96,3 +99,8 @@
     </ul>
 </nav>
 <!-- /.navbar -->
+<script>
+    function replyFeedback(email){
+        window.location.href = ("mailto:" + email)  ;
+    }
+</script>

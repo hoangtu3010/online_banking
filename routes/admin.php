@@ -55,6 +55,8 @@ Route::middleware("auth:admin")->group(function (){
     Route::get('/savings-package/delete/{id}',[AdminController::class,"deletePackage"]);
 
 
+    Route::get('/reply-feedback/delete/{id}',[AdminController::class,"deleteFeedback"]);
+
     Route::get('/blog/comments',[BlogController::class,"getComments"]);
     Route::get('/blog/comments/delete/{id}',[BlogController::class,"deleteComments"]);
 

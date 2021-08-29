@@ -394,16 +394,18 @@ body{
 }
 
 .post-meta .post-author a{
-    color: #00b4da;
+    color: #00b4da!important;
+}
+
+.post-meta .post-meta-item a:hover{
+    color: #00b4da!important;
 }
 
 .post-meta .post-author a:hover{
     color: #ffc10d!important;
 }
 
-.post-meta .post-meta-item a:hover{
-    color: #00b4da!important;
-}
+
 
 .post-content{
     margin-top: 1em;

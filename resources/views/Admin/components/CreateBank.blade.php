@@ -1,20 +1,63 @@
 @extends("Admin.layout.admin-layout")
 @section("main")
-    <div class="container">
-        <h3>Thông tin tài khoảng ngân hàng vừa được tạo</h3>
-        <form action="{{url("admin/active",["id"=>$data->__get("id")])}}" method="post">
-            @csrf
+    <link rel="stylesheet" href="{{asset("css/form-style.css")}}">
 
-            <p>Số tài khoản:{{$data->__get("stk")}} </p>
-            <p>Mã bảo mật:{{$pass}}  </p>
-            <p>Số dư:{{$data->__get("balance")}}  </p>
-            <p>Trạng thái: {{$data->__get("status")}} </p>
-            <h5>Hãy ghi nhớ thông tin chính xác</h5>
-            <br>
-            <button class="btn btn-outline-primary" type="submit">Tạo tài khoản</button>
-            <a href="" class="btn btn-outline-danger">Xóa tài khoản</a>
-        </form>
+    <div class="bgr-head-list"></div>
 
-    </div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6 content-header-left">
+                    <a href="{{url("/user")}}">
+                        <i class="button-back ion-ios-arrow-thin-left"></i>
+                    </a>
+                    <h1>Bank Account</h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-inac">
+                        <a href="{{url("/admin/bankAccount")}}" class="btn" style="float: left">Inactive</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content content-main">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="card-title">Check Bank Account</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body form-confirm">
+                    <div class="form-confirm-content">
+                        <form action="{{url("admin/active",["id"=>$data->__get("id")])}}" method="post">
+                            @csrf
+                            <p>
+                                <label>Account number:</label> {{$data->__get("stk")}}
+                            </p>
+                            <p>
+                                <label>Password:</label> {{$pass}}
+                            </p>
+                            <p>
+                                <label>Balance:</label> {{$data->__get("balance")}}
+                            </p>
+                            <p>
+                                <label>Status:</label> {{$data->__get("status")}}
+                            </p>
+                            <div class="button-form">
+                                <button class="btn" type="submit" style="float: right">Active</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

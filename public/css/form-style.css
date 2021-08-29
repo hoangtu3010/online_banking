@@ -158,7 +158,7 @@ input:-webkit-autofill:active
 
 .button-form{
     position: absolute;
-    top: -80px;
+    top: -85px;
     right: 0;
     background-color: #FED441;
     padding: 0 20px;
@@ -167,6 +167,20 @@ input:-webkit-autofill:active
 }
 
 .button-form:hover{
+    background-color: #FDB91C;
+}
+
+.btn-inac{
+    position: absolute;
+    top: 2px;
+    right: 130px;
+    background-color: #FED441;
+    padding: 0 20px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+.btn-inac:hover{
     background-color: #FDB91C;
 }
 
