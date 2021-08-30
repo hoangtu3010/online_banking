@@ -22,7 +22,7 @@ Route::post('/send-feedback', [WelcomeController::class, "sendFeedback"]);
 Route::get('/detail', [WelcomeController::class, "getDetail"]);
 Route::get('/blog/news/detail/{id}', [WelcomeController::class, "newsDetail"]);
 Route::post('/blog/news/detail/cmt/{id}', [Cmtcontroller::class, "saveCmt"]);
-Route::post('/blog/news/detail/reply/{id}{rep}', [Cmtcontroller::class, "saveReply"]);
+Route::post('/blog/news/detail/reply/{id}/{rep}', [Cmtcontroller::class, "saveRep"]);
 Route::get('/blog', [WelcomeController::class, "blog"]);
 Route::get('/about-us', [WelcomeController::class, "aboutUs"]);
 Route::get('/contact-us', [WelcomeController::class, "contactUs"]);
