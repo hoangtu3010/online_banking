@@ -20,7 +20,7 @@ class CreateTableCustomerInfo extends Migration
             $table->date("birthday");
             $table->string("address");
             $table->char("tel");
-            $table->string("cmnd");
+            $table->string("cmnd")->unique();
             $table->unsignedBigInteger("user_id");
             $table->timestamps();
             $table->foreign("user_id")->references("id")->on("users");

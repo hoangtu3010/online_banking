@@ -20,7 +20,7 @@ span.title-tag {
 
 .wb-wrapper-content{
     position: relative;
-    margin-bottom: 750px;
+    margin-bottom: 650px;
     margin-top: 80px;
 }
 
@@ -48,23 +48,30 @@ p.text-center.tag {
     margin-bottom: 80px;
     color: #84848c;
 }
-
+.content-tag-contact {
+    display: flex;
+    justify-content: space-between;
+}
+.sc_icons_item{
+    text-align: center;
+    margin-right: 60px;
+}
+.sc_icons_item:hover{
+    size: 30px;
+    transition: 0.6s;
+}
 .icon_title {
     font-size: 60px;
-    color: blue;
+    color: #0c4e8c ;
     margin-bottom: 50px;
     display: inline-block;
-
     z-index: 1;
     left: 0;
     top: 0;
 }
-
-.content-tag-contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.icon_title:hover{
+    margin-top: 10px;
+    transition: 0.4s;
 }
 
 .sc_icons_item_description {
