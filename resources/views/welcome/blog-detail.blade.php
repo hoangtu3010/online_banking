@@ -238,9 +238,9 @@
                                 in the future. Thank you for posting this.
                             </p>
                             <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"
-                                    data-target="comment-1-reply-form">Reply
+                                    data-target="comment-3-reply-form">Reply
                             </button>
-                            <form action="#" method="POST" class="row reply-form d-none form-input-comment needs-validation" id="comment-1-reply-form" novalidate>
+                            <form action="#" method="POST" class="row reply-form d-none form-input-comment needs-validation" id="comment-3-reply-form" novalidate>
                                 @csrf
                                 <div class="form-group col-md-6">
                                     <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>
@@ -262,7 +262,7 @@
                                 </div>
                                 <div class="col-md-12 actions-comment">
                                     <button class="btn btn-secondary" type="button" data-toggle="reply-form"
-                                            data-target="comment-1-reply-form">Cancel
+                                            data-target="comment-3-reply-form">Cancel
                                     </button>
                                     <button class="btn btn-outline-info" type="submit">Submit</button>
                                 </div>
@@ -284,10 +284,10 @@
                                         nhuw QQ
                                     </p>
                                     <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"
-                                            data-target="comment-2-reply-form">Reply
+                                            data-target="comment-4-reply-form">Reply
                                     </button>
                                     <form action="#" method="POST" class="row reply-form d-none form-input-comment needs-validation"
-                                          id="comment-2-reply-form" novalidate>
+                                          id="comment-4-reply-form" novalidate>
                                         @csrf
                                         <div class="form-group col-md-6">
                                             <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>
@@ -309,7 +309,7 @@
                                         </div>
                                         <div class="col-md-12 actions-comment">
                                             <button class="btn btn-secondary" type="button" data-toggle="reply-form"
-                                                    data-target="comment-2-reply-form">Cancel
+                                                    data-target="comment-4-reply-form">Cancel
                                             </button>
 
                                             <button class="btn btn-outline-info" type="submit">Submit</button>
@@ -321,110 +321,110 @@
                         </div>
                     </summary>
                 </details>
-                @foreach($data->comment as $cmt)
-                    @if(!$cmt->reply_id)
-                    <br>
-                    <details open class="comment" id="comment-1">
-                        <summary>
-                            <div class="comment-info">
-                                <a href="#" class="comment-author">
-                                    Hoang Anh Tu
-                                </a>
-                                <p>
-                                    22 points &bull; 4 days ago
-                                </p>
-                            </div>
-                            <div class="comment-body">
-                                <p>
-                                    This is really great! I fully agree with what you wrote, and this is sure to help me out
-                                    in the future. Thank you for posting this.
-                                </p>
-                                <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"
-                                        data-target="comment-1-reply-form">Reply
-                                </button>
-                                <form action="{{url("blog/news/detail/reply",["id"=>$data->id,"rep"=>$cmt->id])}}" method="POST" class="row reply-form d-none form-input-comment needs-validation" id="comment-1-reply-form" novalidate>
-                                    @csrf
-                                    <div class="form-group col-md-6">
-                                        <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>
-                                        <div class="invalid-feedback">
-                                            Please enter name.
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="email" name="email" class="form-control input-comment" placeholder="Email" required>
-                                        <div class="invalid-feedback">
-                                            Please enter email.
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <textarea name="content" class="form-control input-comment" placeholder="Reply to comment" rows="4" required></textarea>
-                                        <div class="invalid-feedback">
-                                            Please enter comment.
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 actions-comment">
-                                        <button class="btn btn-secondary" type="button" data-toggle="reply-form"
-                                                data-target="comment-1-reply-form">Cancel
-                                        </button>
-                                        <button class="btn btn-outline-info" type="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <hr>
-                            <div class="replies">
-                                <details open class="comment" id="comment-2">
-                                    <summary>
-                                        <div class="comment-info">
-                                            <a href="" class="comment-author">
-                                                BCT
-                                            </a>
-                                            <p class="m-0">
-                                                22 points &bull; 4 days ago
-                                            </p>
-                                        </div>
-                                        <p>
-                                            nhuw QQ
-                                        </p>
-                                        <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"
-                                                data-target="comment-2-reply-form">Reply
-                                        </button>
-                                        <form action="#" method="POST" class="row reply-form d-none form-input-comment needs-validation"
-                                              id="comment-2-reply-form" novalidate>
-                                            @csrf
-                                            <div class="form-group col-md-6">
-                                                <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>
-                                                <div class="invalid-feedback">
-                                                    Please enter name.
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <input type="email" name="email" class="form-control input-comment" placeholder="Email" required>
-                                                <div class="invalid-feedback">
-                                                    Please enter email.
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <textarea name="content" class="form-control input-comment" placeholder="Reply to comment" rows="4" required></textarea>
-                                                <div class="invalid-feedback">
-                                                    Please enter comment.
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 actions-comment">
-                                                <button class="btn btn-secondary" type="button" data-toggle="reply-form"
-                                                        data-target="comment-2-reply-form">Cancel
-                                                </button>
+{{--                @foreach($data->comment as $cmt)--}}
+{{--                    @if(!$cmt->reply_id)--}}
+{{--                    <br>--}}
+{{--                    <details open class="comment" id="comment-1">--}}
+{{--                        <summary>--}}
+{{--                            <div class="comment-info">--}}
+{{--                                <a href="#" class="comment-author">--}}
+{{--                                    Hoang Anh Tu--}}
+{{--                                </a>--}}
+{{--                                <p>--}}
+{{--                                    22 points &bull; 4 days ago--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                            <div class="comment-body">--}}
+{{--                                <p>--}}
+{{--                                    This is really great! I fully agree with what you wrote, and this is sure to help me out--}}
+{{--                                    in the future. Thank you for posting this.--}}
+{{--                                </p>--}}
+{{--                                <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"--}}
+{{--                                        data-target="comment-1-reply-form">Reply--}}
+{{--                                </button>--}}
+{{--                                <form action="{{url("blog/news/detail/reply",["id"=>$data->id,"rep"=>$cmt->id])}}" method="POST" class="row reply-form d-none form-input-comment needs-validation" id="comment-1-reply-form" novalidate>--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="form-group col-md-6">--}}
+{{--                                        <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>--}}
+{{--                                        <div class="invalid-feedback">--}}
+{{--                                            Please enter name.--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group col-md-6">--}}
+{{--                                        <input type="email" name="email" class="form-control input-comment" placeholder="Email" required>--}}
+{{--                                        <div class="invalid-feedback">--}}
+{{--                                            Please enter email.--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group col-md-12">--}}
+{{--                                        <textarea name="content" class="form-control input-comment" placeholder="Reply to comment" rows="4" required></textarea>--}}
+{{--                                        <div class="invalid-feedback">--}}
+{{--                                            Please enter comment.--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-12 actions-comment">--}}
+{{--                                        <button class="btn btn-secondary" type="button" data-toggle="reply-form"--}}
+{{--                                                data-target="comment-1-reply-form">Cancel--}}
+{{--                                        </button>--}}
+{{--                                        <button class="btn btn-outline-info" type="submit">Submit</button>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                            <hr>--}}
+{{--                            <div class="replies">--}}
+{{--                                <details open class="comment" id="comment-2">--}}
+{{--                                    <summary>--}}
+{{--                                        <div class="comment-info">--}}
+{{--                                            <a href="" class="comment-author">--}}
+{{--                                                BCT--}}
+{{--                                            </a>--}}
+{{--                                            <p class="m-0">--}}
+{{--                                                22 points &bull; 4 days ago--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                        <p>--}}
+{{--                                            nhuw QQ--}}
+{{--                                        </p>--}}
+{{--                                        <button class="btn btn-reply-comment p-0" type="button" data-toggle="reply-form"--}}
+{{--                                                data-target="comment-2-reply-form">Reply--}}
+{{--                                        </button>--}}
+{{--                                        <form action="#" method="POST" class="row reply-form d-none form-input-comment needs-validation"--}}
+{{--                                              id="comment-2-reply-form" novalidate>--}}
+{{--                                            @csrf--}}
+{{--                                            <div class="form-group col-md-6">--}}
+{{--                                                <input type="text" name="name" class="form-control input-comment" placeholder="Name" required>--}}
+{{--                                                <div class="invalid-feedback">--}}
+{{--                                                    Please enter name.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="form-group col-md-6">--}}
+{{--                                                <input type="email" name="email" class="form-control input-comment" placeholder="Email" required>--}}
+{{--                                                <div class="invalid-feedback">--}}
+{{--                                                    Please enter email.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="form-group col-md-12">--}}
+{{--                                                <textarea name="content" class="form-control input-comment" placeholder="Reply to comment" rows="4" required></textarea>--}}
+{{--                                                <div class="invalid-feedback">--}}
+{{--                                                    Please enter comment.--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-12 actions-comment">--}}
+{{--                                                <button class="btn btn-secondary" type="button" data-toggle="reply-form"--}}
+{{--                                                        data-target="comment-2-reply-form">Cancel--}}
+{{--                                                </button>--}}
 
-                                                <button class="btn btn-outline-info" type="submit">Submit</button>
-                                            </div>
+{{--                                                <button class="btn btn-outline-info" type="submit">Submit</button>--}}
+{{--                                            </div>--}}
 
-                                        </form>
-                                    </summary>
-                                </details>
-                            </div>
-                        </summary>
-                    </details>
-                    @endif
-                @endforeach
+{{--                                        </form>--}}
+{{--                                    </summary>--}}
+{{--                                </details>--}}
+{{--                            </div>--}}
+{{--                        </summary>--}}
+{{--                    </details>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
             </div>
 
             <hr>
