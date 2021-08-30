@@ -10,11 +10,9 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function welcome(){
-        $news = News::all()->sortDesc();
-        $comment = Comment::all();
+        $news = News::with("comment")->get()->sortDesc()->take(3);
         return view("welcome.welcome", [
-            "news"=>$news,
-            "comments"=>$comment
+            "news"=>$news
         ]);
     }
 
@@ -40,12 +38,21 @@ class WelcomeController extends Controller
         return redirect()->back();
     }
 
-    public function blog(){
-        $news = News::with("comment")->get()->sortDesc();
+    public function blog(Request $request){
         $recent = News::with("comment")->get()->sortDesc()->take(3);
+        if ($request->get("table_search") == null) {
+            $news = News::with("comment")->orderBy("id", "DESC")->paginate(3);
+        } else {
+            $news = News::with("comment")
+                ->where("title", "like", "%" . $request->get("table_search") . "%")
+                ->orWhere("author", "like", "%" . $request->get("table_search") . "%")
+                ->orderBy("id", "DESC")
+                ->paginate(3);
+        }
         return view("welcome.blog",[
             "news"=>$news,
-            "recent"=>$recent
+            "recent"=>$recent,
+            "search"=>$request->get("table_search")
         ]);
     }
     public function contactUs(){

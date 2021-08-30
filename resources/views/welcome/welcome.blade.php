@@ -40,9 +40,7 @@
                 <div class="distance">
                     <h2 class="text-center blog-category">News</h2>
                     <div class="row">
-                        <?php $i = 0 ?>
                         @foreach($news as $item)
-                            <?php $i++ ?>
                             <div class="col-md-4 blog-item">
                                 <div class="post-image">
                                     <img src="{{$item->getImage()}}" alt="img" width="100%" height="215px">
@@ -55,7 +53,7 @@
                                 </div>
                                 <div class="post-header">
                                     <h3 class="post-title">
-                                        <a href="">{{$item->title}}</a>
+                                        <a href="{{url("/blog/news/detail",["id"=>$item->id])}}">{{$item->title}}</a>
                                     </h3>
                                     <div class="post-meta">
                                                 <span class="post-meta-item post-author">
@@ -65,15 +63,14 @@
                                                     <a>{{$item->created_at}}</a>
                                                 </span>
                                         <span class="post-meta-item post-comments">
-                                                    <?php $count = 0; ?>
-                                            @foreach($comments as $cmt)
+                                            <?php $count = 0; ?>
+                                            @foreach($item->comment as $cmt)
                                                 @if($item->id == $cmt->new_id)
                                                     <?php $count++; ?>
                                                 @endif
                                             @endforeach
-
-                                                    <a>{{$count}} Comments</a>
-                                                </span>
+                                                <a>{{$count}} Comments</a>
+                                        </span>
                                     </div>
                                     <div class="post-content">
                                         <div class="post-content-inner">
@@ -81,7 +78,7 @@
                                                 {{$item->content}}
                                             </p>
                                             <p style="margin-top: 25px">
-                                                <a class="more-click" href="#">
+                                                <a class="more-click" href="{{url("/blog/news/detail",["id"=>$item->id])}}">
                                                     Read More
                                                 </a>
                                             </p>
@@ -89,9 +86,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @if($i == 3)
-                                @break($news);
-                            @endif
                         @endforeach
                     </div>
                 </div>

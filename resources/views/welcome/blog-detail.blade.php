@@ -37,7 +37,7 @@
                         <div class="post-header">
                             <div class="post-meta">
                                 <span class="post-meta-item post-author">
-                                    <a>{{$data->author}}</a>
+                                    <a href="{{url("/blog?table_search=".$data->author)}}">{{$data->author}}</a>
                                 </span>
                                 <span class="post-meta-item post-date">
                                      <a> {{$data->created_at}}</a>

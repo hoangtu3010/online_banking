@@ -6,20 +6,38 @@
         <div class="blog-main">
             <div class="row ">
                 <div class="col-md-12">
-                    <div class="blog-header">
-                        <h1 class="blog-header-title">
-                            All Posts
-                        </h1>
-                        <div class="direction">
+                    <div class=" blog-header">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h1 class="blog-header-title">
+                                    All Posts
+                                </h1>
+                                <div class="direction">
                             <span>
                                 <a href="{{url("/")}}">Home</a>
                             </span>
-                            <span>
+                                    <span>
                                 <i class="ion-chevron-right"></i>
                             </span>
-                            <span>
+                                    <span>
                                 <a>All Posts</a>
                             </span>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card-tools">
+                                    <form action="{{url("/blog")}}" method="get">
+                                        <div class="input-group input-search">
+                                            <input type="text" name="table_search" class="form-control" value="{{$search}}"
+                                                   placeholder="Search by title or author...">
+                                            <button
+                                                type="submit" class="btn">
+                                                <i class="ion-ios-search-strong"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,9 +94,7 @@
                         </div>
                         <hr>
                     @endforeach
-                    <div class="paginate text-center">
-                        1
-                    </div>
+                        {!! $news->links("vendor.pagination.default") !!}
                 </div>
 
                 <div class="col-md-4">
