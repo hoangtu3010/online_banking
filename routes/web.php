@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\Auth\RegisterController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Cmtcontroller;
 use App\Http\Controllers\ResetPassWordController;
 
 Route::get("quen-mat-khau",[ResetPassWordController::class,"quen_mat_khau"]);
@@ -20,6 +21,8 @@ Route::get('/', [WelcomeController::class, "welcome"]);
 Route::post('/send-feedback', [WelcomeController::class, "sendFeedback"]);
 Route::get('/detail', [WelcomeController::class, "getDetail"]);
 Route::get('/blog/news/detail/{id}', [WelcomeController::class, "newsDetail"]);
+Route::post('/blog/news/detail/cmt/{id}', [Cmtcontroller::class, "saveCmt"]);
+Route::post('/blog/news/detail/reply/{id}{rep}', [Cmtcontroller::class, "saveReply"]);
 Route::get('/blog', [WelcomeController::class, "blog"]);
 Route::get('/about-us', [WelcomeController::class, "aboutUs"]);
 Route::get('/contact-us', [WelcomeController::class, "contactUs"]);

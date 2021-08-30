@@ -23,7 +23,7 @@ class WelcomeController extends Controller
     }
 
     public function newsDetail($id){
-        $recent = News::with("comment")->take(3)->get()->sortDesc();
+        $recent = News::with("comment")->get()->sortDesc()->take(3);
         $data=News::with("comment")->findOrFail($id);
         return view("welcome.blog-detail",[
             "data"=>$data,
@@ -42,7 +42,7 @@ class WelcomeController extends Controller
 
     public function blog(){
         $news = News::with("comment")->get()->sortDesc();
-        $recent = News::with("comment")->take(3)->get()->sortDesc();
+        $recent = News::with("comment")->get()->sortDesc()->take(3);
         return view("welcome.blog",[
             "news"=>$news,
             "recent"=>$recent

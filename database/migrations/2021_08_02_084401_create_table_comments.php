@@ -16,10 +16,10 @@ class CreateTableComments extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string("customer_name");
-            $table->string("customer_image");
+            $table->string("customer_image")->nullable();
             $table->string("user_email");
             $table->string("content");
-            $table->unsignedBigInteger("reply_id");
+            $table->unsignedBigInteger("reply_id")->nullable();
             $table->unsignedBigInteger("new_id");
             $table->timestamps();
             $table->foreign("new_id")->references("id")->on("news");

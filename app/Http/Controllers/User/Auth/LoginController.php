@@ -83,7 +83,7 @@ class LoginController extends Controller
                     Session::put("locker",$lock);
                 }
             }
-            return redirect()->back()->withErrors(['Sai mật khẩu', 'MSG']);
+            return redirect()->back()->withErrors(['Sai tài khoản hoặc mật khẩu', 'MSG']);
         }
     }
 
