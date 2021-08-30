@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Cmtcontroller extends Controller
 {
     //
-    function saveCmt(Request $request,$id){
+    public function saveCmt(Request $request,$id){
             Comment::create([
                 "customer_name"=>$request->name,
                 "user_email"=>$request->email,
@@ -19,7 +19,7 @@ class Cmtcontroller extends Controller
             ]);
         return back();
     }
-    function saveRep(Request $request,$id,$rep){
+    public function saveRep(Request $request,$id,$rep){
 //        dd($id,$rep,$request);
             Comment::create([
                 "customer_name"=>$request->name,

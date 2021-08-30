@@ -46,6 +46,7 @@ Route::middleware("auth:user")->group(function (){
     Route::get('/bankAccount/OTP',[BankController::class,"checkOTP"]);
     Route::post("/bankAccount/loginHidden",[BankController::class,"OTP"]);
     Route::get('/bankAccount/accept/{id}',[BankController::class,"bankAccept"])->name("Accept");
+    Route::get('/bankAccount/success',[BankController::class,"success"])->name("success");
 
 //    Route::post("/bankAccount/loginHidden",[BankAccountController::class,"login"]);
     Route::get('/bankAccount/history/{id}',[BankController::class,"bankHistory"]);

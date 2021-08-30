@@ -214,6 +214,7 @@ body{
 }
 
 .features-item{
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -273,6 +274,10 @@ body{
 
 .features-item:hover .features-item-title a{
     color: #00b4da;
+}
+
+.features-item-content{
+    padding: 0 40px;
 }
 
 .blog-category{

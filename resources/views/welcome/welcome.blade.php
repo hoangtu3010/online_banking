@@ -57,7 +57,7 @@
                                     </h3>
                                     <div class="post-meta">
                                                 <span class="post-meta-item post-author">
-                                                    <a>{{$item->author}}</a>
+                                                    <a href="{{url("/blog?table_search=".$item->author)}}">{{$item->author}}</a>
                                                 </span>
                                         <span class="post-meta-item post-date">
                                                     <a>{{$item->created_at}}</a>
@@ -99,31 +99,45 @@
 
                             <div class="features-item-text">
                                 <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
+                                    <a href="">Rewards</a>
                                 </h4>
-                                <p class="features-item-content">chuyển khoản</p>
+                                <p class="features-item-content">The more you spend, the higher the reward points</p>
                             </div>
                         </div>
                         <div class="col-md-4 features-item">
                             <div class="features-item-image">
-                                <img src="{{url("imgs/007-profits.jpg")}}" alt="">
+                                <img src="{{url("imgs/011-money-2.jpg")}}" alt="">
                             </div>
+
                             <div class="features-item-text">
                                 <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
+                                    <a href="">Cash Back</a>
                                 </h4>
-                                <p class="features-item-content">chuyển khoản</p>
+                                <p class="features-item-content">Cashback offers for loyal customers</p>
                             </div>
                         </div>
                         <div class="col-md-4 features-item ">
                             <div class="features-item-image">
-                                <img src="{{url("imgs/009-worldwide.jpg")}}" alt="">
+                                <img src="{{url("imgs/027-business-7.jpg")}}" alt="">
                             </div>
+
                             <div class="features-item-text">
                                 <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
+                                    <a href="">Balance Transfer</a>
                                 </h4>
-                                <p class="features-item-content">chuyển khoản</p>
+                                <p class="features-item-content">Quick and easy transfer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 features-item">
+                            <div class="features-item-image">
+                                <img src="{{url("imgs/009-worldwide.jpg")}}" alt="">
+                            </div>
+
+                            <div class="features-item-text">
+                                <h4 class="features-item-title">
+                                    <a href="">Convenient</a>
+                                </h4>
+                                <p class="features-item-content">Trade anywhere, just a computer with a network</p>
                             </div>
                         </div>
                         <div class="col-md-4 features-item">
@@ -132,31 +146,21 @@
                             </div>
                             <div class="features-item-text">
                                 <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
+                                    <a href="">Savings</a>
                                 </h4>
-                                <p class="features-item-content">chuyển khoản</p>
+                                <p class="features-item-content">Savings with preferential packages are entitled to high interest rates</p>
                             </div>
                         </div>
                         <div class="col-md-4 features-item">
                             <div class="features-item-image">
-                                <img src="{{url("imgs/011-money-2.jpg")}}" alt="">
+                                <img src="{{url("imgs/007-profits.jpg")}}" alt="">
                             </div>
+
                             <div class="features-item-text">
                                 <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
+                                    <a href="">Low transaction fees</a>
                                 </h4>
-                                <p class="features-item-content">chuyển khoản</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 features-item">
-                            <div class="features-item-image">
-                                <img src="{{url("imgs/027-business-7.jpg")}}" alt="">
-                            </div>
-                            <div class="features-item-text">
-                                <h4 class="features-item-title">
-                                    <a href="#">surplus</a>
-                                </h4>
-                                <p class="features-item-content">chuyển khoản</p>
+                                <p class="features-item-content">Make transactions between accounts at low cost</p>
                             </div>
                         </div>
                     </div>

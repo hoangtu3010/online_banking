@@ -1,64 +1,61 @@
+<link rel="stylesheet" href="{{asset("css/about_us.css")}}">
+
 @extends("welcome.layout-welcome")
 @section("main")
-    <link rel="stylesheet" href="{{asset("css/about-us.css")}}">
     <div class="container" style="margin-top: 70px">
-        <div class="row">
-            <h1 style="font-size: 50px">Ưu điểm và lợi ích  </h1>
-        </div>
-        <div class="row" style="margin-top: 30px">
-            <div class="col-md-5">
-                <img src="https://noithathoaphat.pro/img/uploads/images/blog/T12-2015/mach-ban-tu-the-ngoi-lam-viec-dung-chuan-min.jpg" alt="" width="100%">
-            </div>
-            <div class="col-md-7" style="padding-left: 80px">
-                <h1 style="font-size: 50px ;letter-spacing: normal"><b>Người dùng</b></h1>
-                <h5 style="color: #84848c">Sản phẩm giúp người dùng quản lí tiền bạc, thời gian, các gói đầu tư thuận tiện nhất. Bảo mật an toàn tuyệt đối .</h5>
-                <h5>Ưu điểm :</h5>
-                <ul>
-                    <li>Đăng kí đăng nhập sử dụng tiện lợi
-                    </li>
-                    <li>Giúp mọi người quản lí các tài khoản ngân hàng của nhiều tài khoản ngân hàng khác nhau.
-                    </li>
-                    <li>Chuyển tiền giữa các ngân hàng với nhau với mức phí ưu đãi
-                    </li>
-                    <li>Cung cấp thông tin lịch sử các cuộc giao dịch .
-                    </li>
-                    <li>Cung cấp các gói gửi tiền mới ưu đãi cao .
-                    </li>
-                    <li>Bảo mật tuyệt đối với OTP và OTP time
-                    </li>
-                    <li>Lấy lại mật khẩu dễ dàng qua email đăng nhập
-                    </li>
-                </ul>
+        <div class="contact">
+            <h2 class="info-content">About us</h2>
+            <div class="title-info">
+                <a href="/">Home
+                    <span class="i-tag"><i class="fas fa-chevron-right"></i></span>
+                    <span class="title-tag">About us</span>
+                </a>
             </div>
         </div>
-        <div class="row" style="margin-top: 90px">
-            <div class="col-md-7">
-                <h1 style="font-size: 50px ;letter-spacing: normal"><b>Người quản lí</b></h1>
-                <h5 style="color: #84848c">Quản lí dữ liệu các tài khoản,  .</h5>
-                <h5>Ưu điểm :</h5>
-                <ul>
-                    <li> Tìm kiếm khách hàng theo tên, điện thoại tùy ý
-                    </li>
-                    <li>Thay đổi thông tin người dùng
-                    </li>
-                    <li>Thay đổi trạng thái hoạt động của từng tài khoản
-                    </li>
-                    <li>Tạo ra các gói gửi tiết kiệm và thay đổi lãi xuất tùy vào tình điều kiện
-                    </li>
-                    <li>Trả lời khiếu nại khách hàng
-                    </li>
-                    <li>Và tạo thông tin trên trang chủ
-                    </li>
-                </ul>
+        <div class="about-main">
+            <div class="about-top">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="{{asset("../imgs/img_about.png")}}" alt="">
+                    </div>
+                    <div class="col-md-7" style="padding-left: 80px">
+                        <h1 class="about-title"><b>Who We Are</b></h1>
+                        <p class="child-title">Fox Banking is a strong bank in terms of management, transparency in information, convenience and service provision to fulfill its mission, as an organization, a solid and reliable partner.</p>
+                        <p>
+                            Strong financial potential, fast growth rate, modern technology, diversified product portfolio and constantly improved service quality, this is the foundation for FoxBanking (FB) to develop strongly. in the direction of becoming a leading modern multi-functional bank. In addition to providing financial solutions to meet all needs of customers, FB is proud to bring value and ensure practical benefits for partners, shareholders, as well as build welfare regimes and the best working environment for the staff.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5">
-                <img src="https://www.bravo.com.vn/Uploads/_images/Online/SEO/Yen_D9.jpg" alt="" width="100%"   >
+            <div class="about-foot">
+                <div class="row">
+                    <div class="col-md-7" style="padding-right: 80px">
+                        <h1 class="about-title"><b>Our app</b></h1>
+                        <p class="child-title">The product helps users manage money, time, the first utilities of the package. Absolute security.</p>
+                        <ul>
+                            <li>Sign up convenient use
+                            </li>
+                            <li>Help people manage different bank accounts
+                            </li>
+                            <li>Transfer money between banks with preferential fees
+                            </li>
+                            <li>Provides transaction history information.
+                            </li>
+                            <li>Offer new savings packages with high incentives.
+                            </li>
+                            <li>Absolute security with OTP and OTP time
+                            </li>
+                            <li>Easy password recovery via login email
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-5">
+                        <img src="{{asset("../imgs/img_about2.png")}}" alt="">
+                    </div>
+                </div>
+
             </div>
-        </div >
-        <div class="row" style="margin-bottom: 70px;margin-top: 50px;text-align: center">
-            <form>
-                <a class="btn btn-outline-danger" href="">Đăng kí để dùng ngay</a>
-            </form>
         </div>
     </div>
 @endsection

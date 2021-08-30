@@ -1,0 +1,105 @@
+.box-status{
+    margin-top: 20px;
+    padding: 10px 30px;
+
+}
+
+.bg-customer{
+    background-color: #fff;
+    color: #455a64 !important;
+}
+
+.bg-customer p{
+    color: #bcc3d3 !important;
+}
+
+.bg-bank-acc{
+    background-color: #fff;
+    color: #455a64 !important;
+}
+
+.bg-bank-acc p{
+    color: #bcc3d3 !important;
+}
+
+.bg-package{
+    background-color: #fff;
+    color: #455a64 !important;
+}
+
+.bg-package p{
+    color: #bcc3d3 !important;
+}
+
+.bg-news{
+    background-color: #fff;
+    color: #455a64 !important;
+}
+
+.bg-news p{
+    color: #bcc3d3 !important;
+}
+
+.box-status .icon-bank-acc{
+    color: #24d2b5 !important;
+}
+
+.box-status .icon-customer{
+    color: #ff9041 !important;
+}
+
+.box-status .icon-package{
+    color: #ff5c6c !important;
+}
+
+.box-status .icon-news{
+    color: #75dbfed4 !important;
+}
+
+.small-box .icon>i {
+    font-size: 55px!important;
+    top: 35px!important;
+    right: 35px !important;
+}
+
+.status-inner{
+    padding: 25px 25px 10px!important;
+}
+
+.process .bg-success{
+    background-color: #24d2b5 !important;
+}
+
+.process .bg-warning{
+    background-color: #ff9041 !important;
+}
+
+.process .bg-danger{
+    background-color: #ff5c6c !important;
+}
+
+.process .bg-info{
+    background-color: #75dbfed4 !important;
+}
+
+.process{
+    display: flex;
+    height: auto;
+    overflow: hidden;
+    line-height: 0;
+    font-size: .75rem;
+    background-color: #383f48;
+    border-radius: .65rem;
+}
+
+.progress-bar{
+    height: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    transition: width .6s ease;
+}

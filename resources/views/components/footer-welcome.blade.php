@@ -40,11 +40,11 @@
                         </li>
                         <li>
                             <i class="ion-ios-telephone"></i>
-                            <p><a href="tel: +84 999-999-999">+84 999-999-999</a></p>
+                                <p><a href="tel: +84 999-999-999">+84 999-999-999</a></p>
                         </li>
                         <li>
                             <i class="ion-email"></i>
-                            <p><a href="mailto: tuhath2006022@fpt.edu.vn" style="color: lightblue">tuhath2006022@fpt.edu.vn</a></p>
+                            <p><a href="mailto: onlinebankingn4@gmail.com" style="color: lightblue">onlinebankingn4@gmail.com</a></p>
                         </li>
                     </ul>
                 </div>

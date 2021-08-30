@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{$item->id}}</td>
                             <td><img src="{{$item->getImage()}}"/> {{$item->customer_name}}</td>
-                            <td>{{$item->users_email}}</td>
+                            <td>{{$item->user_email}}</td>
                             <td>
                                 {{$item->content}}
                             </td>

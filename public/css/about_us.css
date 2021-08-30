@@ -1,3 +1,45 @@
+img{
+    width: 100%;
+}
+
 ul li{
     line-height: 1.8;
+}
+
+h2.info-content {
+    margin-top: 40px;
+    font-size: 50px;
+    color: #9c9ca6;
+}
+
+.title-info {
+    margin-top: 23px;
+    margin-bottom: 20px;
+    letter-spacing: 0.7px;
+}
+
+span.i-tag {
+    margin: 0 1.1em;
+}
+
+span.title-tag {
+    color: #000000fa;
+}
+
+.about-main{
+    margin: 80px 0;
+}
+
+.about-title{
+    font-size: 50px;
+    color: #212558;
+}
+
+.child-title{
+    margin: 30px 0;
+    color: #84848c;
+}
+
+.about-foot{
+    padding: 70px 0;
 }

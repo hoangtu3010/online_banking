@@ -281,16 +281,41 @@ class BankController extends Controller
                     "created_at" => now(),
                     "updated_at" => now()
                 ]);
-                Session::forget("bank");
-                $title = "success";
             }
+        } else {
+            Alert::error("Oops..", "An unknown error!!!");
+            return redirect()->to("user/bankAccount");
+        }
+
+        return redirect()->route('success');
+    }
+
+    public function success(){
+        if (Session::has("bank")) {
+            $bank = Session::get("bank");
+            $id_setter = $bank[0]["id_setter"];
+            $who = $bank[0]["fee"];
+            $user_getter_id = $bank[0]["user_id_getter"];
+            $getter = $bank[0]["getter"];
+            $message = $bank[0]["message"];
+            $setter = BankAccount::findOrFail($id_setter);
+            $getter = BankAccount::all()->where("stk", "=", $getter)->first();
+            $money = $bank[0]["money"];
+//            Session::forget("bank");
         } else {
             return redirect()->back();
         }
 
-        Alert::success('Success', 'The money has been transferred successfully!');
+        Alert::success("Success", "Money transfer successful");
 
-        return redirect()->to("user/bankAccount");
+        return view("BankAccount.transfer.success", [
+            "who"=> $who,
+            "money" => $money,
+            "message" => $message,
+            "data" => $setter,
+            "getter" => $getter,
+            "user_getter_id" => $user_getter_id
+        ]);
     }
 
     public function bankHistory($id)
