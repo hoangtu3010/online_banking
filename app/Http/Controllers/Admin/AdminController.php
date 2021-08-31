@@ -360,7 +360,7 @@ class AdminController extends Controller
             "user_id"=>null
         ]);
 
-        return view("Admin.components.createBank", [
+        return view("Admin.components.CreateBank", [
             'data' => $data,
             'pass' => $random
         ]);
