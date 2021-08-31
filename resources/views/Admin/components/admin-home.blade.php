@@ -2,6 +2,7 @@
     $bankAccount = \App\Models\BankAccount::all()->count();
     $user = \App\Models\User::all()->count();
     $package = \App\Models\SavingsPackage::all()->count();
+    $news = \App\Models\News::all()->count();
 ?>
 
 @extends("Admin.layout.admin-layout")
@@ -78,9 +79,9 @@
                     <a href="{{url("/admin/blog/news")}}">
                         <div class="small-box bg-news">
                             <div class="inner status-inner">
-                                <h3>{{$package}}</h3>
+                                <h3>{{$news}}</h3>
 
-                                <p>Savings Package</p>
+                                <p>News</p>
                             </div>
                             <div class="icon icon-news">
                                 <i class="fas fa-newspaper"></i>
