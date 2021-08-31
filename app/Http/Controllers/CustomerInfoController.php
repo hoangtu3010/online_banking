@@ -14,7 +14,7 @@ class CustomerInfoController extends Controller
 {
     public function CustomerInfo($id)
     {
-        $item = CustomerInfo::where("user_id", "=", $id)->get()->first();
+        $item = CustomerInfo::where("user_id", "=", $id)->first();
 
 //        dd($item);
 
