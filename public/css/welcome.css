@@ -355,6 +355,11 @@ body{
 }
 
 .post-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     margin: 15px 0 5px 0;
 }
 
