@@ -365,7 +365,6 @@ body{
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    height: 20px;
     transition: .2s;
 }
 
