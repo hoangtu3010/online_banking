@@ -78,6 +78,9 @@
                         <p>
                             <label>Message:</label> {{ $message }}
                         </p>
+                        <p>
+                            <label>Time:</label> {{ $created_at }}
+                        </p>
                     </div>
                 </div>
             </div>

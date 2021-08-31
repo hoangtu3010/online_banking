@@ -7,6 +7,7 @@ use App\Mail\MailNotify;
 use App\Models\BankAccount;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -267,8 +268,8 @@ class BankController extends Controller
                     "bank_account_id" => $setter->id,
                     "fee"=>$fee  ,
                     "who"=> $who  ,
-                    "created_at" => now(),
-                    "updated_at" => now()
+                    "created_at" => Carbon::now('Asia/Ho_Chi_Minh'),
+                    "updated_at" => Carbon::now('Asia/Ho_Chi_Minh')
                 ]);
                 Transaction::create([
                     "content" => $message,
@@ -278,8 +279,8 @@ class BankController extends Controller
                     "fee"=>$fee  ,
                     "who"=> $who  ,
                     "bank_account_id" => $getter->id,
-                    "created_at" => now(),
-                    "updated_at" => now()
+                    "created_at" => Carbon::now('Asia/Ho_Chi_Minh'),
+                    "updated_at" => Carbon::now('Asia/Ho_Chi_Minh')
                 ]);
             }
         } else {
@@ -301,7 +302,7 @@ class BankController extends Controller
             $setter = BankAccount::findOrFail($id_setter);
             $getter = BankAccount::all()->where("stk", "=", $getter)->first();
             $money = $bank[0]["money"];
-//            Session::forget("bank");
+            Session::forget("bank");
         } else {
             return redirect()->back();
         }
@@ -314,7 +315,8 @@ class BankController extends Controller
             "message" => $message,
             "data" => $setter,
             "getter" => $getter,
-            "user_getter_id" => $user_getter_id
+            "user_getter_id" => $user_getter_id,
+            "created_at" => Carbon::now('Asia/Ho_Chi_Minh')
         ]);
     }
 
