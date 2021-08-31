@@ -29,8 +29,8 @@
                     <div class="form-confirm-content">
                         <h4 class="text-center">Getter</h4>
 
-                        @if($getter->user)
-                            <p><label>Name: </label> {{$getter->user->name}}</p>
+                        @if($getter->User)
+                            <p><label>Name: </label> {{$getter->User->name}}</p>
                         @else
                             <h5 class="text-center">Chưa liên kết account</h5>
                         @endif

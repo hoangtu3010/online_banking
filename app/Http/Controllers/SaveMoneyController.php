@@ -184,7 +184,7 @@ class SaveMoneyController extends Controller
 
     public function save()
     {
-        $save = SaveMoney::with("package")->get();
+        $save = SaveMoney::with("Package")->get();
 //        dd($save);
         return view('User.SaveMoney.Save.save', [
             'save' => $save

@@ -65,9 +65,9 @@
                                         <td>{{$s->getter}}</td>
                                         @foreach($all_acc as $acc)
                                             @if($s->getter == $acc->stk )
-                                                @if($acc->user )
-                                                    @php($id_getter = $acc->user->id)
-                                                    <td>{{$acc->user->name}}</td>
+                                                @if($acc->User )
+                                                    @php($id_getter = $acc->User->id)
+                                                    <td>{{$acc->User->name}}</td>
                                                 @else
                                                     <td>Chưa liên kết người dùng</td>
                                                 @endif
@@ -77,8 +77,8 @@
                                         <td>{{$s->fee}} VNĐ</td>
                                         @foreach($all_acc as $acc)
                                             @if($s->who == $acc->stk )
-                                                @if($acc->user )
-                                                    <td>{{$acc->user->name}}</td>
+                                                @if($acc->User )
+                                                    <td>{{$acc->User->name}}</td>
                                                 @else
                                                     <td>{{$s->who}}</td>
                                                 @endif
@@ -116,8 +116,8 @@
                                         <td>{{$s->sender}}</td>
                                         @foreach($all_acc as $acc)
                                             @if($s->sender == $acc->stk )
-                                                @if($acc->user )
-                                                    <td>{{$acc->user->name}}</td>
+                                                @if($acc->User )
+                                                    <td>{{$acc->User->name}}</td>
                                                 @else
                                                     <td>Chưa liên kết người dùng</td>
                                                 @endif
@@ -127,8 +127,8 @@
                                         <td>{{$s->fee}} VNĐ</td>
                                         @foreach($all_acc as $acc)
                                             @if($s->who == $acc->stk )
-                                                @if($acc->user )
-                                                    <td>{{$acc->user->name}}</td>
+                                                @if($acc->User )
+                                                    <td>{{$acc->User->name}}</td>
                                                 @else
                                                     <td>{{$s->who}}</td>
                                                 @endif

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function welcome(){
-        $news = News::with("comment")->get()->sortDesc()->take(3);
+        $news = News::with("Comment")->get()->sortDesc()->take(3);
         return view("welcome.welcome", [
             "news"=>$news
         ]);
@@ -21,8 +21,8 @@ class WelcomeController extends Controller
     }
 
     public function newsDetail($id){
-        $recent = News::with("comment")->get()->sortDesc()->take(3);
-        $data=News::with("comment")->findOrFail($id);
+        $recent = News::with("Comment")->get()->sortDesc()->take(3);
+        $data=News::with("Comment")->findOrFail($id);
         return view("welcome.blog-detail",[
             "data"=>$data,
             "recent"=>$recent
@@ -39,11 +39,11 @@ class WelcomeController extends Controller
     }
 
     public function blog(Request $request){
-        $recent = News::with("comment")->get()->sortDesc()->take(3);
+        $recent = News::with("Comment")->get()->sortDesc()->take(3);
         if ($request->get("table_search") == null) {
-            $news = News::with("comment")->orderBy("id", "DESC")->paginate(3);
+            $news = News::with("Comment")->orderBy("id", "DESC")->paginate(3);
         } else {
-            $news = News::with("comment")
+            $news = News::with("Comment")
                 ->where("title", "like", "%" . $request->get("table_search") . "%")
                 ->orWhere("author", "like", "%" . $request->get("table_search") . "%")
                 ->orderBy("id", "DESC")

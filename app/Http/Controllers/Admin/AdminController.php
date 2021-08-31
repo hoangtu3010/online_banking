@@ -144,9 +144,9 @@ class AdminController extends Controller
     }
     public function AdminMod(Request $request){
         if ($request->get("table_search") == null) {
-            $get=Admin::with("role")->get();
+            $get=Admin::with("Role")->get();
         } else {
-            $get=Admin::with("role")
+            $get=Admin::with("Role")
                 ->where("name", "like", "%" . $request->get("table_search") . "%")
                 ->orWhere("email", "like", "%" . $request->get("table_search") . "%")
 //                ->orWhere("leadName","like","%".$request->get("table_search")."%")

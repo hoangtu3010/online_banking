@@ -44,7 +44,7 @@
                                 </span>
                                 <span class="post-meta-item post-comments">
                                     <a> <?php $count = 0; ?>
-                                        @foreach($data->comment as $cmt)
+                                        @foreach($data->Comment as $cmt)
                                             <?php $count++; ?>
                                         @endforeach
                                         {{$count}} Comments</a>
@@ -440,14 +440,14 @@
             <div class="posts-comments-header">
                 <h3>
                     <?php $count = 0; ?>
-                    @foreach($data->comment as $cmt)
+                    @foreach($data->Comment as $cmt)
                         <?php $count++; ?>
                     @endforeach
                     {{$count}} Comments
                 </h3>
             </div>
             <div class="posts-comments-main">
-                @foreach($data->comment as $cmt)
+                @foreach($data->Comment as $cmt)
                     @if(!$cmt->reply_id)
                         <details open class="comment" id="comment-{{$cmt->id}}">
                             <summary>
@@ -502,7 +502,7 @@
                                 </div>
                                 <hr>
                                 <div class="replies">
-                                    @foreach($data->comment as $reply)
+                                    @foreach($data->Comment as $reply)
                                         @if($reply->reply_id== $cmt->id)
                                             <details open class="comment" id="comment-{{$reply->id}}">
                                                 <summary>
@@ -566,7 +566,7 @@
                                             </details>
                                             <hr>
                                             <div class="replies">
-                                                @foreach($data->comment as $reply2)
+                                                @foreach($data->Comment as $reply2)
                                                     @if($reply2->reply_id== $reply->id)
                                                         <details open class="comment" id="comment-{{$reply2->id}}">
                                                             <summary>
@@ -633,7 +633,7 @@
                                                         </details>
                                                         <hr>
                                                         <div class="replies">
-                                                            @foreach($data->comment as $reply3)
+                                                            @foreach($data->Comment as $reply3)
                                                                 @if($reply3->reply_id== $reply2->id)
                                                                     <details open class="comment"
                                                                              id="comment-{{$reply3->id}}">

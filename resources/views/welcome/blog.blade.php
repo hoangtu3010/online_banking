@@ -68,7 +68,7 @@
                                     <span class="post-meta-item post-comments">
 
                                                 <a> <?php $count = 0; ?>
-                                                    @foreach($n->comment as $cmt)
+                                                    @foreach($n->Comment as $cmt)
                                                         <?php $count++; ?>
                                                     @endforeach
                                                     {{$count}} Comments</a>

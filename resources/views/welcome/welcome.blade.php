@@ -64,7 +64,7 @@
                                                 </span>
                                         <span class="post-meta-item post-comments">
                                             <?php $count = 0; ?>
-                                            @foreach($item->comment as $cmt)
+                                            @foreach($item->Comment as $cmt)
                                                 @if($item->id == $cmt->new_id)
                                                     <?php $count++; ?>
                                                 @endif

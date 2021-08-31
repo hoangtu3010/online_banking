@@ -46,7 +46,7 @@ class BankController extends Controller
     public function bankAccount()
     {
 
-        $data = User::with("bankAccount")->get();
+        $data = User::with("BankAccount")->get();
 //        dd($data);
         $bank = BankAccount::all();
 
@@ -58,7 +58,7 @@ class BankController extends Controller
 
     public function bankTransfer($id)
     {
-        $find = BankAccount::with("user")->findOrFail($id);
+        $find = BankAccount::with("User")->findOrFail($id);
         return view("BankAccount.transfer.transfer", [
             "data" => $find,
         ]);
@@ -66,7 +66,7 @@ class BankController extends Controller
 
     public function nextStep(Request $request, $id)
     {
-        $find = BankAccount::with("user")->findOrFail($id);
+        $find = BankAccount::with("User")->findOrFail($id);
         $request->validate([
             "getter" => "required|size:10",
         ], [
@@ -74,7 +74,7 @@ class BankController extends Controller
             "getter.size:10" => "Số tài khoản có 10 chữ số!",
         ]);
         //dd($request->toArray());
-        $getter = BankAccount::with("user")->where("stk", "=", $request->get("getter"))->first();
+        $getter = BankAccount::with("User")->where("stk", "=", $request->get("getter"))->first();
 
         return view("BankAccount.transfer.transfer-step2", [
             "data" => $find,
@@ -85,7 +85,7 @@ class BankController extends Controller
     public function treatment(Request $request)
     {
 
-        $find = BankAccount::with("user")->findOrFail($request->id_setter);
+        $find = BankAccount::with("User")->findOrFail($request->id_setter);
         $fee = $request->fee;
         if (Auth::user()->id == $request->user_id_getter) {
             $money = $request->money;
@@ -323,7 +323,7 @@ class BankController extends Controller
     public function bankHistory($id)
     {
 //        dd(Auth::user());
-        $all_acc = BankAccount::with("user")->get();
+        $all_acc = BankAccount::with("User")->get();
         $stk = BankAccount::findOrFail($id);
         $sender = Transaction::all()->where("bank_account_id", "=", $id)->where("sender", "=", $stk->stk)->sortByDesc("created_at");
         $getter = Transaction::all()->where("getter", "=", $stk->stk)->where("bank_account_id", "=", $id)->sortByDesc("created_at");

@@ -44,7 +44,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($d->bankAccount as $b)
+                                @foreach($d->BankAccount as $b)
                                     <tr>
                                         <td>{{$b->stk}}</td>
                                         <td>{{$b->balance}}</td>

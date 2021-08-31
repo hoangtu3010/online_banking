@@ -47,12 +47,12 @@
                         <tr>
                             <td>{{$d->__get("name")}}</td>
                             <td>{{$d->__get("email")}}</td>
-                            <td>{{$d->role->__get("name")}}</td>
+                            <td>{{$d->Role->__get("name")}}</td>
                             <td class="text-center">
                                 <a href="{{url("admin/setting",["id"=>$d->__get("id")])}}"><i
                                         class="ion-compose edit"></i></a>
                             </td>
-                            @if(strcasecmp($d->role->__get("name") , "admin") != 0)
+                            @if(strcasecmp($d->Role->__get("name") , "admin") != 0)
                                 <td class="text-center">
                                     <a href="{{url("admin/delete",["id"=>$d->__get("id")])}}"><i
                                             class="ion-trash-b delete"></i></a>

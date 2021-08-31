@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <input disabled type="text" class="form-control" id="validationCustom03" value="{{$getter->user->name}}" placeholder=" "
                                        required/>
-                                <input type="hidden" name="user_id_getter" value="{{$getter->user->id}}" class="form-control">
+                                <input type="hidden" name="user_id_getter" value="{{$getter->User->id}}" class="form-control">
                                 <label for="validationCustom03" class="form-label">Getter</label>
                                 <div class="invalid-feedback">
                                     Please enter getter.

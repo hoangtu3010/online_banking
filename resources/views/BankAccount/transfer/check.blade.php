@@ -73,8 +73,8 @@
                         <div class="border-center"></div>
                         <div class="section-role col-md-6">
 
-                            @if($getter->user)
-                                <p><label>Name: </label> <span>{{$getter->user->name}}</span></p>
+                            @if($getter->User)
+                                <p><label>Name: </label> <span>{{$getter->User->name}}</span></p>
                             @else
                                 <h5 class="text-center">Chưa liên kết account</h5>
                             @endif
