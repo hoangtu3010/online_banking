@@ -28,7 +28,7 @@ class RegisterController extends Controller
         ]);
 
         if (Auth::guard("user")->attempt(["email" => $request->get("email"), "password" => $request->get("password")])) {
-            return redirect()->to(url("user/customer/", ['id'=>$account->id]));
+            return redirect()->to(url("user/customer", ['id'=>$account->id]));
         }
 
         return redirect()->withErrors("Fail!", 404);
