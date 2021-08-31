@@ -21,14 +21,16 @@ class RegisterController extends Controller
             'password_confirmation' => 'bail|required|same:password'
         ]);
 
-        User::create([
+        $account = User::create([
             "name" => $request->get("name"),
             "email" => $request->get("email"),
             "password" => bcrypt($request->get("password")),
         ]);
 
+        dd($account);
+
         if (Auth::guard("user")->attempt(["email" => $request->get("email"), "password" => $request->get("password")])) {
-            return redirect()->to("user/customer/{id}");
+            return redirect()->to("user/customer/", );
         }
 
         return redirect()->withErrors("Fail!", 404);
