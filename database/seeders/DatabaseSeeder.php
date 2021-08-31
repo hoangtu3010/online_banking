@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
             "name"=>"Admin",
             "ranker"=>1
         ]);
+
         DB::table("admins")->insert([
             "name"=>"Admin",
             "email"=>"admin@gmail.com",
             "password"=>bcrypt("123456789"),
             "role_id"=>1
         ]);
-
 
         DB::table("users")->insert([
             "name"=>"User",
