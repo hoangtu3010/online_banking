@@ -154,6 +154,7 @@
                                                         <div class="datepicker-days" style="">
                                                             <table class="table table-sm table-borderless">
                                                                 <thead>
+                                                                <tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Month"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Month">August 2021</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Month"></span></th></tr>
                                                                 <tr>
                                                                     <th class="dow">Su</th>
                                                                     <th class="dow">Mo</th>
