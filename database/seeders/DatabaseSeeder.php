@@ -33,12 +33,6 @@ class DatabaseSeeder extends Seeder
             "password"=>bcrypt("123456789")
         ]);
 
-        $this->call([
-            BranchSeeder::class,
-            CustomerInfoSeeder::class,
-            BankAccountSeeder::class,
-        ]);
-
         DB::table("savings_package")->insert([
             [
                 "name_package"=>"Package three month",
@@ -61,5 +55,11 @@ class DatabaseSeeder extends Seeder
                 "interest"=>0.12
             ]
         ]);
+
+        $this->call([
+            CustomerInfoSeeder::class,
+            BankAccountSeeder::class,
+        ]);
+
     }
 }
