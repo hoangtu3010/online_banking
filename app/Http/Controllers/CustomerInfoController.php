@@ -25,7 +25,7 @@ class CustomerInfoController extends Controller
 
     public function edit($id)
     {
-        $item = CustomerInfo::where("user_id", "=", $id)->get()->first();
+        $item = CustomerInfo::where("user_id", "=", $id)->first();
         return view('User.Infomation.edit', [
             'customer' => $item
         ]);
@@ -33,7 +33,7 @@ class CustomerInfoController extends Controller
 
     public function save(Request $request, $id)
     {
-        $info = CustomerInfo::where("user_id", "=", $id)->get()->first();
+        $info = CustomerInfo::where("user_id", "=", $id)->first();
         $image = $info->__get("image");
         if ($request->has("image")) {
             $file = $request->file("image");
