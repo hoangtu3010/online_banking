@@ -14,8 +14,8 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
-    'default' => env('DB_CONNECTION', 'mysql'),
+//    env('DB_CONNECTION', 'mysql')
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,12 +65,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => 'postgres://chwtsmnzyldssq:d4fc9f316d978ce1a7bf47d327dcdb6285f1a7595c92eeb29413f8d3ebe5efa9@ec2-34-202-115-62.compute-1.amazonaws.com:5432/dasfcbi1ks05qu',
+            'host' => 'ec2-34-202-115-62.compute-1.amazonaws.com',
+            'port' => '5432',
+            'database' => 'dasfcbi1ks05qu',
+            'username' => 'chwtsmnzyldssq',
+            'password' => 'd4fc9f316d978ce1a7bf47d327dcdb6285f1a7595c92eeb29413f8d3ebe5efa9',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
