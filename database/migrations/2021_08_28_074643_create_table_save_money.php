@@ -13,7 +13,7 @@ class CreateTableSaveMoney extends Migration
      */
     public function up()
     {
-        Schema::create('SaveMoney', function (Blueprint $table) {
+        Schema::create('savemoney', function (Blueprint $table) {
             $table->id();
             $table->string('stk');
             $table->string('money');
@@ -33,6 +33,6 @@ class CreateTableSaveMoney extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('SaveMoney');
+        Schema::dropIfExists('savemoney');
     }
 }

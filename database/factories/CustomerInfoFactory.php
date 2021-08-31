@@ -25,6 +25,7 @@ class CustomerInfoFactory extends Factory
         $user = User::all("id");
 
         return [
+            "image"=>null,
             "name"=>$this->faker->name(),
             "birthday"=>$this->faker->dateTimeBetween("-30 years", "-16 years"),
             "address"=>$this->faker->address,
