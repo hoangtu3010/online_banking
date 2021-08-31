@@ -350,10 +350,10 @@ class AdminController extends Controller
 
 
     public function createBank(){
-        $get = BankAccount::all("stk","id")->max("stk");
+//        $get = BankAccount::all("stk","id")->max("stk");
         $random=random_int("100000","999999");
         $data = BankAccount::create([
-            "stk"=> $get+1,
+            "stk"=> random_int('1000000000', '1100000000'),
             "password"=>bcrypt($random),
             "balance"=>$random,
             "status"=>"Inactive",
