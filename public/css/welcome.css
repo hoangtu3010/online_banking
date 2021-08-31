@@ -355,16 +355,16 @@ body{
 }
 
 .post-title{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     margin: 15px 0 5px 0;
 }
 
 .post-title a{
     color: #212558;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     height: 20px;
     transition: .2s;
 }
