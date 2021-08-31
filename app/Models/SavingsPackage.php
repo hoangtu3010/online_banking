@@ -17,6 +17,6 @@ class SavingsPackage extends Model
      ];
 
      public function SaveMoney(){
-         return $this->hasMany(SaveMoney::class);
+         return $this->hasMany(SaveMoney::class, "package_id");
      }
 }
