@@ -27,10 +27,8 @@ class RegisterController extends Controller
             "password" => bcrypt($request->get("password")),
         ]);
 
-        dd($account);
-
         if (Auth::guard("user")->attempt(["email" => $request->get("email"), "password" => $request->get("password")])) {
-            return redirect()->to("user/customer/", );
+            return redirect()->to(url("user/customer/", ['id'=>$account->id]));
         }
 
         return redirect()->withErrors("Fail!", 404);
